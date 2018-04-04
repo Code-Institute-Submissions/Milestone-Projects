@@ -1,0 +1,546 @@
+/* font-family: 'Chicle', cursive; */
+
+/* The Nav and Heading Section */
+
+.navbar-brand {
+    font-family: 'Chicle', cursive;
+}
+
+@media (min-width: 280px) {
+    .heading {
+        font-family: 'Chicle', cursive;
+        background-image: url("/Assets/Images/monkees.jpg");
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        height: 450px;
+        background-size: contain;
+        border-radius: 50%;
+    }
+}
+
+@media (min-width: 500px) {
+    .heading {
+        font-family: 'Chicle', cursive;
+        background-image: url("/Assets/Images/monkees.jpg");
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        height: 900px;
+        background-size: cover;
+        border-radius: 50%;
+    }
+}
+
+@media (min-width: 280px) {
+    .jumbotron {
+        text-align: center;
+        position: relative;
+        color: coral;
+        top: 50%;
+        right: 0;
+        left: 0;
+        letter-spacing: 0;
+    }
+}
+
+@media (min-width: 500px) {
+    .jumbotron {
+        text-align: center;
+        position: relative;
+        top: 50%;
+        right: 20px;
+        left: 20px;
+        color: coral;
+        float: left;
+        letter-spacing: 20px;
+        padding: 0;
+        margin: 0;
+        background-color: transparent;
+    }
+}
+
+
+/*.track {*/
+
+/*    padding: 20px;*/
+
+/*    margin-top: 30px;*/
+
+/*    margin-bottom: 50px;*/
+
+/*    height: 20%;*/
+
+/*}*/
+
+.card-img-top {
+    max-height: 286px;
+}
+
+/* Music Lead Section - Promo the Catalogue Page */
+
+.music-lead,
+.video-lead,
+.event-lead {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    /*height: 200px;*/
+}
+
+.music-text-col {
+    text-align: center;
+    padding-top: 50px;
+    background-color: #E47313;
+
+    /* For Reponsive Design - May need Media Query ! */
+    display: inline-block;
+    width: 50%;
+    float: left;
+}
+
+.music-image-col {
+    background-image: url("http://www.melaniedekker.com/wp-content/uploads/2018/01/vinyl-records2.jpg");
+    background-size: cover;
+
+    /* For Reponsive Design - May need Media Query ! */
+    display: inline-block;
+    width: 50%;
+    float: right;
+}
+
+.music-lead-text {
+    font-family: 'Chicle', cursive;
+    font-size: x-large;
+    color: white;
+    padding: 10px;
+}
+
+.music-lead-icon {
+    position: relative;
+    font-size: x-large;
+    color: white;
+}
+
+/* Video Lead Section - Promo Video Page */
+
+.video-text-col {
+    text-align: center;
+    padding-top: 50px;
+    background-color: #600E7E;
+
+    /* For Reponsive Design - May need Media Query ! */
+    display: inline-block;
+    width: 50%;
+    float: left;
+}
+
+.video-image-col {
+    background-image: url("/Assets/Images/monkees.jpg");
+    background-size: cover;
+
+    /* For Reponsive Design - May need Media Query ! */
+    display: inline-block;
+    width: 50%;
+    float: right;
+}
+
+.video-lead-text {
+    font-family: 'Chicle', cursive;
+    font-size: x-large;
+    color: white;
+    padding: 10px;
+}
+
+.video-lead-icon {
+    position: relative;
+    font-size: x-large;
+    color: white;
+}
+
+
+/* Events Lead Section - Promo the Events Page */
+
+.event-text-col {
+    text-align: center;
+    padding-top: 50px;
+    background-color: #1397F9;
+
+    /* For Reponsive Design - May need Media Query ! */
+    display: inline-block;
+    width: 50%;
+    float: left;
+}
+
+.event-image-col {
+    background-image: url("http://www.bloggingtips.com/wp-content/uploads/2014/12/Event-Blogging-Strategies.jpg");
+    background-position: center;
+    background-size: cover;
+
+    /* For Reponsive Design - May need Media Query ! */
+    display: inline-block;
+    width: 50%;
+    float: right;
+}
+
+.event-lead-text {
+    font-family: 'Chicle', cursive;
+    font-size: x-large;
+    color: white;
+    padding: 10px;
+}
+
+.event-lead-icon {
+    position: relative;
+    font-size: x-large;
+    color: white;
+}
+
+
+
+/*.track-1 {*/
+
+/*    position:relative;*/
+
+/*    left:10px;*/
+
+/*    top:100px;*/
+
+/*}*/
+
+/*.track-2 {*/
+
+/*    display: inline-block;*/
+
+/*    position:relative;*/
+
+/*    left:20px;*/
+
+/*    top:100px;*/
+
+/*}*/
+
+/*.track-3 {*/
+
+/*    display: inline-block;*/
+
+/*    position:relative;*/
+
+/*    left:30px;*/
+
+/*    top:100px;*/
+
+/*}*/
+
+/*.track-4 {*/
+
+/*    display: inline-block;*/
+
+/*    position:relative;*/
+
+/*    left:40px;*/
+
+/*    top:100px;*/
+
+/*}*/
+
+/* Back-Catalogue Section */
+
+/*.back-catalogue a {*/
+
+/*}*/
+
+.back-catalogue {
+    font-family: 'Chicle', cursive;
+    background-image: url("http://www.melaniedekker.com/wp-content/uploads/2018/01/vinyl-records2.jpg");
+    text-align: center;
+    color: white;
+    height: 300px;
+    width: 100%;
+}
+
+/*.card-title,*/
+
+/*.card-text {*/
+
+/*    color: pink;*/
+
+/*}*/
+
+.card-music {
+    height: 100%;
+    background-image: url("http://giornaledilecco.it/media/2017/11/concerti.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.card-video {
+    height: 100%;
+    background-image: url("https://cdn4.iconfinder.com/data/icons/IMPRESSIONS/multimedia/png/400/video.png");
+    background-size: contain;
+    background-position: center;
+}
+
+.card-music,
+.card-video {
+    filter: grayscale(100%);
+}
+
+/* Music-Gallery Section */
+
+.music-gallery {
+    height: 600px;
+    width: 80%;
+}
+
+.carousel-item {
+    background-image: url("/Assets/Images/album.jpg");
+    background-size: cover;
+}
+
+.carousel,
+.slide {
+    background-color: grey;
+    height: 50%;
+    width: 50%;
+}
+
+.band-image {
+    height: 300px;
+}
+
+.music-row,
+.video-row {
+    border: 1px solid orange;
+    height: 400px;
+    margin-top: 20px;
+}
+
+
+/* Band Logo */
+
+.band-row {
+    background-image: url("/Assets/Images/monkees.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 400px;
+    border: 1px solid orange;
+}
+
+
+/*@media (min-width: 100px) {*/
+
+/*    .band-logo {*/
+
+/*        background-image: url("/milestone-one/Assets/Images/monkees.jpg");*/
+
+/*        background-size: 100% 50%;*/
+
+/*        background-repeat: no-repeat;*/
+
+/*        height: 600px;*/
+
+/*        border: 1px solid orange;*/
+
+/*    }*/
+
+/*}*/
+
+/*@media (min-width: 900px) {*/
+
+/*    .band-logo {*/
+
+/*        background-size: cover;*/
+
+/*        background-position: center;*/
+
+/*    }*/
+
+/*}*/
+
+/* Events Page */
+
+.upcoming-events-text {
+    font-family: "Chicle", cursive;
+    padding-left: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+
+
+.events-table-row {
+    height: 600px;
+    width: 100%;
+}
+
+.events-table {
+    position: relative;
+    margin: 0 auto;
+    height: 75%;
+    width: 75%;
+    font-family: "Chicle", cursive;
+    border: 1px solid black;
+}
+
+.events-table-row-top {
+    font-size: xx-large;
+    background-color: grey;
+    background-image: url("http://wikimotive.com/wikiblog/wp-content/uploads/sites/2/2013/10/events-heavenly-header1.jpg");
+    background-size: cover;
+    filter: grayscale(70%);
+    color: #B50AC0;
+    text-align: center;
+}
+
+.events-table-content {
+    text-align: center;
+    background-color: #fff;
+    color: #000;
+    transition: 1s ease-in-out;
+}
+
+.events-table-content:hover {
+    cursor: pointer;
+    background-color: #000;
+    color: #FFF;
+    font-size: x-large;
+}
+
+.events-booking-icon {
+    font-size: xx-large;
+}
+
+.event-booking-row {
+    height: 200px;
+    background-color: #FFF;
+    color: #000;
+    text-align: center;
+    font-size: large;
+    font-family: "Chicle", cursive;
+}
+
+
+/* Music Page */
+
+.track {
+    padding: 20px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    height: 20%;
+}
+
+.card-title,
+.card-text {
+    font-family: "Chicle", cursive;
+}
+
+.greatest-hits-row {
+    text-align: center;
+}
+
+.track-heading {
+    font-family: "Chicle", cursive;
+}
+
+.track-box {
+    display: inline-block;
+    height: 300px;
+    width: 300px;
+    border: 1px solid black;
+    border-radius: 50%;
+    text-align: center;
+    padding: 0;
+    position: relative;
+    margin-bottom: 10px;
+    font-family: "Chicle", cursive;
+    background-color: #eaa37c;
+}
+
+.track-title {
+    height: 20%;
+    font-size: xx-large;
+    padding-top: 50px;
+}
+
+.audio {
+    position: relative;
+    /*height: 80%;*/
+    /*width: 100%;*/
+    margin: 0 auto;
+    padding-top: 10%;
+}
+
+/* Music Page - Videos Sections */
+
+.videos-row {
+    height: 400px;
+    text-align: center;
+    font-family: "Chicle", cursive;
+    margin-bottom: 50px;
+    margin-top: 20px;
+}
+
+.video-row-image {
+    background-image: url("https://cdn4.iconfinder.com/data/icons/IMPRESSIONS/multimedia/png/400/video.png");
+    height: 80%;
+    width: 80%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-left: 30%;
+}
+
+.video {
+    border: 1px solid coral;
+    border-radius: 5px;
+}
+
+/* Footer */
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.footer {
+    margin: 0;
+    /*height: 200px;*/
+    padding: 10px;
+    background-color: grey;
+    color: #FFF;
+    font-family: "Chicle", cursive;
+    font-size: xx-large;
+}
+
+.footer-event-link {
+    font-style: italic;
+    color: coral;
+}
+
+.fb-icon,
+.twt-icon,
+.ut-icon,
+.gp-icon {
+    font-size: xx-large;
+}
+
+.fb-icon:hover {
+    background-color: #3B5998;
+    color: white;
+    cursor: pointer;
+}
+
+.twt-icon:hover {
+    background-color: #1da1f2;
+    color: white;
+    cursor: pointer;
+}
+
+.ut-icon:hover {
+    background-color: #cc181e;
+    color: white;
+    cursor: pointer;
+}
+
+.gp-icon:hover {
+    background-color: red;
+    color: white;
+    cursor: pointer;
+}
