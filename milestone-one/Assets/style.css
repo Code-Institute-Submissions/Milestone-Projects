@@ -420,38 +420,15 @@
 
 /* Music Page */
 
-.track {
-    padding: 20px;
-    margin-top: 30px;
-    margin-bottom: 50px;
-    height: 20%;
-}
-
 .card-title,
 .card-text {
     font-family: "Chicle", cursive;
 }
 
-.greatest-hits-row {
-    text-align: center;
-}
 
 .track-heading {
     font-family: "Chicle", cursive;
-}
-
-.track-box {
-    display: inline-block;
-    height: 300px;
-    width: 300px;
-    border: 1px solid black;
-    border-radius: 50%;
-    text-align: center;
-    padding: 0;
-    position: relative;
-    margin-bottom: 10px;
-    font-family: "Chicle", cursive;
-    background-color: #eaa37c;
+    color: coral;
 }
 
 .track-title {
@@ -462,20 +439,100 @@
 
 .audio {
     position: relative;
-    /*height: 80%;*/
-    /*width: 100%;*/
     margin: 0 auto;
+    width: 50%;
     padding-top: 10%;
 }
+
+/* For Mobile */
+
+@media (min-width: 280px) {
+    .greatest-hits-row {
+        text-align: center;
+        background-image: url("/Assets/Images/monkees.jpg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        border: 5px solid coral;
+    }
+
+    .track {
+        margin-top: 50%;
+        margin-bottom: 50px;
+        padding: 20px;
+        height: 20%;
+    }
+
+    .card {
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    .card-column {
+        padding: 0;
+    }
+
+    .track-box {
+        border-radius: 0;
+        width: 100%;
+        display: inline-block;
+        border: 5px solid black;
+        text-align: center;
+        padding: 0;
+        position: relative;
+        margin-bottom: 10px;
+        font-family: "Chicle", cursive;
+        background-color: coral;
+    }
+}
+
+@media (min-width: 500px) {
+    .greatest-hits-row {
+        text-align: center;
+        background-image: url("/Assets/Images/monkees.jpg");
+        background-size: cover;
+        border: 5px solid coral;
+        margin-left: 0;
+    }
+
+    .track {
+        margin-top: 10%;
+    }
+
+    .card {
+        width: 70%;
+        margin: 0 auto;
+        border: 5px solid coral;
+    }
+
+    .track-box {
+        display: inline-block;
+        height: 300px;
+        width: 300px;
+        border: 5px solid black;
+        border-radius: 50%;
+        text-align: center;
+        padding: 0;
+        position: relative;
+        margin-bottom: 10px;
+        font-family: "Chicle", cursive;
+        background-color: coral;
+    }
+}
+
+
 
 /* Music Page - Videos Sections */
 
 .videos-row {
-    height: 400px;
+    /*height: 400px;*/
     text-align: center;
     font-family: "Chicle", cursive;
+    margin-left: 0;
     margin-bottom: 50px;
     margin-top: 20px;
+    background-color: coral;
+    padding: 20px;
+    border: 5px solid black;
 }
 
 .video-row-image {
@@ -490,7 +547,42 @@
 .video {
     border: 1px solid coral;
     border-radius: 5px;
+    display: inline-block;
+    width: 100%;
 }
+
+/* For YouTube Section */
+
+.youtube-row {
+    /*height: 400px;*/
+    text-align: center;
+    font-family: "Chicle", cursive;
+    margin-left: 0;
+    margin-bottom: 50px;
+    margin-top: 20px;
+    padding: 1%;
+    background-color: coral;
+    border: 5px solid black;
+}
+
+.youtube-row-lead {
+    height: 100%;
+    font-size: xx-large;
+}
+
+.youtube-row-icon {
+    display: block;
+    font-size: xx-large;
+    margin: 0 auto;
+}
+
+.youtube-iframe {
+    display: inline-block;
+    border: 10px solid black;
+    width: 100%;
+}
+
+
 
 /* Footer */
 
@@ -500,7 +592,7 @@ a {
 }
 
 .footer {
-    margin: 0;
+    margin-left: 0;
     /*height: 200px;*/
     padding: 10px;
     background-color: grey;
@@ -517,7 +609,8 @@ a {
 .fb-icon,
 .twt-icon,
 .ut-icon,
-.gp-icon {
+.gp-icon.,
+.inst-icon {
     font-size: xx-large;
 }
 
@@ -541,6 +634,12 @@ a {
 
 .gp-icon:hover {
     background-color: red;
+    color: white;
+    cursor: pointer;
+}
+
+.inst-icon:hover {
+    background-color: #fb3958;
     color: white;
     cursor: pointer;
 }
