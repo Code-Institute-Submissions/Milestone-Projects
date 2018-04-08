@@ -15,14 +15,15 @@
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">The Monkees</a>
+        <a class="navbar-brand" href="index.html">The Monkees</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-item nav-link" href="index.html">Home</a>
-                <a class="nav-item nav-link" href="#">Back Catalogue</a>
+                <a class="nav-item nav-link" href="music.html">Music</a>
+                <a class="nav-item nav-link" href="gallery.html">Gallery</a>
                 <a class="nav-item nav-link" href="events.html">Events</a>
             </div>
         </div>
@@ -34,8 +35,8 @@
             <table class="table-dark table-hover events-table">
                 <thead>
                     <tr class="events-table-row-top">
-                        <th scope="col"></th>
-                        <th scope="col">Date</th>
+                        <th class="events-table-column" scope="col"></th>
+                        <th class="events-table-column" scope="col">Date</th>
                         <th scope="col">Venue</th>
                     </tr>
                 </thead>
@@ -60,11 +61,6 @@
         </div>
     </div>
 
-    <!--<div class="row">-->
-    <!--    <div class="col-xs-12 col-sm-12 col-md-12">-->
-    <!--    </div>-->
-    <!--</div>-->
-
     <div class="row event-booking-row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <i class="fa fa-microphone events-booking-icon"></i>
@@ -72,8 +68,10 @@
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#form-modal">
             Click Me!
             </button>
+
             <div class="modal" id="form-modal" tabindex="-1" role="dialog" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="form-modal">
                 <div class="modal-dialog" role="document">
+
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title">Book an event</h5>
@@ -81,18 +79,21 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
+
                         <div class="modal-body">
-                            <p>Please fill in the fields below and we will respond with availability and a quote.</p>
+                            <p class="modal-instructions">Please fill in the fields below and we will respond with availability and a quote.</p>
                             <form>
                                 <div class="form-group">
                                     <label class="col-form-label" for="name"><h3>Name</h3></label>
                                     <input type="name" class="form-control" id="name" placeholder="name" required>
                                 </div>
+
                                 <div class="form-group">
                                     <label class="col-form-label" for="email"><h3>Email address</h3></label>
                                     <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" required>
                                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                                 </div>
+
                                 <div class="form-check">
                                     <h3>What event(s) would like to book for? Check all that apply.</h3>
                                     <input type="checkbox" class="form-check-input" id="check-option" s>
@@ -107,54 +108,22 @@
 
                                     <h3>Please specify the number of attendees for your event(s).</h3>
                                     <select class="custom-select custom-select-lg mb-3" required>
-                      <option>Please Choose</option>
-                      <option value="1">1-50</option>
-                      <option value="2">50-100</option>
-                      <option value="3">Over 100</option>
-                    </select>
+                                          <option>Please Choose</option>
+                                          <option value="1">1-50</option>
+                                          <option value="2">50-100</option>
+                                          <option value="3">Over 100</option>
+                                    </select>
                                     <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
                             </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>
-
-
-                <!--<form>-->
-                <!--    <div class="form-group">-->
-                <!--        <label class="col-form-label" for="name"><h3>Name</h3></label>-->
-                <!--        <input type="name" class="form-control" id="name" placeholder="name" required>-->
-                <!--    </div>-->
-                <!--    <div class="form-group">-->
-                <!--        <label class="col-form-label" for="email"><h3>Email address</h3></label>-->
-                <!--        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" required>-->
-                <!--        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
-                <!--    </div>-->
-                <!--    <div class="form-check">-->
-                <!--        <h3>What event(s) would like to book for? Check all that apply.</h3>-->
-                <!--        <input type="checkbox" class="form-check-input" id="check-option" s>-->
-                <!--        <label class="form-check-label col-form-label" for="check-option">Wedding</label>-->
-                <!--        <br>-->
-                <!--        <input type="checkbox" class="form-check-input" id="check-option">-->
-                <!--        <label class="form-check-label col-form-label" for="check-option">Birthday</label>-->
-                <!--        <br>-->
-                <!--        <input type="checkbox" class="form-check-input" id="check-option">-->
-                <!--        <label class="form-check-label col-form-label" for="check-option">Other</label>-->
-                <!--        <br>-->
-
-                <!--        <h3>Please specify the number of attendees for your event(s).</h3>-->
-                <!--        <select class="custom-select custom-select-lg mb-3" required>-->
-                <!--      <option>Please Choose</option>-->
-                <!--      <option value="1">1-50</option>-->
-                <!--      <option value="2">50-100</option>-->
-                <!--      <option value="3">Over 100</option>-->
-                <!--    </select>-->
-                <!--        <button type="submit" class="btn btn-primary">Submit</button>-->
-                <!--</form>-->
             </div>
         </div>
     </div>
@@ -169,10 +138,11 @@
             </div>
             <div class="col-md-4">
                 <p>Follow the Monkees on Social.</p>
-                <span><a href = "#"><i class="fab fa-facebook fb-icon"></i></a></span>
-                <span><a href = "#"><i class="fab fa-twitter twt-icon"></i></a></span>
-                <span><a href = "#"><i class="fab fa-youtube ut-icon"></i></a></span>
-                <span><a href = "#"><i class="fab fa-google-plus-g gp-icon"></i></a></span>
+                <span><a href = "https://www.facebook.com/TheMonkees"><i class="fab fa-facebook fb-icon"></i></a></span>
+                <span><a href = "https://twitter.com/monkeesofficial"><i class="fab fa-twitter twt-icon"></i></a></span>
+                <span><a href = "https://www.youtube.com/user/themonkees"><i class="fab fa-youtube ut-icon"></i></a></span>
+                <span><a href = "https://plus.google.com/100749173140600340174"><i class="fab fa-google-plus-g gp-icon"></i></a></span>
+                <span><a href = "https://www.instagram.com/themonkees/"><i class="fab fa-instagram inst-icon"></i></a></span>
             </div>
         </div>
     </footer>
@@ -180,6 +150,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 </body>
 
 </html>
