@@ -7,7 +7,7 @@
 @media (min-width: 280px) {
     .heading {
         font-family: 'Chicle', cursive;
-        background-image: url("/Assets/Images/monkees.jpg");
+        background-image: url("https://rawgit.com/S-Downes/Milestone-Projects/master/milestone-one/Assets/Images/monkees.jpg");
         background-size: 100% 100%;
         background-repeat: no-repeat;
         height: 450px;
@@ -19,7 +19,7 @@
 @media (min-width: 600px) {
     .heading {
         font-family: 'Chicle', cursive;
-        background-image: url("/Assets/Images/monkees.jpg");
+        background-image: url("https://rawgit.com/S-Downes/Milestone-Projects/master/milestone-one/Assets/Images/monkees.jpg");
         background-size: 100% 100%;
         background-repeat: no-repeat;
         height: 900px;
@@ -134,7 +134,7 @@
 }
 
 .video-image-col {
-    background-image: url("/Assets/Images/monkees.jpg");
+    background-image: url("https://rawgit.com/S-Downes/Milestone-Projects/master/milestone-one/Assets/Images/monkees.jpg");
     background-size: cover;
 
     /* For Reponsive Design - May need Media Query ! */
@@ -306,7 +306,7 @@
 /* Band Logo */
 
 .band-row {
-    background-image: url("/Assets/Images/monkees.jpg");
+    background-image: url("https://rawgit.com/S-Downes/Milestone-Projects/master/milestone-one/Assets/Images/monkees.jpg");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     height: 400px;
@@ -462,7 +462,7 @@
 @media (min-width: 280px) {
     .greatest-hits-row {
         text-align: center;
-        background-image: url("/Assets/Images/monkees.jpg");
+        background-image: url("https://rawgit.com/S-Downes/Milestone-Projects/master/milestone-one/Assets/Images/monkees.jpg");
         background-size: contain;
         background-repeat: no-repeat;
         border: 5px solid coral;
@@ -501,7 +501,7 @@
 @media (min-width: 500px) {
     .greatest-hits-row {
         text-align: center;
-        background-image: url("/Assets/Images/monkees.jpg");
+        background-image: url("https://rawgit.com/S-Downes/Milestone-Projects/master/milestone-one/Assets/Images/monkees.jpg");
         background-size: cover;
         border: 5px solid coral;
         margin-left: 0;
@@ -606,7 +606,7 @@
     text-align: center;
     font-family: "Chicle", Cursive;
     font-size: xx-large;
-    background-image: url("/Assets/Images/monkees.jpg");
+    background-image: url("https://rawgit.com/S-Downes/Milestone-Projects/master/milestone-one/Assets/Images/monkees.jpg");
     background-size: cover;
     border: 5px solid black;
     min-height: 400px;
