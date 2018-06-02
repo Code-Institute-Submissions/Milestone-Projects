@@ -1,7 +1,20 @@
 /* Main Introduction and Instructions for Dashboard */
 
+.container {
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+}
+
 .jumbotron {
     border: 1px solid orange;
+    height: 200px;
+    color: #104283;
+    background-image: url("https://thecapitalist.com/wp-content/uploads/2016/07/Housing-Data-Proves-No-Recession-In-Sight.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
 }
 
 .jumbotron-fluid {
@@ -11,27 +24,39 @@
 
 /* General Rules */
 
+* {
+    font-family: "Times New Roman", sans-serif;
+}
+
 .row {
-    display: inline-block;
+    display: flex;
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-bottom: 50px;
 }
 
 /* Rules for charts */
 
 .chart {
-    margin-left: 20px;
-    display: inline-block;
+    margin-bottom: 25px;
 }
 
 .chart-title {
     position: relative;
-    left: 75px;
+    font-size: medium;
+    font-style: italic;
+    font-weight: bold;
 }
 
 .chart-container {
     border: 5px solid black;
     display: inline-block;
-    height: 300px;
-    width: 300px;
-    margin-left: 50px;
-    margin-right: -50px;
+    height: 100%;
+    width: 100%;
+    padding-top: 50px;
+    padding-left: 10px;
 }
+
+/* Footer */
+
+.blockquote-footer {}
