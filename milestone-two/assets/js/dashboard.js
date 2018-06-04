@@ -193,4 +193,4 @@ function plot_charts(data) {
 
 // Call the function to plot the different charts
 
-plot_charts("/TEMP-GITHUB-SUBMISSION-DIRECTORY/milestone-two/assets/data/RTB-Avg-Monthly-Rent-Type-Location.csv");
+plot_charts("assets/data/RTB-Avg-Monthly-Rent-Type-Location.csv");

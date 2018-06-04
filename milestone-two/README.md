@@ -51,4 +51,4 @@ The project is deployed using GitHub Pages, links available below;
 
 ## Acknowledgements
 
-* [Code Institute](https://github.com/Code-Institute-Org/project-assets)
+* [Code Institute](https://github.com/Code-Institute-Org)
