@@ -48,6 +48,11 @@ function plot_charts(data) {
             .dimension(dim)
             .group(group)
             .transitionDuration(500)
+            .brushOn(false)
+            /* On selection, the total rent for 2017 by the property type will be shown */
+            .title(function(d) {
+                return "\nTotal rent for " + d.key + " 2017: " + "€" + Math.round(d.value);
+            })
             .x(d3.scaleOrdinal())
             .xUnits(dc.units.ordinal)
             .xAxisLabel("Type")
@@ -59,7 +64,7 @@ function plot_charts(data) {
 
 
         // For this chart, the dimension will be Num_Rooms
-        var dim = mycrossfilter.dimension(function(data) {
+        dim = mycrossfilter.dimension(function(data) {
             return (data.Num_Rooms);
         });
 
@@ -75,14 +80,21 @@ function plot_charts(data) {
             .radius(90)
             .dimension(dim)
             .group(avg_rent_2017)
-            .renderLabel(true);
+            .renderLabel(true)
+            .valueAccessor(function(d) {
+                return d.value;
+            })
+            /* On selection, the total rent for the year according to property type will be shown for 2017 */
+            .title(function(d) {
+                return "\nTotal average rent for the year 2017 for property with " + d.key + ": €" + Math.round(d.value);
+            });
 
 
         // Stacked bar chart
 
 
         // This chart will use the dimension Type
-        var dim = mycrossfilter.dimension(function(data) {
+        dim = mycrossfilter.dimension(function(data) {
             return (data.Type);
         });
 
@@ -108,7 +120,16 @@ function plot_charts(data) {
             .x(d3.scaleOrdinal())
             .xUnits(dc.units.ordinal)
             .xAxisLabel("Type")
-            .yAxisLabel("Avg Rent")
+            .yAxisLabel("Total Yearly Rent")
+            .elasticX(true)
+            .elasticY(true)
+            .valueAccessor(function(d) {
+                return d.value;
+            })
+            /* On selection, the total for year by the property type will be shown */
+            .title(function(d) {
+                return "\nTotal rent for " + d.key + " 2013-2017: " + "€" + Math.round(d.value);
+            })
             .legend(dc.legend().x(750).y(10).horizontal(true).autoItemWidth(true));
 
 
@@ -116,7 +137,7 @@ function plot_charts(data) {
 
 
         // Set the dimension
-        var dim = mycrossfilter.dimension(function(data) {
+        dim = mycrossfilter.dimension(function(data) {
             return (data.Type);
         });
 
@@ -138,7 +159,7 @@ function plot_charts(data) {
             ._rangeBandPadding(1)
             .elasticY(true)
             .brushOn(false)
-            .yAxisLabel("Avg Rent 2013 - 2017")
+            .yAxisLabel("Total Rent 2013 - 2017")
             .xAxisLabel("Type")
             .xAxisPadding(20)
             .alignYAxes(true)
@@ -147,7 +168,7 @@ function plot_charts(data) {
             })
             /* On selecting a line, the total for the property type will be shown based on the year */
             .title(function(d) {
-                return "\nAvg Monthly Rent for " + d.key + " property type 2013-2017: " + "€" + Math.round(d.value);
+                return "\nTotal rent for " + d.key + " 2013-2017: " + "€" + Math.round(d.value);
             })
             /* This is needed to specify our ordinal domain so the line chart displays labels correctly for string x units */
             .x(d3.scaleOrdinal().domain(dim.top(Infinity).map(function(d) { return d.Type })))
@@ -168,156 +189,6 @@ function plot_charts(data) {
     });
 
 } // plot_charts() 
-
-function plot_bar(data) {
-
-    d3.csv(data, function(errors, data) {
-        var mycrossfilter = crossfilter(data);
-
-        var dim = mycrossfilter.dimension(function(data) {
-            return (data.Type);
-        });
-        var group = dim.group().reduceSum(dc.pluck("_2017"));
-
-        var avg_rent_chart_by_type_2017 = dc.barChart(".chart-1");
-
-        avg_rent_chart_by_type_2017
-            // .width(document.getElementsByClassName("chart").attr("height"))
-            // .height(document.getElementsByClassName("chart").attr("height"))
-            .margins({ top: 10, right: 50, bottom: 30, left: 50 })
-            .dimension(dim)
-            .group(group)
-            .transitionDuration(500)
-            .x(d3.scaleOrdinal())
-            .xUnits(dc.units.ordinal)
-            .xAxisLabel("Type")
-            .yAxisLabel("Rent 2017")
-            .yAxis().ticks(4);
-
-        dc.renderAll();
-    });
-
-} // plot_bar()
-
-function plot_pie(data) {
-
-    d3.csv(data, function(errors, data) {
-        var mycrossfilter = crossfilter(data);
-
-        var dim = mycrossfilter.dimension(function(data) {
-            return (data.Num_Rooms);
-        });
-
-        var avg_rent_2017 = dim.group().reduceSum(dc.pluck("_2017"));
-
-        var avg_rent_chart_by_type_2017 = dc.pieChart(".chart-2");
-
-        avg_rent_chart_by_type_2017
-            // .width(200)
-            // .height(200)
-            .slicesCap(17)
-            .radius(90)
-            .dimension(dim)
-            .group(avg_rent_2017)
-            .renderLabel(true);
-
-        dc.renderAll();
-    });
-
-} // plot_pie()
-
-function plot_stacked_bar(data) {
-
-    d3.csv(data, function(errors, data) {
-        var mycrossfilter = crossfilter(data);
-
-        var dim = mycrossfilter.dimension(function(data) {
-            return (data.Type);
-        });
-
-        var avg_rent_2017 = dim.group().reduceSum(function(d) { return d._2017; });
-        var avg_rent_2016 = dim.group().reduceSum(function(d) { return d._2016; });
-        var avg_rent_2015 = dim.group().reduceSum(function(d) { return d._2015; });
-        var avg_rent_2014 = dim.group().reduceSum(function(d) { return d._2014; });
-        var avg_rent_2013 = dim.group().reduceSum(function(d) { return d._2013; });
-
-        var avg_rent_2017_by_location = dc.barChart(".chart-3");
-        avg_rent_2017_by_location
-            // .width(300)
-            // .height(150)
-            .margins({ top: 10, right: 50, bottom: 30, left: 50 })
-            .dimension(dim)
-            .group(avg_rent_2017, "Avg Rent 2017")
-            .stack(avg_rent_2016, "Avg Rent 2016")
-            .stack(avg_rent_2015, "Avg Rent 2015")
-            .stack(avg_rent_2014, "Avg Rent 2014")
-            .stack(avg_rent_2013, "Avg Rent 2013")
-            .transitionDuration(500)
-            .x(d3.scaleOrdinal())
-            .xUnits(dc.units.ordinal)
-            .xAxisLabel("Type")
-            .yAxisLabel("Avg Rent")
-            .legend(dc.legend().x(750).y(10).horizontal(true).autoItemWidth(true));
-
-        dc.renderAll();
-    });
-
-} // plot_stacked_bar()
-
-function plot_line(data) {
-
-    d3.csv(data, function(errors, data) {
-        var mycrossfilter = crossfilter(data);
-
-        var dim = mycrossfilter.dimension(function(data) {
-            return (data.Type);
-        });
-
-        var avg_rent_2013 = dim.group().reduceSum(function(d) { return d._2013; });
-        var avg_rent_2014 = dim.group().reduceSum(function(d) { return d._2014; });
-        var avg_rent_2015 = dim.group().reduceSum(function(d) { return d._2015; });
-        var avg_rent_2016 = dim.group().reduceSum(function(d) { return d._2016; });
-        var avg_rent_2017 = dim.group().reduceSum(function(d) { return d._2017; });
-
-        var ord_type_domain = dim.top(Infinity).map(function(d) { return d.Type });
-
-        var avg_rent_by_type_2013_2017 = dc.compositeChart(".chart-4");
-        avg_rent_by_type_2013_2017
-            // .width(800)
-            // .height(300)
-            .dimension(dim)
-            /* This is needed to align the y points with it's associated x scale (ie Property Type) as
-            ordinal scales on composite charts do not automatically align 
-            */
-            ._rangeBandPadding(1)
-            .elasticY(true)
-            .brushOn(false)
-            .yAxisLabel("Avg Rent 2013 - 2017")
-            .xAxisLabel("Type")
-            .xAxisPadding(20)
-            .alignYAxes(true)
-            .valueAccessor(function(d) {
-                return d.value;
-            })
-            .title(function(d) {
-                return "\nAvg Monthly Rent for " + d.key + " property type 2013-2017: " + "€" + Math.round(d.value);
-            })
-            .x(d3.scaleOrdinal().domain(dim.top(Infinity).map(function(d) { return d.Type })))
-            .xUnits(dc.units.ordinal)
-            .compose([
-                dc.lineChart(avg_rent_by_type_2013_2017).group(avg_rent_2013, "2013").colors("red"),
-                dc.lineChart(avg_rent_by_type_2013_2017).group(avg_rent_2014, "2014").colors("blue"),
-                dc.lineChart(avg_rent_by_type_2013_2017).group(avg_rent_2015, "2015").colors("green"),
-                dc.lineChart(avg_rent_by_type_2013_2017).group(avg_rent_2016, "2016").colors("purple"),
-                dc.lineChart(avg_rent_by_type_2013_2017).group(avg_rent_2017, "2017").colors("orange")
-            ])
-            .legend(dc.legend().x(1200).y(10).itemHeight(8).gap(4));
-
-        avg_rent_by_type_2013_2017.margins().left = 90;
-        dc.renderAll();
-    });
-
-} // plot_line()
 
 
 // Call the function to plot the different charts
