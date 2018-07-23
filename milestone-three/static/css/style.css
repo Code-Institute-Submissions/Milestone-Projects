@@ -1,12 +1,13 @@
 /* Login Page Styles */
 
 .login-bg {
-    background-image: url("https://78.media.tumblr.com/2e7d41c545241a4db437acaf3cf8a4df/tumblr_o4cr4i2Vt31vn68joo1_500.jpg");
+    background-image: url("https://www.worldanvil.com/uploads/images/277a9b6a73457fb0da4ec9772f1a376c.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
     height: 100vh;
     width: 100vw;
+    padding: 10px;
 }
 
 .login-form {
@@ -15,6 +16,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
+    right: 50%;
     margin-right: -50% !important;
     transform: translate(-50%, -50%)
 }
