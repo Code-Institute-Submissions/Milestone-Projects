@@ -1,0 +1,95 @@
+{% extends 'common.html' %} 
+
+{% block content %}
+
+<div class="about-bg">
+
+  <!-- About Page Content -->
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-12">
+        <h2>About</h2>
+      </div>
+      <div class="col-md-12">
+        <p>
+          Are you prepared to challenge the gods! In this game, you can choose your mythology and do battle with the gods of old, all you need is the courage to speak their name and you will be on your way to becoming a legendary champion, one who challenged the
+          gods and won!
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Find Allies in Your Quest</h3>
+      </div>
+      <div class="col-md-12">
+        <p>
+          You can call on other players to help you identify the gods to help you in your battles.
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Excited!</h3>
+      </div>
+      <div class="col-md-12">
+        <p>
+          Then choose your mythology below to begin your journey.
+        </p>
+      </div>
+    </div>
+
+    <!-- Page Features -->
+    <div class="row text-center">
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card">
+          <img class="card-img-top" src="http://www.greek-mythology-pantheon.com/wp-content/uploads/Greek_Gods_and_Goddesses/Zeus_Jupiter_Greek_God/Zeus_Jupiter_Greek_God_Art_01_by_arcosart.jpg" alt="Greek god">
+          <div class="card-body">
+            <h4 class="card-title">Greek Path</h4>
+            <p class="card-text">Do battle with the gods of Olympus.</p>
+          </div>
+          <div class="card-footer">
+            <a href="{{ url_for('greek') }}" class="btn btn-primary">Play Greek Gods!</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card">
+          <img class="card-img-top" src="https://i.pinimg.com/originals/ef/13/a2/ef13a2dd35fb5b388a08b427b9b32f30.jpg" alt="Norse god">
+          <div class="card-body">
+            <h4 class="card-title">Norse Path</h4>
+            <p class="card-text">Battle the gods from Asgard.</p>
+          </div>
+          <div class="card-footer">
+            <a href="{{ url_for('norse') }}" class="btn btn-primary">Play Norse Gods!</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card">
+          <img class="card-img-top" src="https://shirleytwofeathers.com/The_Blog/powers-that-be/wp-content/uploads/sites/11/2018/04/tumblr_inline_nswd8yQdov1r6nd9a_500-475x401.jpg" alt="Celtic god">
+          <div class="card-body">
+            <h4 class="card-title">Celtic Path</h4>
+            <p class="card-text">Challenge the Celtic pantheon.</p>
+          </div>
+          <div class="card-footer">
+            <a href="{{ url_for('celtic') }}" class="btn btn-primary">Play Celtic Gods!</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+</div>
+<!-- /.about-bg -->
+
+{% endblock %}

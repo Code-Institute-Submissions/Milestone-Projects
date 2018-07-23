@@ -1,0 +1,16 @@
+{% extends 'common.html' %} 
+
+{% block content %}
+
+<!-- Form to take user input and proceed to home page -->
+<div class="container login-bg">
+
+    <form class = "login-form" method="POST">
+        <label class = "login-label" for="username">Please Enter Your Username: </label>
+        <input type="text" id="username" name="username">
+        <button>Proceed</button>
+    </form>
+
+</div>
+
+{% endblock %}
