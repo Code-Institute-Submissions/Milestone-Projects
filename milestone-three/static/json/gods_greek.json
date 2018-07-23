@@ -1,0 +1,19 @@
+[{
+        "name": "Zeus",
+        "image_source": "https://mythology.net/wp-content/uploads/2016/12/Zeus-380x240.jpg",
+        "wiki": "https://en.wikipedia.org/wiki/Zeus",
+        "description": "Zeus was the ruler of the Olympian gods and the god of the sky. He didn’t earn the throne in a traditional matter though. Instead, he overthrew the current ruler, his father, with the help of his siblings. Once Cronus had been dethroned, Zeus and his brothers divided the power."
+    },
+    {
+        "name": "Poseidon",
+        "image_source": "https://vignette.wikia.nocookie.net/villains/images/f/f4/Poseidon_%28Age_of_Mythology%29.jpg/revision/latest?cb=20171005155658",
+        "wiki": "https://en.wikipedia.org/wiki/Poseidon",
+        "description": "Poseidon was the god of the sea and protector of all aquatic animals and features. He was one of the more popular Greek gods, along with his brothers Hades and Zeus. He was widely worshiped by those who traveled through the rough ocean waters and become known as the lord of the sea."
+    },
+    {
+        "name": "Hermes",
+        "image_source": "https://vignette.wikia.nocookie.net/olympians/images/3/3f/Hermes.jpg/revision/latest?cb=20110516213653",
+        "wiki": "https://en.wikipedia.org/wiki/Hermes",
+        "description": "Hermes was the son of Zeus and Maia. He was commonly known as the messenger god but his official title was the Greek god of commerce. He was quick to act and fast on his feet. He was known as the link between humans and gods and earned a reputation as being fun yet helpful."
+    }
+]

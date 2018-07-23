@@ -1,0 +1,19 @@
+[{
+        "name": "Odin",
+        "image_source": "https://vignette.wikia.nocookie.net/demigodshaven/images/8/85/Odin.jpg/revision/latest?cb=20110108023330",
+        "wiki": "https://en.wikipedia.org/wiki/Odin",
+        "description": "In Germanic and Norse mythology, Odin was the chief god. He was the son of Bor and Bestla and rose in fame mostly because of the Vikings admiration. During the eighth and ninth centuries, he was known as the supreme god. The Vikings admired the god’s love for battle and he became known as the “father of the slain” while also demonstrating the importance of warfare."
+    },
+    {   
+        "name": "Loki",
+        "image_source": "https://upload.wikimedia.org/wikipedia/en/thumb/0/0a/Loki_Amazing_Spider-Man_795.png/220px-Loki_Amazing_Spider-Man_795.png",
+        "wiki": "https://en.wikipedia.org/wiki/Loki",
+        "description": "In Norse mythology, Loki was known as the sneaky and trickster god. He caused endless trouble for both mortals and gods but there were times when he used his trickery for good. He lived in Asgard and was often found with Thor or Odin. He enjoyed mischief and can be found in many myths living up to his reputation."
+    },
+    {   
+        "name": "Sif",
+        "image_source": "https://mythology.net/wp-content/uploads/2016/11/Goddess-Sif-95x80.jpg",
+        "wiki": "https://en.wikipedia.org/wiki/Sif",
+        "description": "Sif was a Norse goddess and wife of the warrior god Thor. Her legacy has been overshadowed by that of her husband but she was at one time a highly recognized and important deity. She was the goddess of wheat, fertility and family. There are very few details surround the goddess but what we do know about her shows that she was a very important god to the Norse people."
+    }
+]
