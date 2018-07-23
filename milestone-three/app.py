@@ -38,16 +38,16 @@ def login():
             if request.form["username"].title() not in existing_users:
                 users.writelines(request.form["username"] + "\n")
                 user =  set_user(request.form["username"])
-                return render_template("index.html", username = user)
+                return index()
             else:
                 # If the name does exist, we will use this as the login for this user
                 user =  set_user(request.form["username"])
-                return render_template("index.html", username = user)
+                return index()
                 
     return render_template("login.html")
 
 
-@app.route("/index/<username>", methods=["GET", "POST"])
+@app.route("/index", methods=["GET", "POST"])
 
 def index():
     return render_template("index.html", username = user)
@@ -126,9 +126,9 @@ def celtic():
         # Check that variable is equal to user input
         print(user_answer_var)
         
-        return render_template("celtic.html", celtic_gods = data, user_answer = user_answer_var)
+        return render_template("celtic.html", celtic_gods = data, user_answer = user_answer_var, user = user, user_score = get_user_score(user), update_score = update_score)
         
-    return render_template("celtic.html", celtic_gods = data, user_answer = user_answer_var)
+    return render_template("celtic.html", celtic_gods = data, user_answer = user_answer_var, user = user, user_score = get_user_score(user), update_score = update_score)
     
 
 @app.route("/norse", methods=["GET", "POST"])
@@ -149,9 +149,9 @@ def norse():
         # Check that variable is equal to user input
         print(user_answer_var)
         
-        return render_template("norse.html", norse_gods = data, user_answer = user_answer_var)
+        return render_template("norse.html", norse_gods = data, user_answer = user_answer_var, user = user, user_score = get_user_score(user), update_score = update_score)
     
-    return render_template("norse.html", norse_gods = data, user_answer = user_answer_var)
+    return render_template("norse.html", norse_gods = data, user_answer = user_answer_var, user = user, user_score = get_user_score(user), update_score = update_score)
 
 
 ##### File I/O #####
