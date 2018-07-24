@@ -32,9 +32,10 @@ This project was deployed using the heroku platform and can be found via the lin
 
 1. HTML5 / CSS3
 2. jQuery
-3. Flask
-4. Python (version 3)
-5. Bootstrap (version 4)
+3. JSON
+4. Flask
+5. Python (version 3)
+6. Bootstrap (version 4)
 
 
 ## Authors
