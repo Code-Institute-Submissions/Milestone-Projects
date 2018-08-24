@@ -1,0 +1,84 @@
+{% extends "common.html" %}
+
+{% block content %}
+
+<h2 class = "margin-top-bottom-10vh">Add Recipe<i class = "material-icons">add_circle</i></h2>
+
+<div class = "container">
+
+    <form action="{{ url_for('insert_recipe') }}" class = "form-center" method = "POST">
+      <!-- Recipe Name -->
+      <i class = "material-icons">info</i>
+      <div class="form-group">
+        <label for="recipe-name">Recipe Name</label>
+        <input type="text" name = "recipe-name" class="form-control" id="recipe-name" placeholder="Type the recipe name here">
+      </div>
+      
+      <!-- Directions -->
+      <i class = "material-icons">directions</i>
+      <div class="form-group">
+        <label for="directions">Directions</label>
+        <textarea class="form-control" name = "directions" id="directions" rows="3" placeholder = "Please type each step on a separate line"></textarea>
+      </div>
+      
+      <!-- Image URL -->
+      <i class = "material-icons">image</i>
+      <div class="form-group">
+        <label for="recipe-image">Image</label>
+        <input type="text" name = "recipe-image" class="form-control" id="recipe-image" placeholder="Type the url for image here">
+      </div>
+      
+      <!-- Ingredients -->
+      <i class = "material-icons">list</i>
+      <div class="form-group">
+        <label for="ingredients">Ingredients</label>
+        <textarea class="form-control" name = "ingredients" id="ingredients" rows="3" placeholder = "Please type each ingredient on a separate line"></textarea>
+      </div>
+      
+      <!-- Author -->
+      <i class = "material-icons">person_add</i>
+      <div class="form-group">
+        <label for="author-fname">Author name</label>
+        <div class="col">
+          <input type="text" name = "author-fname" class="form-control" id= "author-fname" placeholder="First name">
+        </div>  
+        <label for="author-lname">Last name</label>
+        <div class="col">
+          <input type="text" name = "author-lname" class="form-control" id = "author-lname" placeholder="Last name">
+        </div>
+        <label for="author-nt">Nationality</label>
+        <div class="col">
+          <input type="text" name = "author-nt" class="form-control" id = "author-nt" placeholder="Nationality">
+        </div>
+      </div>
+      
+      <!-- Allergens -->
+      <i class = "material-icons">warning</i>
+      <div class="form-group">
+        <label for="allergens">Allergens</label>
+        <input type="text" name = "allergens" class="form-control" id="allergens" placeholder="Please list any allergens associated with the recipe">
+      </div>
+      
+      <!-- Cuisine -->
+      <i class = "material-icons">details</i>
+      <div class="form-group">
+        <label for="cuisine">Cuisine Type</label>
+        <select class="form-control" name = "cuisine" id="cuisine">
+          <option>Atlantic</option>
+          <option>Mediterranean</option>
+          <option>Asian</option>
+          <option>Indian</option>
+          <option>South American</option>
+        </select>
+      </div>
+      
+      <!-- Submit -->
+      <div class = "form-group">
+          <input class="btn btn-primary" type="submit" value="Add Recipe">
+      </div>
+        
+    </form>
+
+</div>
+
+{% endblock %}

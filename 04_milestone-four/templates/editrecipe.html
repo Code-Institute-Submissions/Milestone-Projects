@@ -1,0 +1,86 @@
+{% extends "common.html" %}
+
+{% block content %}
+
+<h2 class = "margin-top-bottom-10vh">Edit Recipe<i class = "material-icons">update</i></h2>
+
+<div class = "container">
+
+    <form action="{{ url_for('update_recipe', recipe_id = recipe._id) }}" class = "form-center" method = "POST">
+      <!-- Recipe Name -->
+      <i class = "material-icons">info</i>
+      <div class="form-group">
+        <label for="recipe-name">Recipe Name</label>
+        <input type="text" name = "recipe-name" class="form-control" id="recipe-name" placeholder="Type the recipe name here" value = "{{ recipe.recipe_name }}">
+      </div>
+      
+      <!-- Directions -->
+      <i class = "material-icons">directions</i>
+      {% for step, direction in recipe_directions.items() %}
+      <div class="form-group">
+        <label for="directions">Directions-{{ step }}</label>
+        <input type="text" name = "directions" id="directions" value = "{{ direction }}">
+      </div>
+      {% endfor %}
+      
+      <!-- Image URL -->
+      <i class = "material-icons">image</i>
+      <div class="form-group">
+        <label for="recipe-image">Image</label>
+        <input type="text" name = "recipe-image" class="form-control" id="recipe-image" placeholder="Type the url for image here" value = "{{ recipe.image }}">
+      </div>
+      
+      <!-- Ingredients -->
+      <i class = "material-icons">list</i>
+      <div class="form-group">
+        <label for="ingredients">Ingredients</label>
+        <textarea class="form-control" name = "ingredients" id="ingredients" rows="3" placeholder = "Please type each ingredient on a separate line">{{ recipe.ingredients }}</textarea>
+      </div>
+      
+      <!-- Author -->
+      <i class = "material-icons">person_add</i>
+      <div class="form-group">
+        <label for="author-fname">Author name</label>
+        <div class="col">
+          <input type="text" name = "author-fname" class="form-control" id= "author-fname" placeholder="First name" value = "{{ recipe.author.first }}">
+        </div>  
+        <label for="author-lname">Last name</label>
+        <div class="col">
+          <input type="text" name = "author-lname" class="form-control" id = "author-lname" placeholder="Last name" value = "{{ recipe.author.last }}">
+        </div>
+        <label for="author-nt">Nationality</label>
+        <div class="col">
+          <input type="text" name = "author-nt" class="form-control" id = "author-nt" placeholder="Nationality" value = "{{ recipe.author.nationality }}">
+        </div>
+      </div>
+      
+      <!-- Allergens -->
+      <i class = "material-icons">warning</i>
+      <div class="form-group">
+        <label for="allergens">Allergens</label>
+        <input type="text" name = "allergens" class="form-control" id="allergens" placeholder="Please list any allergens associated with the recipe" value = "{{ recipe.allergens }}">
+      </div>
+      
+      <!-- Cuisine -->
+      <i class = "material-icons">details</i>
+      <div class="form-group">
+        <label for="cuisine">Cuisine Type</label>
+        <select class="form-control" name = "cuisine" id="cuisine">
+          <option>Atlantic</option>
+          <option>Mediterranean</option>
+          <option>Asian</option>
+          <option>Indian</option>
+          <option>South American</option>
+        </select>
+      </div>
+      
+      <!-- Submit -->
+      <div class = "form-group">
+          <input class="btn btn-primary" type="submit" value="Edit Recipe">
+      </div>
+        
+    </form>
+
+</div>
+
+{% endblock %}
