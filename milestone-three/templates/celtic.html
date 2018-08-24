@@ -1,0 +1,50 @@
+{% extends 'common.html' %} 
+
+{% block content %}
+
+<div class="row">
+
+    {% for god in celtic_gods %}
+
+    <div class="col-lg-4 col-md-4 mb-4">
+
+        <!-- Insert celtic themed questions here! -->
+        <div class="container align-center">
+
+            <!-- Image Header For the God -->
+            <div class="img-frame">
+                <img class = "game-img" src="{{ god.image_source }}"></img>
+            </div>
+
+            <form method="POST">
+                <label for="answer">Answer-{{loop.index}}: </label>
+                <input type="text" id="answer" name="answer">
+            </form>
+
+            {% if user_answer == god.name %}
+            <h2>Well done!</h2>
+            <!-- Print out the user and set the user to this name -->
+            {{ user }}
+            {% set user = user %}
+            <!-- Increase the user_score variable by 100 points -->
+            {% set user_score = user_score|int + 100 %}
+            <p>Your score is now {{ user_score }}</p>
+            <p style = "visibility: hidden">{{ update_score (user, user_score) }}</p>
+            <p>Did you know: {{ god.description }}</p>
+            <a href = "{{ god.wiki }}" target = "_blank">Read more!</a>
+            {% else %}
+            <h2>You answered {{ user_answer }}. Try again!</h2>
+            {% endif %}
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.col-lg-4 col-md-4 mb-4 -->
+
+    {% endfor %}
+            
+</div>
+<!-- /.row -->
+
+{% endblock %}

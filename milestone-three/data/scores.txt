@@ -1,0 +1,3 @@
+Zeus,700
+Hercules,500
+Cyclops,200

@@ -1,0 +1,113 @@
+/* Login Page Styles */
+
+.login-bg {
+    background-image: url("https://www.worldanvil.com/uploads/images/277a9b6a73457fb0da4ec9772f1a376c.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    padding: 10px;
+}
+
+.login-form {
+    /* Keeps the form vertically and horizontally aligned */
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: 50%;
+    margin-right: -50% !important;
+    transform: translate(-50%, -50%)
+}
+
+.login-label {
+    color: #FFF;
+    font-size: larger;
+    font-style: italic;
+}
+
+
+/* Home Page Styles */
+
+.home-bg {
+    background-image: url("https://www.worldanvil.com/uploads/images/277a9b6a73457fb0da4ec9772f1a376c.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* To avoid whitespace gaps between this element and its parent */
+    padding-top: 10px;
+}
+
+.card-img-top {
+    /* Images for different paths */
+    height: 50%;
+}
+
+
+/* About Page Styles */
+
+.about-bg {
+    /* Give the <h2>About</h2> element space from the top */
+    padding-top: 5vh;
+}
+
+
+/* Leaderboard Page Styles */
+
+.table {
+    padding-top: 20vh;
+    border-collapse: separate;
+}
+
+.thead-dark {
+    text-align: center;
+}
+
+
+/* Contact Page Styles */
+
+.contact-bg {
+    padding-top: 20vh;
+    background-image: url("https://ih1.redbubble.net/image.522278811.0713/flat,550x550,075,f.u2.jpg");
+    background-repeat: no-repeat;
+}
+
+
+/* Game Path Styles - Greek, Norse, Celtic */
+
+.img-frame {
+    height: 300px;
+    width: 100%;
+    /* Give each image space from navigation */
+    padding-top: 50px;
+}
+
+.game-img {
+    /* Ensure game images do not exceed parent dimensions */
+    max-width: 100%;
+    max-height: 100%;
+    overflow: hidden;
+}
+
+
+/* General Styles */
+
+.container {
+    /* Remove default Bootstrap padding from class */
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.align-center {
+    text-align: center;
+}
+
+form {
+    /* Keep space between form input and content above */
+    padding-top: 40px;
+}
