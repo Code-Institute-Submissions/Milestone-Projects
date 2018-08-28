@@ -4,18 +4,16 @@ import matplotlib.pyplot as plt
 import numpy
 import csv
 import pandas as pd
+from mongo_access import mongo_connection
 from pandas import DataFrame
 from flask import Flask, render_template, redirect, request, url_for
-from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
 # Flask and Mongo configuration
 app = Flask(__name__)
-app.config["MONGO_DBNAME"] = "cookbook_app"
-app.config["MONGO_URI"] = "mongodb://admin:magelight_81@ds125272.mlab.com:25272/cookbook_app"
 
-# Instance of our mongo database
-mongo = PyMongo(app)
+# Instance of our mongo database imported from mongo_connection
+mongo = mongo_connection
 
 ## Routes ##
 
@@ -67,32 +65,45 @@ def insert_recipe():
 @app.route("/edit_recipe/<recipe_id>")
 def edit_recipe(recipe_id):
     recipe_edit =  mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    # We need to extract the directions dictionary keys values and pass as a variable directly into editrecipe.html
+    # We need to extract the directions dictionary keys and values and pass as a variable directly into editrecipe.html
     # to avoid looping over each direction again
     recipe_edit_directions = recipe_edit["directions"]
-    for key, value in recipe_edit_directions.items():
-        pass
+    # This list will hold the step number and direction
+    recipe_edit_directions_list = []
+    for key, value in sorted(recipe_edit_directions.items()):
+        # Append each step and direction to the list
+        recipe_edit_directions_list.append([int(key), value])
     print(recipe_edit)
     print(recipe_edit_directions)
+    print(recipe_edit_directions_list)
+    
     # Now sort the directions by keys (steps) in order to pass these to the view for presenting to the user
     # sorted_directions = sorted(recipe_edit['directions'].items())
     # print(sorted_directions)
-    return render_template("editrecipe.html", recipe = recipe_edit, recipe_directions = recipe_edit_directions)
+    
+    return render_template("editrecipe.html", recipe = recipe_edit, recipe_directions = recipe_edit_directions_list)
 
 # Update changes to recipe
 @app.route("/update_recipe/<recipe_id>", methods =["POST"])
 def update_recipe(recipe_id):
     recipes = mongo.db.recipes
+    # We use getlist() to retrieve all form elements with the name directions
+    new_directions = sorted(request.form.getlist("directions"))
+    # Here we reassign a step number as a key and associate the direction in new_directions as a value
+    new_directions_d  = {}
+    for idx, direction in enumerate(new_directions, start = 1):
+        new_directions_d[str(idx)] = direction 
     recipes.update( {"_id": ObjectId(recipe_id)},
-    {
+    {"$set": 
+        {
         "recipe_name": request.form.get("recipe-name"),
-        "directions": { "" : request.form.getlist("directions") },
+        "directions": new_directions_d,
         "image": request.form.get("recipe-image"),
-        "ingredients": request.form.get("ingredients").split("\n"),
+        "ingredients": [ingredient.replace('\r', '') for ingredient in request.form.get("ingredients").split("\n")],
         "author": { "first": request.form.get("author-fname"), "last": request.form.get("author-lname"), "nationality": request.form.get("author-nt") },
-        "allergens": request.form.get("allergens").split(","),
+        "allergens": [allergen.replace('\r', '') for allergen in request.form.get("allergens").split(",")],
         "cuisine": request.form.get("cuisine")
-    } )
+    }   } )
     return redirect(url_for("get_recipes"))
 
 # Delete recipe
