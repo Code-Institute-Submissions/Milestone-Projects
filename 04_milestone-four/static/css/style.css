@@ -1,3 +1,19 @@
+/** General styling **/
+
+body {
+    /* A bright warm colour suitable for the theme of the website */
+    background-color: blanchedalmond;
+    /* A cursive informal font suitable for the theme of the website */
+    font-family: 'Courgette', cursive;
+}
+
+.navbar,
+.py-5 {
+    /* Muted red tone */
+    background-color: indianred !important;
+}
+
+
 /** Recipes.html **/
 
 .recipe-image {
@@ -63,6 +79,7 @@
     /* Set the chart to be horizontally and vertically centered */
     margin: auto !important;
     text-align: center;
+    background-color: #FFF;
 }
 
 
