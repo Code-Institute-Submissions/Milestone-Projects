@@ -16,10 +16,10 @@
       
       <!-- Directions -->
       <i class = "material-icons">directions</i>
-      {% for step, direction in recipe_directions.items() %}
+      {% for direction in recipe_directions %}
       <div class="form-group">
-        <label for="directions">Directions-{{ step }}</label>
-        <input type="text" name = "directions" id="directions" value = "{{ direction }}">
+        <label for="directions">Directions-{{ direction[0] }}</label>
+        <textarea class="form-control" name = "directions" id="directions" rows="3" placeholder = "Please type each step on a separate line">{{ direction[1] }}</textarea>
       </div>
       {% endfor %}
       
