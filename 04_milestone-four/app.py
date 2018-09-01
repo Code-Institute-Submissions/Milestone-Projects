@@ -169,7 +169,25 @@ def extract_related_recipes(recipe_id):
         if recipe["cuisine"] == current_recipe_cuisine["cuisine"] and recipe["recipe_name"] != current_recipe_cuisine["recipe_name"]:
             related_values.append([recipe["cuisine"], recipe["recipe_name"], recipe["image"]])
     return render_template("relatedrecipes.html", related_recipes = related_values)
-
+    
+    
+@app.route("/upvote_recipe/<recipe_id>")
+def upvote_recipe(recipe_id):
+    """
+    Handles upvote behaviour for recipes by increasing the number of upvotes for the given recipe in the recipes collection
+    """
+    recipes = mongo.db.recipes
+    current_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    new_upvotes = current_recipe["upvotes"] + 1
+    print(new_upvotes)
+    recipes.update( {"_id": ObjectId(recipe_id) },
+    {"$set":
+        {
+        "upvotes": new_upvotes 
+        }
+    } )
+    return redirect(url_for("get_recipes"))
+    
 
 """
 Flask app debugging and running setup
