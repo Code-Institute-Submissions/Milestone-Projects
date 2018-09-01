@@ -3,7 +3,7 @@
 {% block content %}
 
     <!-- Portfolio Item Heading -->
-    <h1 class="my-4 align-center">Recipes</h1>
+    <h1 class="my-4 align-center">Recipes <i class = "material-icons">book</i></h1>
 
     <!-- Portfolio Item Row -->
     {% for recipe in recipes %}
@@ -25,9 +25,9 @@
         <div class="col-md-6 align-right">
           <h3 class="my-3">{{ recipe.recipe_name }}</h3>
           <!-- Return the step number and direction from the collection attribute directions -->
-          {% for step, direction in recipe.directions.items() %}
+          {% for directions in recipe.directions|dictsort %}
           <h3 class="my-3">Directions</h3>
-          <li>{{ step }}</li><p>{{ direction }}</p>
+          <li>{{ directions[0] }}</li><p>{{ directions[1] }}</p>
           {% endfor %}
           <h3 class="my-3">Ingredients</h3>
           <!-- Return the names and quantities needed for the recipe -->
@@ -36,49 +36,28 @@
             <li>{{ loop.index }}</li>{{ ingredient }}
           </ul>
           {% endfor %}
+          <h3 class="my-3">Author</h3>
+          <ul>
+            <li><strong>Name</strong></li>{{ recipe.author.first + " " + recipe.author.last }}
+            <li><strong>Country</strong></li>{{ recipe.author.nationality }}
+          </ul>
+          <h3 class="my-3">Cuisine</h3>
+          <ul>
+            <li>{{ recipe.cuisine }}</li>
+          </ul>
         </div>
-  
       </div>
       <!-- /.row -->
     </div>
     <!-- /.container -->
     
+    <!-- Related Recipes Row -->
+    <h3 class="my-4">Related recipes for {{ recipe.recipe_name }}</h3>
+    
+    <a href="{{ url_for('extract_related_recipes', recipe_id = recipe._id) }}" class = "btn btn-primary col-md-3">Show Related Recipes</a>
+   
     <hr class = "recipe-divider"/>
     
     {% endfor %}
-
-
-    
-    <!-- Related Projects Row -->
-    <h3 class="my-4">Related Projects</h3>
-
-    <div class="row">
-
-      <div class="col-md-3 col-sm-6 mb-4">
-        <a href="#">
-          <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-        </a>
-      </div>
-
-      <div class="col-md-3 col-sm-6 mb-4">
-        <a href="#">
-          <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-        </a>
-      </div>
-
-      <div class="col-md-3 col-sm-6 mb-4">
-        <a href="#">
-          <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-        </a>
-      </div>
-
-      <div class="col-md-3 col-sm-6 mb-4">
-        <a href="#">
-          <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-        </a>
-      </div>
-
-    </div>
-    <!-- /.row -->
 
 {% endblock %}
