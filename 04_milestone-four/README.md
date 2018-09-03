@@ -30,6 +30,7 @@ online or elsewhere. User A also wants to have editing control of the recipes, w
 she likes the most and have these presented visually so that she can digest information readily and efficiently.
 
 **How the Project Fulfills User A's Goals**
+
 This application provides a recording mechanism for which User A can add, edit and delete recipes using a simple online 
 form to do so. In addition User A can upvote her favourite recipes and this information, combined with the recipe name
 and cuisine type is presented visually using Google Charts to provide a visual interface that presents the recipes
@@ -80,19 +81,21 @@ For reference the specific files implementing each feature above;
 
 ## Technologies Used
 
-- **[Flask]()** - The Flask framework provides the structure of the project and allows for template building and extension in order to remove duplicate code
-- **[HTML5]()** - The templates and web pages are presented using HTML5 and other languages and frameworks including Flask
-- **[Python]()** - The application is built with Flask and Python is used to interact and implement the framework features including routes and interacting with the MongoDB database
-- **[CSS3]()** - Style rules for the project are implemented with CSS3
-- **[JQuery]()** - Used for enabling other javascript based libraries such as Bootstrap and also used alongside Google Charts
-- **[MongoDB]()** - The database used for storing the data is a MongoDB document related database provided by mLab, a cloud hosting MongoDB provider
-- **[JavaScript]()** - Used in interacting with and constructing Google Chart functionality
-- **[Heroku]()** - The chosen deployment platform used to deploy the project
-- **[Google Charts]()** - A javascript based library used for creating visualisations
-- **[GitHub]()** - The version control system used for tracking changes and storing code
-- **[MaterializeCSS]()** - A CSS library with many useful styling features including icons were used in this project
-- **[Bootstrap]()** - The framework was used to construct components of this website and many features such as its forms and classes were implemented
-- **[Google Fonts]()** - The chosen font for the project was sourced from this library
+- **[HTML5](https://www.w3schools.com/html/default.asp)** - The templates and web pages are presented using HTML5 and other languages and frameworks including Flask
+- **[CSS3](https://www.w3schools.com/css/default.asp)** - Style rules for the project are implemented with CSS3
+- **[Python](https://www.python.org/)** - The application is built with Flask and Python is used to interact and implement the framework features including routes and interacting with the MongoDB database
+- **[Flask](http://flask.pocoo.org/)** - The Flask framework provides the structure of the project and allows for template building and extension in order to remove duplicate code
+- **[JQuery](https://jquery.com/)** - Used for enabling other javascript based libraries such as Bootstrap and also used alongside Google Charts
+- **[JavaScript](https://developer.mozilla.org/bm/docs/Web/JavaScript)** - Used in interacting with and constructing Google Chart functionality
+- **[MongoDB](https://www.mongodb.com/)** - The database used for storing the data is a MongoDB document related database provided by mLab
+- **[mLab](https://mlab.com/)** - This was the cloud hosting MongoDB provider that was used to store the database
+- **[Heroku](https://heroku.com/)** - The chosen deployment platform used to deploy the project
+- **[Google Charts](https://developers.google.com/chart/)** - A javascript based library used for creating visualisations
+- **[Google Fonts](https://fonts.google.com/)** - The chosen font for the project was sourced from this library
+- **[GitHub](https://github.com/)** - The version control system used for tracking changes and storing code
+- **[Bootstrap](https://getbootstrap.com/)** - The framework was used to construct components of this website and many features such as its forms and classes were implemented
+- **[MaterializeCSS](https://materializecss.com/)** - A CSS library with many useful styling features including icons were used in this project
+- **[Cloud9](https://c9.io/)** - The IDE used for this project
 
 
 ## Testing
@@ -124,7 +127,10 @@ Additional testing is planned as more features are introduced.
 
 ## Deployment
 
-Deployment is through the Heroku platform. Deployment requires additional files in order to function including;
+Deployment is through the Heroku platform. The project can be accessed via the following URL;
+- https://custom-online-cookbook-app.herokuapp.com/
+
+Deployment requires additional files in order to function including;
 - The IP and PORT values need to be specified by creating these in the CONFIG VARS section of the app settings
 - A requirements.txt and Procfile are needed for deploying to Heroku in order to specify the language implementation used for the project and that it is to be hosted via the web
 - A separate GitHub branch named heroku is also used to commit and push changes (This code is not visible on GitHub)
