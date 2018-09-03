@@ -3,23 +3,23 @@
 {% block content %}
 
 <!-- Related Projects Row -->
-    <h3 class="my-4">Related Recipes</h3>
+<h3 class="my-4">Related Recipes</h3>
+    
+  <div class="row">
+  
+  <!-- Return information for all related recipes with the same cuisine -->
+  {% for recipes in related_recipes %}
 
-    
-    <div class="row">
-    
-    {% for recipes in related_recipes %}
-
-      <div class="col-md-3 col-sm-6 mb-4">
-        <a href="#">
-          <img class="img-fluid" src="{{ recipes[2] }}" alt="{{ recipes[1] }}">
-        </a>
-      </div>
-     
-    {% endfor %}
-    
+    <div class="col-md-3 col-sm-6 mb-4">
+      <a href="{{ url_for('get_recipes') }}">
+        <img class="img-fluid" src="{{ recipes[2] }}" alt="{{ recipes[1] }}">
+      </a>
+      <div class = "align-center">{{ recipes[1] }}</div>
     </div>
-    <!-- /.row -->
-
+   
+  {% endfor %}
+  
+  </div>
+  <!-- /.row -->
 
 {% endblock %}
