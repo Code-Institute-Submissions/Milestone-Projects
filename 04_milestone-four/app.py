@@ -56,7 +56,6 @@ def insert_recipe():
     Format directions into a list by splitting each line while also removing \r characters
     """
     directions = [direction.replace('\r', '') for direction in request.form.get("directions").split("\n")]
-    
     """ 
     A new directions dictionary will have an index key to indicate the step number followed by a direction from the directions list
     """
@@ -72,16 +71,10 @@ def insert_recipe():
         "recipe_name": request.form.get("recipe-name"),
         "directions": directions_new,
         "image": request.form.get("recipe-image"),
-        """ 
-        Ensures \r characters are omitted and newlines are split when inserting the data
-        """
         "ingredients": [ingredients.replace('\r', '') for ingredients in request.form.get("ingredients").split("\n")],
         "author": { "first": request.form.get("author-fname"), "last": request.form.get("author-lname"), "nationality": request.form.get("author-nt") },
         "allergens": request.form.get("allergens").split(","),
         "cuisine": request.form.get("cuisine"),
-        """
-        Initialise upvotes field to 1 for all recipes
-        """
         "upvotes": 1
         } )
     return redirect(url_for("get_recipes"))
