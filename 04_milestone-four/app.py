@@ -97,6 +97,7 @@ def edit_recipe(recipe_id):
     """
     for key, value in sorted(recipe_edit_directions.items()):
         recipe_edit_directions_list.append([int(key), value])
+    recipe_edit_directions_list.sort(key = lambda x: x[0])
     return render_template("editrecipe.html", recipe = recipe_edit, recipe_directions = recipe_edit_directions_list)
 
 
@@ -172,7 +173,6 @@ def upvote_recipe(recipe_id):
     recipes = mongo.db.recipes
     current_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     new_upvotes = current_recipe["upvotes"] + 1
-    print(new_upvotes)
     recipes.update( {"_id": ObjectId(recipe_id) },
     {"$set":
         {
