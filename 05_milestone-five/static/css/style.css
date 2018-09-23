@@ -1,0 +1,7 @@
+/* Base.html Styling */
+
+.banner {
+    /* Scale height to viewport and cover container width fully */
+    height: 90vh;
+    width: 100%;
+}
