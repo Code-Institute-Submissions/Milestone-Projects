@@ -1,0 +1,37 @@
+{% extends 'common.html' %} 
+
+{% block content %}
+
+<!-- Leaderboards Page Content -->
+<div class="container">
+
+  <!-- Page Features -->
+  <div class="row">
+
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Rank</th>
+          <th scope="col">Username</th>
+          <th scope="col">Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- For our lists of user and score in scores, extract the first and second element of each list and create an entry in the leaderboards table -->
+        {% for user_ranks in scores %}  
+        <tr>
+          <th scope="row">{{ loop.index }}</th>
+          <td>{{ user_ranks[0] }}</td>
+          <td>{{ user_ranks[1] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+  </div>
+  <!-- /.row -->
+
+</div>
+<!-- /.container -->
+
+{% endblock %}

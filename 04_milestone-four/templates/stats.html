@@ -1,0 +1,157 @@
+{% extends "common.html" %}
+
+{% block content %} 
+
+<h2 class = "margin-top-bottom-10vh">Recipes at a glance<i class = "material-icons">dashboard</i></h2>
+
+<!-- Div container that will hold the pie chart -->
+<div class = "container">
+  
+  <i class = "material-icons inline-icon">info</i><p class = "dashboard-info">Find your best recipes here!</p> 
+  <ul>
+    <li><i class = "material-icons inline-icon">thumbs_up_down</i></li>
+    <p>Use the chart below to find recipes with the highest or lowest upvotes</p>
+    <li><i class = "material-icons inline-icon">filter</i></li>
+    <p>Filter them by cuisine to find your<i class = "material-icons inline-icon">favorite</i>favourite range</li>
+  </ul>
+  
+  <!-- Chart drawing area -->
+  <div class = "row">
+    <div id="dashboard_div" style="border: 1px solid #ccc;">
+      <p style="padding-left: 1em"><strong>Recipe Upvotes by Cuisine Type</strong></p>
+      <table class="columns">
+        <tr>
+          <td>
+            <div id="slider_div" style="padding-left: 15px"></div>
+          </td><td>
+            <div id="categoryPicker_div"></div>
+          </td>
+        </tr><tr>
+          <td>
+            <div id="chart_div" style="padding-top: 15px"></div>
+          </td><td>
+            <div id="table_div" style="padding-top: 30px"></div>
+          </td>
+        </tr>
+      </table>
+    </div>
+ </div>
+ <!-- ./row -->
+
+</div>
+<!-- ./container -->
+ 
+ <!-- Script dependencies for chart -->
+ <script src="{{ url_for('static', filename = 'vendor/jquery/jquery.min.js') }}"></script>
+ <!-- Google Charts script -->
+ <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+ <!-- Papaparse library for parsing csv files to arrays in javascript -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.6.0/papaparse.min.js"></script>
+
+<!-- Script to handle generating the Google chart -->
+<script>
+  $(document).ready(function() {   
+    google.charts.load('current', {'packages':['corechart', 'table', 'gauge', 'controls']});
+    google.charts.setOnLoadCallback(drawMainDashboard);
+
+    function drawMainDashboard() {
+      var dashboard = new google.visualization.Dashboard(
+          document.getElementById('dashboard_div'));
+      var slider = new google.visualization.ControlWrapper({
+        'controlType': 'NumberRangeFilter',
+        'containerId': 'slider_div',
+        'options': {
+          // Filter applied to 'Upvotes' column
+          'filterColumnIndex': 2,
+          'ui': {
+            'labelStacking': 'vertical',
+            'label': 'Number of Upvotes:'
+          }
+        }
+      });
+      
+      var categoryPicker = new google.visualization.ControlWrapper({
+        'controlType': 'CategoryFilter',
+        'containerId': 'categoryPicker_div',
+        'options': {
+          // Enable 'Cuisine Type' as a dropdown filter
+          'filterColumnIndex': 0,
+          'ui': {
+            'labelStacking': 'vertical',
+            'label': 'Cuisine Type:',
+            'allowTyping': false,
+            'allowMultiple': false
+          }
+        }
+      });
+      
+      var pie = new google.visualization.ChartWrapper({
+        'chartType': 'PieChart',
+        'containerId': 'chart_div',
+        'options': {
+          'width': 300,
+          'height': 300,
+          'legend': 'none',
+          // Area for setting custom position for chart
+          // 'chartArea': {'left': 15, 'top': 15, 'right': 0, 'bottom': 0},
+          'pieSliceText': 'label'
+        },
+        'view': {'columns': [0, 2]}
+      });
+      
+      var table = new google.visualization.ChartWrapper({
+        'chartType': 'Table',
+        'containerId': 'table_div',
+        'options': {
+        }
+      });
+      
+      // Variables to store the chart_data array from data.csv and then use data 
+      // from chart_data to create a datatable to store in data and use this to draw the chart
+      var data;
+      var chart_data;
+    
+      // Retrieve the file and apply Papa.parse() function from imported library to transform into an array
+      var csv = jQuery.get('/static/data/data.csv', function(file) {
+        now: jQuery.now();
+        Papa.parse(file, {
+          // Set upvotes to numbers instead of strings
+          dynamicTyping: true,
+          // Ignore empty lines
+          skipEmptyLines: true,
+          complete: function(results) {
+            console.log(results.data);
+            // Assign array to chart_data
+            chart_data = results.data;
+          }
+        });
+        
+        // Create new datatable for chart
+        data = new google.visualization.DataTable();
+        // Create the header using chart_data's first array and each entry will be given its data type
+        data.addColumn('string', chart_data[0][0])
+        data.addColumn('string', chart_data[0][1])
+        data.addColumn('number', chart_data[0][2])
+        var arrayLength = chart_data.length;
+        
+        // Now for each other array in chart_data, assign the array as rows in data
+        for (var i = 1; i < arrayLength; i++) {
+          data.addRows([
+            chart_data[i]
+            ]);
+        }
+        // Put the elements into the chart
+        dashboard.bind([slider, categoryPicker], [pie, table]);
+        // Draw using the datatable var data
+        dashboard.draw(data);
+    
+      });
+      // jQuery.GET()
+    }
+    // drawMainDashboard()
+  });
+  // document.ready()
+
+</script>
+
+{% endblock %}
