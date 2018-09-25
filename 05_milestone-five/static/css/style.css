@@ -5,3 +5,23 @@
     height: 90vh;
     width: 100%;
 }
+
+/* Form Styling */
+
+.ticket-form {
+    margin: 0 auto;
+}
+
+/* General Styling */
+
+.divider {
+    border: 10px solid cornflowerblue;
+}
+
+/* Helper Styles */
+
+.row {
+    /* Remove default margins */
+    margin-left: 0;
+    margin-right: 0;
+}
