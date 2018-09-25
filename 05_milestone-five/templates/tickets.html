@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% load bootstrap_tags %}
+
+{% block content %}
+
+<div class = "container">
+    
+    <div class = "row">
+            
+        <div class = "col-md-12">
+        
+            {% for ticket in tickets %}
+            
+            <h3>{{ ticket.name }}</h3>
+            <p class = "ticket-description">{{ ticket.description }}</p>
+            <p class = "ticket-upvotes">Upvotes: {{ ticket.upvotes }}</p>
+            <p>{{ ticket.date }}</p>
+            
+                {% if is_feature %}
+                <p class = "ticket-feature">Need this feature sooner? Pledge just €5 to get this feature before others, the higher the amount
+                pledged, the sooner the feature will be released.
+                </p>
+                {% endif %}
+            
+            {% endfor %}
+        
+        </div>
+    
+    </div>
+    
+</div>
+
+<hr class = "divider">
+
+<div class = "container">
+
+    <!-- Create Ticket Form -->
+    <form method = "POST">
+        
+        {% csrf_token %}
+        
+        <div class="form-group col-md-12 ticket-form">
+            {{ form|as_bootstrap }}
+        </div>
+        
+        <button type = "submit">Create Ticket</button>
+    
+    </form>
+
+</div>
+
+{% endblock %}
