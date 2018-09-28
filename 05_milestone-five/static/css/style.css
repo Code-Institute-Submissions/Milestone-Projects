@@ -1,9 +1,87 @@
 /* Base.html Styling */
 
+.navbar {
+    background-color: #000 !important;
+}
+.navbar a {
+    /* Change default link color */
+    color: #FFF !important;
+}
+
 .banner {
     /* Scale height to viewport and cover container width fully */
     height: 90vh;
     width: 100%;
+}
+
+.footer {
+    /* Ensure footer is aligned at bottom of page and full width */
+    text-align: center;
+    background-color: #000;
+    height: 30vh;
+    bottom: 0px;
+    width: 100%;
+}
+
+/* Index.html Styling */
+
+/* Set image position and options */
+.bug-tracker-img,
+.feature-request-img,
+.ticket-form-img {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100%;
+}
+
+.bug-tracker-img {
+    /* Position image to left of list group and set height to 100% of container */
+    background-image: url("https://cdn1.iconfinder.com/data/icons/internet-and-security-outline-1/64/internet-and-security-outline-1-14-512.png");
+}
+
+.feature-request-img {
+    background-image: url("http://www.jmkxyy.com/feature-icon/feature-icon-2.jpg");
+}
+
+.ticket-form-img {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAYFBMVEXI0dv///+Lt/BmeY+Pm6pidozN1t9ugJVOerV4i5zFztnd4uj09vjP195AcrKNuvNmkctuj71Tf7lyhpejsL2zwdN4o9y5w8+qs75vg5Vmirs1bLBeicNRfbg9cLG3xNV+njAGAAAB0klEQVR4nO3bXVPaQBSA4SAULBqKYlvAqv//X3pPJyY4s5tzlue9z+w+FzuTj5Nu0Xrd3BsoHmH+CPNHmD/C/N2W8LhqpeOAcPWjlVaDwmUbEeZvRLjJ3bhw068z12/Ghesuc2tCwvAREsaPkDB+hITxIySMHyFh/AgJ40dIGD9CwvgREsaPkDB+hITxqyrc1mhO4faxRv2cwkWNCAkJCQkJCQmnCbcv07q8Rcwj/Hs6TOmUWHj4OaUDIeGMwubP4dRn9f8uyyP8ZoSEhISEhISELQi7hxpd7tbXNcL4ERLGj5AwfoSE8SMkjJ/JPZN7VwkXNSIkJCQkJCQknCY0uZd/YugGpr4I8wubP4cm94YiJCQkJCQkJGxBaHKvTISE8SMkjB8hYfwICeNHSHjdYjWaU7g+P5Xv/DGjsH+/L9/u95zCHSFhDuHbc6neggj3v0r1J4zwrkyEhISEhISEhISEhISEhISEhFcKW38T9bwv1b8gwsIREhJ+LXzdle91TmHX1+hyUZMKhPEjJIwfIWH8CAnjR0gYP0LC+BESxo+QMH6EtyHsq/xzVqp+XLjc5G45Lmwgwvx9IWylIeFx1UrHAWGbEeaPMH+E+SPMH2H+PgGxGTvloMOMagAAAABJRU5ErkJggg==");
+}
+
+.index-lead,
+.index-center,
+.index-close {
+    /* Set minimum height of rows and applye margin to top-bottom and centered */
+    min-height: 300px;
+    margin: 20px auto;
+    width: 75%;
+}
+
+.index-lead {
+    border: 5px solid #000;
+    background-color: lavender;
+}
+
+.index-center {
+    border: 5px solid #000;
+    background-color: wheat;
+}
+
+.index-close {
+    background-color: powderblue;
+    border: 5px solid #000;
+    margin-bottom: 20px;
+}
+
+.list-group {
+    /* Update sizing and style of list group contents to be vertically / horizontally centered */
+    font-style: italic;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
 }
 
 /* Form Styling */
@@ -22,6 +100,26 @@
 
 .row {
     /* Remove default margins */
-    margin-left: 0;
-    margin-right: 0;
+    /*margin-left: 0;*/
+    /*margin-right: 0;*/
+}
+
+.jumbotron {
+    /* Background image, border and colour set to match website theme */
+    background-image: url("/static/img/banner.jpg");
+    background-position: center center;
+    background-size: cover;
+    min-height: 300px;
+    border: 5px solid black;
+    color: white;
+}
+
+.issue-container {
+    text-align: center;
+}
+
+.card {
+    /* Adjust font and border for bootstrap cards */
+    border: 5px solid black;
+    font-style: italic;
 }
