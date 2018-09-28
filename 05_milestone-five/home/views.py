@@ -2,8 +2,8 @@ from django.shortcuts import render
 
 # Create your views here.
 
-def return_base(request):
+def return_index(request):
     """
-    Returns the base.html template
+    Returns the index.html template
     """
-    return render(request, "base.html")
+    return render(request, "index.html")
