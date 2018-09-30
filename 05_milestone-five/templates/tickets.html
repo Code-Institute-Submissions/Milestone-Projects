@@ -2,6 +2,9 @@
 
 {% load bootstrap_tags %}
 
+<!-- Static files for Django -->
+{% load static %}
+
 {% block content %}
 
 <div class = "container">
@@ -18,66 +21,144 @@
     
     <div class = "row">
             
-        <div class = "col-md-4">
+        {% for ticket in tickets %}
         
-            {% for ticket in tickets %}
+        <div class="col-md-4">
             
-            <h3>{{ ticket.name }}</h3>
-            <p class = "ticket-description">{{ ticket.description }}</p>
-            <p class = "ticket-upvotes">Upvotes: {{ ticket.upvotes }}</p>
-            <p>{{ ticket.date }}</p>
+            <div class = "container issue-container">
+                
+                <!-- Display issues using cards from Bootstrap -->
+                <div class="card text-center">
+                  
+                  <!-- Topic (BUG or FEATURE) -->
+                  <div class="card-header">
+                    {{ ticket.topic }}
+                  </div>
+                  
+                  <!-- Name, description and upvotes -->
+                  <div class="card-body">
+                    <h5 class="card-title">{{ ticket.name }}</h5>
+                    <p class="card-text">{{ ticket.description }}</p>
+                    <p class = "card-text">Upvotes: {{ ticket.upvotes }}</p>
+                    {% if ticket.topic == "FEATURE" %}
+                      <p class = "card-text">Total Pledged: <i class = "fa fa-euro"></i>{{ ticket.total }}</p>
+                    {% endif %}
+                    
+                    <!-- If a feature has been requested, provide link to pledge form for payment through Stripe and update Total Pledged -->
+                    {% if ticket.topic == "FEATURE" %}
+                      <p class = "ticket-feature">Need this feature sooner? Pledge just €5 to get this feature before others, the higher the amount
+                      pledged, the sooner the feature will be released.
+                      </p>
+                        
+                      <form method = "POST" action = "{% url 'make_payment' ticket.id %}">
+                              
+                        {% csrf_token %}
+                        <script
+                            src="https://checkout.stripe.com/checkout.js"
+                            class="stripe-button"
+                            data-key="{{ publishable }}"
+                            data-image="{% static 'img/logo.jpg' %}"
+                            data-name="Issue Tracker"
+                            data-description="Make a Pledge to Support Your Favourite Features"
+                            data-amount="500">
+                        </script>
+                            
+                      </form>
+                    
+                    {% endif %}
+                                
+                    <!-- Display comments for each ticket -->
+                    <ul>
+                        {% for comment in ticket.comments.all %}
+                        <li>{{ comment }}</li>
+                        {% endfor %}
+                    </ul>
+                    
+                    <!-- Allow comments to be added via a form element and call to add_comment view -->
+                    <form method = "POST" action = "{% url 'add_comment' ticket.id %}">
+                    
+                        {% csrf_token %}
+                        <label for = "comment">Comment</label>
+                        <br>
+                        <input type = "text" id = "comment" name = "comment">
+                        <br>
+                        <button type = "submit" class = "btn btn-default">Add</button>
+                    
+                    </form>
+                  
+                  </div>
+                  <!-- /.card-body -->
+                  
+                  <!-- Issue date -->
+                  <div class="card-footer text-muted">
+                    {{ ticket.date }}
+                  </div>
+                  
+                </div>
+                <!-- /.card -->
+                
+            </div>
+            <!-- /.container issue-container -->
             
-            <!-- Display comments for each ticket -->
-            <ul>
-                {% for comment in ticket.comments.all %}
-                <li>{{ comment }}</li>
-                {% endfor %}
-            </ul>
-            
-            <!-- Allow comments to be added via a form element and call to add_comment view -->
-            <form method = "POST" action = "{% url 'add_comment' ticket.id %}">
-            
-                {% csrf_token %}
-                <label for = "comment">Comment</label>
-                <br>
-                <input type = "text" id = "comment" name = "comment">
-                <br>
-                <button type = "submit" class = "btn btn-default">Add</button>
-            
-            </form>
-            
-            
-            {% if is_feature %}
-                <p class = "ticket-feature">Need this feature sooner? Pledge just €5 to get this feature before others, the higher the amount
-                pledged, the sooner the feature will be released.
-                </p>
-            {% endif %}
-            
-            {% endfor %}
-        
         </div>
+        <!-- /.col-md-4 -->
+        
+        {% endfor %}
     
     </div>
+    <!-- /.row -->
     
 </div>
 
 <hr class = "divider">
 
-<div class = "container">
+<!-- Button trigger modal -->
+<button type = "button" class = "btn btn-primary" data-toggle = "modal" data-target = "#ticket-form">
+  Create Ticket
+</button>
 
-    <!-- Create Ticket Form -->
-    <form method = "POST">
-        
-        {% csrf_token %}
-        
-        <div class="form-group col-md-12 ticket-form">
-            {{ form|as_bootstrap }}
-        </div>
-        
-        <button type = "submit" class = "btn btn-success">Create Ticket</button>
+<!-- Modal for ticket form -->
+<div class="modal fade" id="ticket-form" tabindex="-1" role="dialog" aria-labelledby="ticket-form" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
     
-    </form>
+        <div class="modal-content">
+          
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Create a Ticket</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          
+          <div class="modal-body">
+            
+            <!-- Create Ticket Form -->
+            <form method = "POST">
+                
+                {% csrf_token %}
+                
+                <div class="form-group col-md-12 ticket-form">
+                    {{ form|as_bootstrap }}
+                </div>
+            
+                <!-- Submit buttons needed in form to create ticket -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type = "submit" class = "btn btn-success">Create Ticket</button>
+                </div>
+            
+            </form>
+            
+          </div>
+          <!-- /.modal-body -->
+        
+        </div>
+        <!-- /.modal-content -->
+  
+  </div>
+  <!-- /.modal-dialog -->
 
 </div>
+<!-- /.modal -->
 
 {% endblock %}
