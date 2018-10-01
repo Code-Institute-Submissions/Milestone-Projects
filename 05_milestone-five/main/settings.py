@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'main',
     'home',
     'tickets',
+    'stats',
 ]
 
 MIDDLEWARE = [
@@ -117,6 +118,13 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+
+# Stripe API
+# Values stored in environment variables
+
+STRIPE_PUBLISHABLE = os.environ.get('STRIPE_PUBLISHABLE')
+STRIPE_SECRET = os.environ.get('STRIPE_SECRET')
 
 
 # Static files (CSS, JavaScript, Images)
