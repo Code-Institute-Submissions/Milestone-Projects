@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Container for charts -->
+<div class = "container">
+    <div id = "chart-tickets-per-topic">
+</div>
+
+ <!-- D3, Crossfilter and DC -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dc/3.0.7/dc.min.js"></script>
+
+<!-- DC Pie Chart -->
+<script type = "text/javascript">
+
+    // Create chart variable and assign to ID
+    var yearRingChart = dc.pieChart("#chart-tickets-per-topic");
+    // Parse data and handle quoting properly with escapejs filter
+    var data = JSON.parse("{{ tickets|escapejs }}");
+    
+    // Create dimensional view of data
+    var ndx = crossfilter(data);
+    
+    // Assign dimension to topic field
+    totalDim = ndx.dimension( function(d) {
+        return d.topic;
+    });
+    
+    // Assign group to count of fields in dimension
+    totalGroup = totalDim.group().reduceCount();
+    
+    // Apply chart options
+    yearRingChart
+        .width(200)
+        .height(200)
+        .dimension(totalDim)
+        .group(totalGroup)
+        .innerRadius(50);
+    
+    // Render
+    yearRingChart.render();
+
+</script>
+
+{% endblock %}
