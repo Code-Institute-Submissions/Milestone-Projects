@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+import django_filters
 
 
 # Create your models here.
@@ -30,6 +31,7 @@ class Ticket(models.Model):
     upvotes = models.IntegerField(default = 1)
     is_feature = models.BooleanField(default = False)
     status = models.CharField(max_length = 10, choices = STATUS_TYPE, default = 'To Do')
+    total = models.DecimalField(max_digits = 9, decimal_places = 2, default = 0.00)
     
     def __str__(self):
         return "{0}-{1}-{2}".format(self.name, self.topic, self.date)
@@ -44,3 +46,13 @@ class Comment(models.Model):
 
     def __str__(self):
         return "{0}-{1}".format(self.comment, self.ticket)
+        
+
+class TicketFilter(django_filters.FilterSet):
+    """
+    Creates a filter for fields in the Ticket model
+    """
+    class Meta:
+        model = Ticket
+        fields = ['topic', 'upvotes', 'name', 'total']
+        
