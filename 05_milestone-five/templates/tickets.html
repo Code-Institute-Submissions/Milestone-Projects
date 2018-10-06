@@ -29,13 +29,17 @@
         
   </div>
   <!-- /.row -->
-    
-  <a href = "{% url 'return_bugs' %}" class = "btn btn-success">Filter Features</a>
-  <a href = "{% url 'return_features' %}" class = "btn btn-success">Filter Bugs</a>
+  
+  <!-- Allows the tickets to be filtered according to the fields included the filter -->
+  <form action = "{% url 'return_tickets' %}" method = "GET">
+        {{ filter.form.as_p }}
+        <input type="submit" />
+  </form>
     
   <div class = "row">
             
-    {% for ticket in tickets %}
+    <!-- Loop through tickets and apply filters via the filter form -->
+    {% for ticket in filter.qs %}
         
       <div class="col-md-4">
           
