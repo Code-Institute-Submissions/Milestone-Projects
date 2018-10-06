@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% load bootstrap_tags %}
+
+{% block content %}
+    
+    <!-- Handle user login via the auth_form -->
+    <form method = "POST" action = "{% url 'login' %}?next={{ next }}" class = "login-form">
+
+        <fieldset class = "form-group">
+            
+            <legend>Login</legend>
+            
+            {% csrf_token %}
+            
+            {{ auth_form | as_bootstrap }}
+             
+            <button type="submit" class="btn btn-primary">Login</button>
+        </fieldset>
+
+    </form>
+
+    <!-- If users forget passwords -->
+    <form method = "POST" action = "{% url 'password_reset' %}">
+        
+        <fieldset class = "form-group">
+            
+        {% csrf_token %}
+        
+        <button type="submit" class="btn btn-default">Forgot Password</button>
+        </fieldset>
+        
+    </form>
+
+{% endblock %}
