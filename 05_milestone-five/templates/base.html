@@ -32,12 +32,20 @@
     <!-- Navigation -->
     <nav class="navbar">
       <a class="navbar-brand" href="{% url 'return_index' %}">
-        <img src="{% static 'img/logo.jpg' %}" width="30" height="30" class="d-inline-block align-top" alt="Unicorn Tracker">
-        Unicorn Tracker
+        <img src="{% static 'img/logo.jpg' %}" width="30" height="30" class="d-inline-block align-top" alt="Issue Tracker Prime">
+        Issue Tracker Prime
       </a>
       
       <div class="navbar-nav">
-      
+        
+        <!-- Check fo authenticated users and update navigation -->
+        {% if user.is_authenticated %}
+                <li><a href = "{% url 'logout' %}"><i class = "fa fa-sign-out"></i> Log Out</a></li>
+            {%  else %}
+                <li><a href = "{% url 'register' %}"><i class = "fa fa-user-plus"></i> Register</a></li>
+                <li><a href = "{% url 'login' %}"><i class = "fa fa-sign-in"></i> Log In</a></li>
+        {% endif %}
+        
         <!-- Issue Tracking -->
         <a class="nav-link" href="#">Issue Tracking</a>
           
@@ -50,11 +58,6 @@
       </div>
       
     </nav>
-    
-    <!-- Banner Image Loaded from static directory -->
-    <div class = "container col-xs-12">
-        <!--<img class = "banner" src = "{% static 'img/banner.jpg' %}" alt = "banner image">-->
-    </div>
     
     <!-- Other Template Content Here! -->
     {% block content %}
