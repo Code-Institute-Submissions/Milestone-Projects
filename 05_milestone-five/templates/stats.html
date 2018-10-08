@@ -2,12 +2,86 @@
 
 {% block content %}
 
-<!-- Container for charts -->
-<div class = "container">
-    <div id = "chart-tickets-per-topic">
+<!-- Charts row -->
+<div class = "row chart-row">
+    
+    <!-- Container for charts -->
+    <div class = "container col-md-3">
+        <div id = "chart-tickets-per-topic"></div>
+        
+        <ul class = "chart-list col-md-3">
+            <li>Hello</li>
+            <li>Hello</li>
+            <li>Hello</li>
+            <li>Hello</li>
+            <li>Hello</li>
+        </ul>
+        
+    </div>
+    
+    <div class = "container col-md-3">
+        <div id = "chart-tickets-per-topic2"></div>
+        
+        <ul class = "chart-list col-md-3">
+            <li>Hello</li>
+            <li>Hello</li>
+            <li>Hello</li>
+            <li>Hello</li>
+            <li>Hello</li>
+        </ul>
+        
+    </div> 
+    
 </div>
+<!-- /.row -->
 
- <!-- D3, Crossfilter and DC -->
+<!-- Charts row -->
+<div class = "row chart-row">
+    
+    <!-- Container for charts -->
+    <div class = "container col-md-3">
+        <div id = "chart-tickets-per-topic3"></div>
+        
+        <ul class = "chart-list col-md-3">
+            <li>Hello</li>
+            <li>Hello</li>
+            <li>Hello</li>
+            <li>Hello</li>
+            <li>Hello</li>
+        </ul>
+        
+    </div>    
+    
+    <div class = "container col-md-3">
+        <div id = "chart-tickets-per-topic4"></div>
+        
+        <ul class = "chart-list col-md-3">
+            <li>Hello</li>
+            <li>Hello</li>
+            <li>Hello</li>
+            <li>Hello</li>
+            <li>Hello</li>
+        </ul>
+        
+    </div> 
+    
+</div>
+<!-- /.row -->
+
+<!-- Row to highlight total pledged toward features -->
+<div class = "row">
+    
+    <div class = "container total-container">
+        <h1 class = "total-pledged">Total Pledged: <i class = "fa fa-euro"></i>{{ total }}</h1>
+        <small class = "total-note">Thank you for your continued support in helping this project become bigger and better. We're excited about bringing the 
+        features that you want the most. As always keep an eye out for announcements as we add more and more features.
+        </small>
+    </div>
+    
+</div>
+<!-- /.row -->
+
+<!-- D3, Crossfilter and DC -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dc/3.0.7/dc.min.js"></script>
@@ -17,6 +91,10 @@
 
     // Create chart variable and assign to ID
     var yearRingChart = dc.pieChart("#chart-tickets-per-topic");
+    var yearRingChart2 = dc.pieChart("#chart-tickets-per-topic2");
+    var yearRingChart3 = dc.pieChart("#chart-tickets-per-topic3");
+    var yearRingChart4 = dc.pieChart("#chart-tickets-per-topic4");
+    
     // Parse data and handle quoting properly with escapejs filter
     var data = JSON.parse("{{ tickets|escapejs }}");
     
@@ -39,8 +117,32 @@
         .group(totalGroup)
         .innerRadius(50);
     
+    yearRingChart2
+        .width(200)
+        .height(200)
+        .dimension(totalDim)
+        .group(totalGroup)
+        .innerRadius(50);
+        
+    yearRingChart3
+        .width(200)
+        .height(200)
+        .dimension(totalDim)
+        .group(totalGroup)
+        .innerRadius(50);
+        
+    yearRingChart4
+        .width(200)
+        .height(200)
+        .dimension(totalDim)
+        .group(totalGroup)
+        .innerRadius(50);
+    
     // Render
     yearRingChart.render();
+    yearRingChart2.render();
+    yearRingChart3.render();
+    yearRingChart4.render();
 
 </script>
 
