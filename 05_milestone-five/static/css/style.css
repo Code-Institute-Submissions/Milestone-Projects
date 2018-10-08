@@ -1,8 +1,14 @@
 /* Base.html Styling */
 
 .navbar {
-    background-color: #000 !important;
+    background-color: cadetblue !important;
+    border-bottom: 5px solid darkgray;
 }
+
+.logo {
+    border-radius: 50%;
+}
+
 .navbar a {
     /* Change default link color */
     color: #FFF !important;
@@ -17,10 +23,11 @@
 .footer {
     /* Ensure footer is aligned at bottom of page and full width */
     text-align: center;
-    background-color: #000;
+    background-color: cadetblue;
     height: 30vh;
     bottom: 0px;
     width: 100%;
+    border-top: 5px solid darkgray;
 }
 
 /* Index.html Styling */
@@ -84,10 +91,71 @@
     transform: translate(-50%, -50%);
 }
 
+/* Tickets.html Styling */
+
+.ticket-headline-row {
+    min-height: 300px;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+}
+
+.ticket-headline {
+    font-family: 'Orbitron', sans-serif;
+    background-color: #FFF;
+    text-align: left;
+}
+
+.bg-cadetblue {
+    background-color: cadetblue;
+}
+
+/* Stats.html Styling */
+
+.chart-row {
+    margin-top: 5vh;
+}
+
+.dc-chart {
+    /* Stick charts to right of div container and create top and bottom margins for space */
+    float: right !important;
+    margin-top: 10vh !important;
+    margin-bottom: 10vh !important;
+}
+
+.chart-list {
+    float: left;
+    list-style-type: none;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.total-container {
+    /* Apply border, padding and margins */
+    min-height: 300px;
+    border: 2px solid cadetblue;
+    padding: 20px;
+    width: 50vw;    
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+
+.total-pledged {
+    /* Style with Google Font */
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+}
+
 /* Form Styling */
 
-.ticket-form {
-    margin: 0 auto;
+.modal-body {
+    /* Ensure overflow is not visible to user */
+    overflow: hidden;
+}
+
+.form-group {
+    /* Center forms and set width to 50% of viewport */
+    width: 50vw;
+    margin: 5vh auto;
+    font-family: 'Roboto Mono', monospace;
 }
 
 /* General Styling */
@@ -119,7 +187,41 @@
 }
 
 .card {
-    /* Adjust font and border for bootstrap cards */
-    border: 5px solid black;
+    /* Adjust font and border radius for bootstrap cards adding some top and bottom margin */
     font-style: italic;
+    border-radius: 10%;
+    border: 5px solid darkgrey;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.display-4 {
+    /* Keep element to left of screen centered vertically */
+    position: absolute;
+    left: 5px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.comment-items {
+    /* Remove bullets from comment list items */
+    list-style-type: none;
+}
+
+.collapsed {
+    /* Space for collapsible button */
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+
+#collapse-comments {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+
+/* Icon Styling */
+
+.fa-list {
+    font-size: 500%;
 }
