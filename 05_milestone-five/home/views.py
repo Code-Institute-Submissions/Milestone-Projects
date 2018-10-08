@@ -6,4 +6,4 @@ def return_index(request):
     """
     Returns the index.html template
     """
-    return render(request, "index.html")
+    return render(request, "index.html", { "page_title": "Home" } )
