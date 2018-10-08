@@ -76,8 +76,8 @@
                       class="stripe-button"
                       data-key="{{ publishable }}"
                       data-image="{% static 'img/logo.jpg' %}"
-                      data-name="Issue Tracker"
-                      data-description="Make a Pledge to Support Your Favourite Features"
+                      data-name="Issue Tracker Prime"
+                      data-description="Support Your Favourite Features"
                       data-amount="500">
                   </script>
                       
@@ -162,7 +162,7 @@
             
           {% csrf_token %}
             
-          <div class="form-group col-md-12 ticket-form">
+          <div class="col-md-12 create-ticket-form">
             {{ form|as_bootstrap }}
           </div>
             
