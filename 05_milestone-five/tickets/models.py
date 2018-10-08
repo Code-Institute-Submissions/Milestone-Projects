@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 import django_filters
+from datetime import datetime
 
 
 # Create your models here.
@@ -27,14 +28,14 @@ class Ticket(models.Model):
     name = models.CharField(max_length = 80, blank = False)
     description = models.TextField(blank = False)
     topic = models.CharField(max_length = 7, choices = ISSUE_TYPE, blank = False)
-    date = models.DateField(default = timezone.now)
+    date = models.DateField(default = datetime.now().strftime("%d-%m-%Y %H:%M:%S"))
     upvotes = models.IntegerField(default = 1)
     is_feature = models.BooleanField(default = False)
     status = models.CharField(max_length = 10, choices = STATUS_TYPE, default = 'To Do')
     total = models.DecimalField(max_digits = 9, decimal_places = 2, default = 0.00)
     
     def __str__(self):
-        return "{0}-{1}-{2}".format(self.name, self.topic, self.date)
+        return "{0}-{1}-{2}".format(self.date, self.name, self.topic)
 
 
 class Comment(models.Model):
@@ -45,7 +46,7 @@ class Comment(models.Model):
     ticket = models.ForeignKey(Ticket, related_name = 'comments')
 
     def __str__(self):
-        return "{0}-{1}".format(self.comment, self.ticket)
+        return "{0}-{1}".format(self.comment, datetime.now().strftime("%d-%m-%Y %H:%M:%S"))
         
 
 class TicketFilter(django_filters.FilterSet):
@@ -54,5 +55,5 @@ class TicketFilter(django_filters.FilterSet):
     """
     class Meta:
         model = Ticket
-        fields = ['topic', 'upvotes', 'name', 'total']
+        fields = ['topic', 'upvotes', 'name', 'total', 'status']
         
