@@ -1,4 +1,5 @@
 from django.shortcuts import render, reverse, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from django.conf import settings
 from .forms import TicketForm
@@ -31,12 +32,13 @@ def return_tickets(request):
     else:
         ticket_form = TicketForm()
         
-    return render(request, "tickets.html", { "form": ticket_form , "filter": tickets_filter , "comments": comments , "publishable": settings.STRIPE_PUBLISHABLE } )
+    return render(request, "tickets.html", { "page_title": "Issue Tracking" , "form": ticket_form , "filter": tickets_filter , "comments": comments , "publishable": settings.STRIPE_PUBLISHABLE } )
+
     
-    
+@login_required(login_url = '/auth/login/')    
 def add_comment(request, id):
     """
-    Add a comment posted in tickets.html to the associated ticket using its id
+    Add a comment from an authenticated user posted in tickets.html to the associated ticket using its id
     """
     current_ticket = Ticket.objects.get(pk = id)
     
@@ -47,9 +49,10 @@ def add_comment(request, id):
     return redirect(reverse('return_tickets') )
     
 
+@login_required(login_url = '/auth/login/')
 def make_payment(request, id):
     """
-    Enables users to pledge funds through the Stripe API to back a feature request 
+    Enables authenticated users to pledge funds through the Stripe API to back a feature request 
     """
     
     current_ticket = Ticket.objects.get(pk = id)
