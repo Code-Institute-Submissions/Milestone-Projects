@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_forms_bootstrap',
+    'django_filters',
     'main',
     'home',
     'tickets',
@@ -125,6 +126,12 @@ USE_TZ = True
 
 STRIPE_PUBLISHABLE = os.environ.get('STRIPE_PUBLISHABLE')
 STRIPE_SECRET = os.environ.get('STRIPE_SECRET')
+
+
+# Email backend handler
+# Allows emails to be sent using gmail on requests for password reset
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 # Static files (CSS, JavaScript, Images)
