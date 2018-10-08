@@ -1,4 +1,5 @@
 from django.core.serializers.json import DjangoJSONEncoder
+from django.db.models import Avg, Count, Min, Sum
 from django.shortcuts import render
 from tickets.models import Ticket, Comment
 import json
@@ -19,6 +20,13 @@ def return_stats(request):
     # Total comments
     comment_count = Comment.objects.all().count()
     
+    # Total pledged using Django's aggregation
+    total_pledged = Ticket.objects.all().aggregate(Sum("total"))
+    
+    # Assign value from total_pledged to total variable
+    for key, value in total_pledged.items():
+        total = value
+    
     # Total number of tickets per topic
     feature_count = Ticket.objects.filter(topic = "FEATURE").count()
     bug_count = Ticket.objects.filter(topic = "BUG").count()
@@ -27,14 +35,9 @@ def return_stats(request):
     tickets_list = [ ticket for ticket in tickets ]
     js_data = json.dumps(tickets_list, cls = DjangoJSONEncoder, default = str)
     
-    print (tickets_list)
-    print (js_data)    
-    print (ticket_count)
-    print (comment_count)
-    print (feature_count)
-    print (bug_count)
+    return render(request, "stats.html", { "page_title" : "Issue Stats" , "tickets" : js_data , "feature_count" : feature_count , "bug_count" : bug_count , "ticket_count" : ticket_count , "total" : total } )
     
-    return render(request, "stats.html", { "tickets" : js_data, "feature_count" : feature_count , "bug_count" : bug_count , "ticket_count" : ticket_count } )
+    
     
     
     
