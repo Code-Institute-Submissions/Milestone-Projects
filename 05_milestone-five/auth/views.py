@@ -25,7 +25,7 @@ def register(request):
     else:
         register_form = UserCreationForm()
 
-    return render(request, 'register.html', { "register_form": register_form } )
+    return render(request, 'register.html', { "page_title": "Register" , "register_form": register_form } )
 
 
 def login(request):
@@ -53,7 +53,7 @@ def login(request):
     else:
         auth_form = AuthenticationForm()
         
-    return render(request, 'login.html', { "auth_form": auth_form , 'next': request.GET.get('next', '') } )
+    return render(request, 'login.html', { "page_title": "Login" , "auth_form": auth_form , 'next': request.GET.get('next', '') } )
 
 
 def logout(request):
