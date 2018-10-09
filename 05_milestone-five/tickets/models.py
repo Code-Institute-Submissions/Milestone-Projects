@@ -28,7 +28,7 @@ class Ticket(models.Model):
     name = models.CharField(max_length = 80, blank = False)
     description = models.TextField(blank = False)
     topic = models.CharField(max_length = 7, choices = ISSUE_TYPE, blank = False)
-    date = models.DateField(default = datetime.now().strftime("%d-%m-%Y %H:%M:%S"))
+    date = models.DateTimeField(auto_now_add = True)
     upvotes = models.IntegerField(default = 1)
     is_feature = models.BooleanField(default = False)
     status = models.CharField(max_length = 10, choices = STATUS_TYPE, default = 'To Do')
