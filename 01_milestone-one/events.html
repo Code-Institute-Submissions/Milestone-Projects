@@ -2,140 +2,184 @@
 <html lang="en">
 
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>The Monkees - The 1960's Band Website</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Chicle" rel="stylesheet">
-    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://rawgit.com/S-Downes/Milestone-Projects/master/milestone-one/Assets/style.css" type="text/css">
+    <link rel="stylesheet" href="assets/style.css" type="text/css">
+
 </head>
 
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="https://rawgit.com/S-Downes/Milestone-Projects/master/milestone-one/index.html">The Monkees</a>
+        
+        <a class="navbar-brand" href="index.html">The Monkees</a>
+        
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        
             <div class="navbar-nav">
-                <a class="nav-item nav-link" href="https://rawgit.com/S-Downes/Milestone-Projects/master/milestone-one/index.html">Home</a>
-                <a class="nav-item nav-link" href="https://rawgit.com/S-Downes/Milestone-Projects/master/milestone-one/music.html">Music</a>
-                <a class="nav-item nav-link" href="https://rawgit.com/S-Downes/Milestone-Projects/master/milestone-one/gallery.html">Gallery</a>
-                <a class="nav-item nav-link" href="https://rawgit.com/S-Downes/Milestone-Projects/master/milestone-one/events.html">Events</a>
+                <a class="nav-item nav-link" href="index.html">Home</a>
+                <a class="nav-item nav-link" href="music.html">Music</a>
+                <a class="nav-item nav-link" href="gallery.html">Gallery</a>
+                <a class="nav-item nav-link" href="events.html">Events</a>
             </div>
+        
         </div>
+        <!-- /collapse -->
+        
     </nav>
 
+    <h2 class="upcoming-events-text">Upcoming Events <i class = "fa fa-calendar"></i></h2>
+
+    <div class = "container-fluid">
+        
+        <div class = "events-banner-image"></div>
+        
+    </div>
+    
+    <!-- Row for table of events -->
     <div class="row events-table-row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <h2 class="upcoming-events-text">Upcoming Events</h2>
-            <table class="table-dark table-hover events-table">
-                <thead>
-                    <tr class="events-table-row-top">
-                        <th class="events-table-column" scope="col"></th>
-                        <th class="events-table-column" scope="col">Date</th>
-                        <th scope="col">Venue</th>
-                    </tr>
-                </thead>
-                <tbody class="events-table-content">
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>23-06-2018</td>
-                        <td>Marley Park - Dublin</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>23-06-2018</td>
-                        <td>Marley Park - Dublin</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>23-06-2018</td>
-                        <td>Marley Park - Dublin</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
 
+        <table class="table-dark table-hover events-table">
+
+            <tbody class="events-table-content">
+                
+                <!-- Each item in table will have style applied -->
+                <tr class = "event-table-item">
+                    <th scope="row">Mar 5, 2019</th>
+                    <td>Count Basie Center for the Arts, Red Bank, NJ, 08:00 PM</td>
+                    <td>For more details and booking click <a href = "https://www.ticketmaster.com/The-Monkees-tickets/artist/735678">here</a></td>
+                </tr>
+            
+                <tr class = "event-table-item">
+                    <th scope="row">Mar 8, 2019</th>
+                    <td>The Paramount, Huntington, NY</td>
+                    <td>For more details and booking click <a href = "https://www.ticketmaster.com/The-Monkees-tickets/artist/735678">here</a></td>
+                </tr>
+                
+                <tr class = "event-table-item">
+                    <th scope="row">Mar 9, 2019</th>
+                    <td>Beacon Theatre, New York, NY</td>
+                    <td>For more details and booking click <a href = "https://www.ticketmaster.com/The-Monkees-tickets/artist/735678">here</a></td>
+                </tr>
+            
+            </tbody>
+
+        </table>
+            
+    </div>
+    <!-- /.row -->
+    
+    <!-- Row to enable booking with its button element when triggered will open the form-modal ID element -->
     <div class="row event-booking-row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <i class="fa fa-microphone events-booking-icon"></i>
-            <p class="enquiry-lead">Want to book for your own event? Just fill out this form and we will respond with availability and a quote.</p>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#form-modal">
-            Click Me!
-            </button>
+    
+        <i class="fa fa-microphone events-booking-icon"></i>
+        <p class="enquiry-lead">Want to book for your own event? Just fill out this form and we will respond with availability and a quote.</p>
+        <button type="button" class="btn btn-primary booking-button" data-toggle="modal" data-target="#form-modal">
+        Click Me!
+        </button>
 
-            <div class="modal" id="form-modal" tabindex="-1" role="dialog" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="form-modal">
-                <div class="modal-dialog" role="document">
-
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Book an event</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-
-                        <div class="modal-body">
-                            <p class="modal-instructions">Please fill in the fields below and we will respond with availability and a quote.</p>
-                            <form>
-                                <div class="form-group">
-                                    <label class="col-form-label" for="name"><h3>Name</h3></label>
-                                    <input type="name" class="form-control" id="name" placeholder="name" required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="col-form-label" for="email"><h3>Email address</h3></label>
-                                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" required>
-                                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                                </div>
-
-                                <div class="form-check">
-                                    <h3>What event(s) would like to book for? Check all that apply.</h3>
-                                    <input type="checkbox" class="form-check-input" id="check-option" s>
-                                    <label class="form-check-label col-form-label" for="check-option">Wedding</label>
-                                    <br>
-                                    <input type="checkbox" class="form-check-input" id="check-option">
-                                    <label class="form-check-label col-form-label" for="check-option">Birthday</label>
-                                    <br>
-                                    <input type="checkbox" class="form-check-input" id="check-option">
-                                    <label class="form-check-label col-form-label" for="check-option">Other</label>
-                                    <br>
-
-                                    <h3>Please specify the number of attendees for your event(s).</h3>
-                                    <select class="custom-select custom-select-lg mb-3" required>
-                                          <option>Please Choose</option>
-                                          <option value="1">1-50</option>
-                                          <option value="2">50-100</option>
-                                          <option value="3">Over 100</option>
-                                    </select>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </div>
-                            </form>
-                        </div>
-
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
+        <!-- Modal form for booking an event -->
+        <div class="modal" id="form-modal" tabindex="-1" role="dialog" aria-labelledby="form-modal">
+        
+            <div class="modal-dialog" role="document">
+    
+                <div class="modal-content">
+    
+                    <div class="modal-header">
+                        <h5 class="modal-title">Book an event</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
+    
+                    <div class="modal-body">
+                        <p class="modal-instructions">Please fill in the fields below and we will respond with availability and a quote.</p>
+    
+                        <form>
+                            <div class="form-group">
+                                <label class="col-form-label" for="name">Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="name" required>
+                            </div>
+    
+                            <div class="form-group">
+                                <label class="col-form-label" for="email">Email address</label>
+                                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" required>
+                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            </div>
+    
+                            <div class="form-check">
+                                
+                                <h3>What event(s) would like to book for? Check all that apply.</h3>
+                                
+                                <input type="checkbox" class="form-check-input" id="wedding">
+                                <label class="form-check-label col-form-label" for="wedding">Wedding</label>
+                                <br>
+                                
+                                <input type="checkbox" class="form-check-input" id="birthday">
+                                <label class="form-check-label col-form-label" for="birthday">Birthday</label>
+                                <br>
+                                
+                                <input type="checkbox" class="form-check-input" id="other">
+                                <label class="form-check-label col-form-label" for="other">Other</label>
+                                <br>
+    
+                                <h3>Please specify the number of attendees for your event(s).</h3>
+                                
+                                <select class="custom-select custom-select-lg mb-3" required>
+                                      <option value="" disabled selected>Please Choose</option>
+                                      <option value="1">1-50</option>
+                                      <option value="2">50-100</option>
+                                      <option value="3">Over 100</option>
+                                </select>
+                                
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            
+                            </div>
+                            <!-- /.form-check -->
+                            
+                        </form>
+                    
+                    </div>
+                    <!-- /.modal-body -->
+    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                    
                 </div>
+                <!-- /.modal-content -->
+            
             </div>
+            <!-- /.modal-dialog -->
+        
         </div>
+        <!-- /.modal -->
+        
     </div>
+    <!-- /.row -->
 
     <footer class="footer container-fluid">
+        
         <div class="row col-xs-12 col-sm-12 col-md-12">
+        
             <div class="col-md-4">
-                <p>Be sure to check our <a class="footer-event-link" href="https://rawgit.com/S-Downes/Milestone-Projects/master/milestone-one/events.html"> events page</a> where you can also book the band for your own event.</p>
+                <p>Be sure to check our <a class="footer-event-link" href="events.html"> events page</a> where you can also book the band for your own event.</p>
             </div>
+        
             <div class="col-md-4">
-
+                
             </div>
+        
             <div class="col-md-4">
                 <p>Follow the Monkees on Social.</p>
                 <span><a href = "https://www.facebook.com/TheMonkees"><i class="fab fa-facebook fb-icon"></i></a></span>
@@ -144,12 +188,17 @@
                 <span><a href = "https://plus.google.com/100749173140600340174"><i class="fab fa-google-plus-g gp-icon"></i></a></span>
                 <span><a href = "https://www.instagram.com/themonkees/"><i class="fab fa-instagram inst-icon"></i></a></span>
             </div>
+        
         </div>
+        <!-- /.row -->
+        
     </footer>
 
+    <!-- Core scripts for jQuery, Bootstrap and font awesome -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
 
 </body>
 
