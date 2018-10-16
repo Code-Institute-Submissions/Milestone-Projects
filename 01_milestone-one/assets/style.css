@@ -1,653 +1,20 @@
-/* The Nav and Heading Section */
+/** General Styling **/
+
+/*
+    Navigation
+*/
 
 .navbar-brand {
     font-family: 'Chicle', cursive;
 }
 
-@media (min-width: 280px) {
-    .heading {
-        font-family: 'Chicle', cursive;
-        background-image: url("https://rawgit.com/S-Downes/Milestone-Projects/master/milestone-one/Assets/Images/monkees.jpg");
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-        height: 450px;
-        background-size: contain;
-        border-radius: 50%;
-    }
-}
-
-@media (min-width: 600px) {
-    .heading {
-        font-family: 'Chicle', cursive;
-        background-image: url("https://rawgit.com/S-Downes/Milestone-Projects/master/milestone-one/Assets/Images/monkees.jpg");
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-        height: 900px;
-        background-size: cover;
-        border-radius: 50%;
-        border: 5px solid black;
-    }
-}
-
-@media (min-width: 280px) {
-    .jumbotron {
-        text-align: center;
-        position: relative;
-        color: coral;
-        top: 50%;
-        right: 0;
-        left: 0;
-        letter-spacing: 0;
-    }
-}
-
-@media (min-width: 500px) {
-    .jumbotron {
-        text-align: center;
-        position: relative;
-        top: 50%;
-        right: 20px;
-        left: 20px;
-        color: coral;
-        float: left;
-        letter-spacing: 20px;
-        padding: 0;
-        margin: 0;
-        background-color: transparent;
-    }
-}
-
-
-/*.track {*/
-
-/*    padding: 20px;*/
-
-/*    margin-top: 30px;*/
-
-/*    margin-bottom: 50px;*/
-
-/*    height: 20%;*/
-
-/*}*/
-
-.card-img-top {
-    max-height: 286px;
-}
-
-/* Music Lead Section - Promo the Catalogue Page */
-
-.music-lead,
-.video-lead,
-.event-lead {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 0;
-    margin-right: 0;
-    border: 5px solid black;
-}
-
-.music-text-col {
-    text-align: center;
-    padding-top: 50px;
-    background-color: #E47313;
-
-    /* For Reponsive Design - May need Media Query ! */
-    display: inline-block;
-    width: 50%;
-    float: left;
-}
-
-.music-image-col {
-    background-image: url("http://www.melaniedekker.com/wp-content/uploads/2018/01/vinyl-records2.jpg");
-    background-size: cover;
-
-    /* For Reponsive Design - May need Media Query ! */
-    display: inline-block;
-    width: 50%;
-    float: right;
-}
-
-.music-lead-text {
-    font-family: 'Chicle', cursive;
-    font-size: x-large;
-    color: white;
-    padding: 10px;
-}
-
-.music-lead-icon {
-    position: relative;
-    font-size: x-large;
-    color: white;
-}
-
-/* Video Lead Section - Promo Video Page */
-
-.video-text-col {
-    text-align: center;
-    padding-top: 50px;
-    background-color: #600E7E;
-
-    /* For Reponsive Design - May need Media Query ! */
-    display: inline-block;
-    width: 50%;
-    float: left;
-}
-
-.video-image-col {
-    background-image: url("https://rawgit.com/S-Downes/Milestone-Projects/master/milestone-one/Assets/Images/monkees.jpg");
-    background-size: cover;
-
-    /* For Reponsive Design - May need Media Query ! */
-    display: inline-block;
-    width: 50%;
-    float: right;
-}
-
-.video-lead-text {
-    font-family: 'Chicle', cursive;
-    font-size: x-large;
-    color: white;
-    padding: 10px;
-}
-
-.video-lead-icon {
-    position: relative;
-    font-size: x-large;
-    color: white;
-}
-
-
-/* Events Lead Section - Promo the Events Page */
-
-.event-text-col {
-    text-align: center;
-    padding-top: 50px;
-    background-color: #1397F9;
-
-    /* For Reponsive Design - May need Media Query ! */
-    display: inline-block;
-    width: 50%;
-    float: left;
-}
-
-.event-image-col {
-    background-image: url("http://www.bloggingtips.com/wp-content/uploads/2014/12/Event-Blogging-Strategies.jpg");
-    background-position: center;
-    background-size: cover;
-
-    /* For Reponsive Design - May need Media Query ! */
-    display: inline-block;
-    width: 50%;
-    float: right;
-}
-
-.event-lead-text {
-    font-family: 'Chicle', cursive;
-    font-size: x-large;
-    color: white;
-    padding: 10px;
-}
-
-.event-lead-icon {
-    position: relative;
-    font-size: x-large;
-    color: white;
-}
-
-
-
-/*.track-1 {*/
-
-/*    position:relative;*/
-
-/*    left:10px;*/
-
-/*    top:100px;*/
-
-/*}*/
-
-/*.track-2 {*/
-
-/*    display: inline-block;*/
-
-/*    position:relative;*/
-
-/*    left:20px;*/
-
-/*    top:100px;*/
-
-/*}*/
-
-/*.track-3 {*/
-
-/*    display: inline-block;*/
-
-/*    position:relative;*/
-
-/*    left:30px;*/
-
-/*    top:100px;*/
-
-/*}*/
-
-/*.track-4 {*/
-
-/*    display: inline-block;*/
-
-/*    position:relative;*/
-
-/*    left:40px;*/
-
-/*    top:100px;*/
-
-/*}*/
-
-/* Back-Catalogue Section */
-
-/*.back-catalogue a {*/
-
-/*}*/
-
-.back-catalogue {
-    font-family: 'Chicle', cursive;
-    background-image: url("http://www.melaniedekker.com/wp-content/uploads/2018/01/vinyl-records2.jpg");
-    text-align: center;
-    color: white;
-    height: 300px;
-    width: 100%;
-}
-
-/*.card-title,*/
-
-/*.card-text {*/
-
-/*    color: pink;*/
-
-/*}*/
-
-.card-music {
-    height: 100%;
-    background-image: url("http://giornaledilecco.it/media/2017/11/concerti.jpg");
-    background-size: cover;
-    background-position: center;
-}
-
-.card-video {
-    height: 100%;
-    background-image: url("https://cdn4.iconfinder.com/data/icons/IMPRESSIONS/multimedia/png/400/video.png");
-    background-size: contain;
-    background-position: center;
-}
-
-.card-music,
-.card-video {
-    filter: grayscale(100%);
-}
-
-/* Music-Gallery Section */
-
-.music-gallery {
-    height: 600px;
-    width: 80%;
-}
-
-.band-image {
-    height: 300px;
-}
-
-.music-row,
-.video-row {
-    border: 1px solid orange;
-    height: 400px;
-    margin-top: 20px;
-}
-
-
-/* Band Logo */
-
-.band-row {
-    background-image: url("https://rawgit.com/S-Downes/Milestone-Projects/master/milestone-one/Assets/Images/monkees.jpg");
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    height: 400px;
-    border: 1px solid orange;
-}
-
-
-/*@media (min-width: 100px) {*/
-
-/*    .band-logo {*/
-
-/*        background-image: url("/milestone-one/Assets/Images/monkees.jpg");*/
-
-/*        background-size: 100% 50%;*/
-
-/*        background-repeat: no-repeat;*/
-
-/*        height: 600px;*/
-
-/*        border: 1px solid orange;*/
-
-/*    }*/
-
-/*}*/
-
-/*@media (min-width: 900px) {*/
-
-/*    .band-logo {*/
-
-/*        background-size: cover;*/
-
-/*        background-position: center;*/
-
-/*    }*/
-
-/*}*/
-
-/* Events Page */
-
-.upcoming-events-text {
-    font-family: "Chicle", cursive;
-    padding-left: 20px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-}
-
-.events-table-row {
-    height: 600px;
-    width: 100%;
-    margin: 0;
-}
-
-.events-table {
-    position: relative;
-    margin: 0 auto;
-    height: 75%;
-    width: 75%;
-    font-family: "Chicle", cursive;
-    border: 5px solid black;
-}
-
-.events-table-row-top {
-    font-size: xx-large;
-    background-color: grey;
-    background-image: url("http://wikimotive.com/wikiblog/wp-content/uploads/sites/2/2013/10/events-heavenly-header1.jpg");
-    background-size: cover;
-    filter: grayscale(70%);
-    color: #B50AC0;
-    text-align: center;
-}
-
-.events-table-column {
-    padding-left: 25px;
-}
-
-.events-table-content {
-    font-size: small;
-    text-align: center;
-    background-color: #fff;
-    color: #000;
-    transition: 1s ease-in-out;
-}
-
-@media (min-width: 280px) {
-    .events-table-content:hover {
-        cursor: pointer;
-        background-color: #000;
-        color: #FFF;
-        font-size: large;
-    }
-}
-
-@media (min-width: 500px) {
-    .events-table-content:hover {
-        cursor: pointer;
-        background-color: #000;
-        color: #FFF;
-        font-size: x-large;
-    }
-}
-
-.events-booking-icon {
-    font-size: xx-large;
-}
-
-.event-booking-row {
-    height: 200px;
-    background-color: coral;
-    color: #000;
-    text-align: center;
-    font-size: x-large;
-    font-family: "Chicle", cursive;
-    margin-left: 0;
-    margin-right: 0;
-    margin-bottom: 50px;
-    border: 5px solid black;
-}
-
-.modal-instructions {
-    color: #6c757d;
-}
-
-
-
-/* Music Page */
-
-.card-title,
-.card-text {
-    font-family: "Chicle", cursive;
-}
-
-
-.track-heading {
-    font-family: "Chicle", cursive;
-    color: coral;
-}
-
-.track-title {
-    height: 20%;
-    font-size: xx-large;
-    padding-top: 50px;
-}
-
-.audio {
-    position: relative;
-    margin: 0 auto;
-    width: 50%;
-    padding-top: 10%;
-}
-
-/* For Mobile */
-
-@media (min-width: 280px) {
-    .greatest-hits-row {
-        text-align: center;
-        background-image: url("https://rawgit.com/S-Downes/Milestone-Projects/master/milestone-one/Assets/Images/monkees.jpg");
-        background-size: contain;
-        background-repeat: no-repeat;
-        border: 5px solid coral;
-    }
-
-    .track {
-        margin-top: 50%;
-        margin-bottom: 50px;
-        padding: 20px;
-        height: 20%;
-    }
-
-    .card {
-        width: 70%;
-        margin: 0 auto;
-    }
-
-    .card-column {
-        padding: 0;
-    }
-
-    .track-box {
-        border-radius: 0;
-        width: 100%;
-        display: inline-block;
-        border: 5px solid black;
-        text-align: center;
-        padding: 0;
-        position: relative;
-        margin-bottom: 10px;
-        font-family: "Chicle", cursive;
-        background-color: coral;
-    }
-}
-
-@media (min-width: 500px) {
-    .greatest-hits-row {
-        text-align: center;
-        background-image: url("https://rawgit.com/S-Downes/Milestone-Projects/master/milestone-one/Assets/Images/monkees.jpg");
-        background-size: cover;
-        border: 5px solid coral;
-        margin-left: 0;
-    }
-
-    .track {
-        margin-top: 10%;
-    }
-
-    .card {
-        width: 70%;
-        margin: 0 auto;
-        border: 5px solid coral;
-    }
-
-    .track-box {
-        display: inline-block;
-        height: 300px;
-        width: 300px;
-        border: 5px solid black;
-        border-radius: 50%;
-        text-align: center;
-        padding: 0;
-        position: relative;
-        margin-bottom: 10px;
-        font-family: "Chicle", cursive;
-        background-color: coral;
-    }
-}
-
-
-
-/* Music Page - Videos Sections */
-
-.videos-row {
-    /*height: 400px;*/
-    text-align: center;
-    font-family: "Chicle", cursive;
-    margin-left: 0;
-    margin-bottom: 50px;
-    margin-top: 20px;
-    background-color: coral;
-    padding: 20px;
-    border: 5px solid black;
-}
-
-.video-row-image {
-    background-image: url("https://cdn4.iconfinder.com/data/icons/IMPRESSIONS/multimedia/png/400/video.png");
-    height: 80%;
-    width: 80%;
-    background-size: contain;
-    background-repeat: no-repeat;
-    margin-left: 30%;
-}
-
-.video {
-    border: 1px solid coral;
-    border-radius: 5px;
-    display: inline-block;
-    width: 100%;
-}
-
-/* For YouTube Section */
-
-.youtube-row {
-    /*height: 400px;*/
-    text-align: center;
-    font-family: "Chicle", cursive;
-    margin-left: 0;
-    margin-bottom: 50px;
-    margin-top: 20px;
-    padding: 1%;
-    background-color: coral;
-    border: 5px solid black;
-}
-
-.youtube-row-lead {
-    height: 100%;
-    font-size: xx-large;
-}
-
-.youtube-row-icon {
-    display: block;
-    font-size: xx-large;
-    margin: 0 auto;
-}
-
-.youtube-iframe {
-    display: inline-block;
-    border: 10px solid black;
-    width: 100%;
-}
-
-
-/* Gallery Page */
-
-.gallery-row {
-    margin-right: 0;
-    margin-left: 0;
-    margin-bottom: 50px;
-    margin-top: 20px;
-    text-align: center;
-    font-family: "Chicle", Cursive;
-    font-size: xx-large;
-    background-image: url("https://rawgit.com/S-Downes/Milestone-Projects/master/milestone-one/Assets/Images/monkees.jpg");
-    background-size: cover;
-    border: 5px solid black;
-    min-height: 400px;
-}
-
-@media (min-width: 280px) {
-    .carousel,
-    .slide {
-        background-color: grey;
-        width: 100%;
-        margin: 0 auto;
-        margin-top: 50%;
-        border: 5px solid coral;
-    }
-}
-
-@media (min-width: 600px) {
-    .carousel,
-    .slide {
-        background-color: grey;
-        width: 60%;
-        margin: 0 auto;
-        margin-top: 30px;
-        margin-bottom: 30px;
-        border: 5px solid coral;
-    }
-}
-
-
-
-/* Footer */
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
+/*
+    Footer
+*/
 
 .footer {
     margin-right: 0;
     margin-left: 0;
-    /*height: 200px;*/
     padding: 10px;
     background-color: grey;
     color: #FFF;
@@ -663,10 +30,24 @@ a {
 .fb-icon,
 .twt-icon,
 .ut-icon,
-.gp-icon.,
+.gp-icon,
 .inst-icon {
     font-size: xx-large;
 }
+
+/*
+    Keyframe for spinning element
+*/
+
+@keyframes spin { 
+    100% { 
+        transform:rotate(360deg); 
+    } 
+}
+
+/*
+    Event handling on hover for footer social media icons
+*/
 
 .fb-icon:hover {
     background-color: #3B5998;
@@ -696,4 +77,384 @@ a {
     background-color: #fb3958;
     color: white;
     cursor: pointer;
+}
+
+/** Index.html **/
+
+/*
+    Rule to create a circle image and apply spinning animation
+*/
+
+@media (min-width: 280px) {
+    .heading {
+        background-image: url("https://i5.walmartimages.com/asr/14aca866-fc33-4d09-921a-d1086ae44a1d_1.000d2d420f20c82c84c8a74796cd8ba8.jpeg?odnBg=ffffff");
+        background-repeat: no-repeat;
+        height: 180px;
+        width: 180px;
+        background-size: contain;
+        border-radius: 50%;
+        background-position: center center;
+        border: 5px solid black;
+        margin: 20px auto;
+        animation: spin 4s linear infinite;
+        /* Keep element in front of other elements in case animation causes overlap */
+        z-index: 1;
+    }
+}
+
+/*
+    Adjust image width and height for animated element
+*/
+
+@media (min-width: 600px) {
+    .heading {
+        width: 400px;
+        height: 400px;
+    }
+}
+
+@media (min-width: 280px) {
+    .music-lead,
+    .video-lead,
+    .event-lead {
+        width: 90vw;
+        margin: 10vh auto;
+        font-size: xx-small;
+        border: 5px solid coral;
+    }
+}
+
+@media (min-width: 600px) {
+    .music-lead,
+    .video-lead,
+    .event-lead {
+        margin: 10vh auto;
+        border: 5px solid black;
+    }
+}
+
+/*
+    For mobile columns occupy full-width
+*/
+
+@media (min-width: 280px) {
+    .music-text-col,
+    .video-text-col,
+    .event-text-col {
+        width: 100%;
+        text-align: center;
+        padding-top: 50px;
+        background-color: #E47313;
+        display: inline-block;
+    }
+}
+
+/*
+    For larger screens float text to left of image
+*/
+
+@media (min-width: 600px) {
+    .music-text-col,
+    .video-text-col,
+    .event-text-col {
+        text-align: center;
+        padding-top: 50px;
+        display: inline-block;
+        width: 50%;
+        float: left;
+    }
+}
+
+/* 
+    Custom styles for each text column 
+*/
+
+.music-text-col {
+    background-color: #E47313;
+}
+
+.video-text-col {
+    background-color: #600E7E;
+}
+
+.event-text-col {
+    background-color: #1397F9;
+}
+
+/*
+    For mobile columns occupy full-width
+*/
+
+@media (min-width: 280px) {
+    .music-image-col,
+    .video-image-col,
+    .event-image-col {
+        background-size: cover;
+        display: inline-block;
+        min-height: 300px;
+        width: 100%;
+        background-position: center center;
+    }
+}
+
+/*
+    Larger screens float image to right of text
+*/
+
+@media (min-width: 600px) {
+    .music-image-col,
+    .video-image-col,
+    .event-image-col {
+        background-size: cover;
+        display: inline-block;
+        width: 50%;
+        background-position: center center;
+        float: right;
+    }
+}
+
+/* 
+    Custom styles for each image column 
+*/
+
+.music-image-col {
+    background-image: url("http://www.melaniedekker.com/wp-content/uploads/2018/01/vinyl-records2.jpg");
+}
+
+.video-image-col {
+    background-image: url("https://flavorwire.files.wordpress.com/2016/02/the_monkees.jpg?w=1364");
+}
+
+.event-image-col {
+    background-image: url("http://www.bloggingtips.com/wp-content/uploads/2014/12/Event-Blogging-Strategies.jpg");
+}
+
+/* 
+    Additional custom styles 
+*/
+
+.music-lead-text,
+.video-lead-text,
+.event-lead-text {
+    font-family: 'Chicle', cursive;
+    font-size: x-large;
+    color: white;
+    padding: 10px;
+}
+
+.music-lead-icon,
+.video-lead-icon,
+.event-lead-icon {
+    position: relative;
+    font-size: x-large;
+    color: white;
+}
+
+/** Music.html **/
+
+.card-title,
+.card-text,
+.track-heading {
+    font-family: "Chicle", cursive;
+}
+
+.track-heading {
+    color: coral;
+    margin: 5vh auto;
+}
+
+.track-title {
+    height: 20%;
+    font-size: xx-large;
+    padding-top: 50px;
+}
+
+.audio {
+    position: relative;
+    margin: 0 auto;
+    width: 50%;
+    padding-top: 10%;
+}
+
+.videos-row {
+    text-align: center;
+    font-family: "Chicle", cursive;
+    margin: 10vh auto;
+    background-color: coral;
+    padding: 20px;
+    border: 5px solid black;
+}
+
+.video {
+    border: 5px solid black;
+    border-radius: 20px;
+    display: inline-block;
+    width: 100%;
+}
+
+.youtube-row {
+    text-align: center;
+    font-family: "Chicle", cursive;
+    margin: 10vh auto;
+    padding: 1%;
+    background-color: coral;
+    border: 5px solid black;
+}
+
+.youtube-row-lead {
+    font-size: xx-large;
+}
+
+.youtube-row-icon {
+    display: block;
+    font-size: xx-large;
+    margin: 5vh auto;
+}
+
+.youtube-iframe {
+    display: inline-block;
+    border: 10px solid #FFF;
+    width: 100%;
+    height: 40vh;
+}
+
+@media (min-width: 280px) {
+    .greatest-hits-row {
+        text-align: center;
+        border: 5px solid black;
+        margin: 10vh auto;
+    }
+
+    .card {
+        margin: 10vh auto;
+    }
+
+    .card-column {
+        padding: 0;
+    }
+
+    .track-box {
+        width: 100%;
+        display: inline-block;
+        border: 5px solid black;
+        text-align: center;
+        padding: 0;
+        position: relative;
+        margin: 10px auto;
+        font-family: "Chicle", cursive;
+        background-color: coral;
+    }
+}
+
+@media (min-width: 600px) {
+    .card {
+        width: 70%;
+        margin: 10vh auto;
+        border: 5px solid coral;
+    }
+
+    /*
+        Create tracks inside circular elements
+    */
+    
+    .track-box {
+        min-height: 250px;
+        border-radius: 50%;
+        margin: 2vh auto;
+    }
+}
+
+/** Gallery.html **/
+
+@media (min-width: 280px) { 
+    .gallery-row {
+        margin: 10vh auto;
+        text-align: center;
+        font-family: "Chicle", Cursive;
+        font-size: xx-large;
+        min-height: 400px;
+    }
+    
+    .gallery-text {
+        background-color: coral;
+        border: 5px solid black;
+        margin: 20vh auto;
+        width: 80%;
+    }
+    
+    .w3-display-bottomright {
+        /* Changes the default absolute position so that caption is beneath image with margin in between */
+        position: relative;
+        margin: 5vh auto;
+    }
+}
+
+/** Events.html **/
+
+@media (min-width: 280px) {
+    .upcoming-events-text {
+        font-family: "Chicle", cursive;
+        margin: 10vh auto;
+        text-align: center;
+    }
+    
+    .events-table-row {
+        margin: 10vh auto;
+    }
+    
+    .events-table {
+        font-family: "Chicle", cursive;
+        margin: 5vh auto;
+        height: 90vh;
+        width: 90vw;
+    }
+    
+    .events-banner-image {
+        background-image: url("http://wikimotive.com/wikiblog/wp-content/uploads/sites/2/2013/10/events-heavenly-header1.jpg");
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        min-height: 300px;
+        border-radius: 10px;
+    }
+    
+    .events-table-content {
+        background-color: #FFF;
+        color: #000;
+    }
+    
+    .event-table-item {
+        border-bottom: 5px solid coral;
+        border-top: 5px solid coral;
+        text-align: left;
+    }
+
+    .events-booking-icon {
+        font-size: xx-large;
+        margin: 5vh auto;
+    }
+    
+    .enquiry-lead {
+        letter-spacing: 1px;
+        padding: 10px;
+    }
+    
+    .booking-button {
+        margin: 5vh auto;
+    }
+    
+    .event-booking-row {
+        background-color: coral;
+        color: #000;
+        text-align: center;
+        font-family: "Chicle", cursive;
+        margin: 10vh auto;
+        width: 90vw;
+        border: 5px solid black;
+        display: block;
+    }
+    
+    .modal-instructions {
+        color: #6c757d;
+    }
 }
