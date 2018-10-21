@@ -8,74 +8,171 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Property Rental Dashboard Ireland - 2013-2017</title>
 
-    <!--Load stylesheets-->
+    <!-- Load Bootstrap, DC, Google Fonts and Font Awesome stylesheets -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dc/3.0.3/dc.min.css" type="text/css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="assets/main.css" type="text/css" />
+    <link rel="stylesheet" href="assets/css/dc.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">         
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">  
+    
+    <!-- Custom CSS styles -->
+    <link rel="stylesheet" href="assets/css/main.css" type="text/css" />
 
 </head>
 
 <body>
-    <!--Dashboard introduction-->
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 class="display-4">Property Rental in Ireland 2013 - 2017 <i class="fa fa-home"></i></h1>
-            <p class="lead">A dashboard on average monthly rental for the years 2013 - 2017 according to property type.</p>
+    
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark bg-primary">
+        <a class="navbar-brand" href="index.html"><i class = "fa fa-home fa-sm"></i></a>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarText">
+        
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+              
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+            </ul>
+        
         </div>
+        <!-- /.collapse navbar-collapse -->
+      
+    </nav>
+    
+    <!-- Dashboard introduction -->
+    <div class = "row heading-row">
+        <div class = "col-xs-12 col-sm-12 col-md-6 text-lead-column">
+            
+            <div class="jumbotron-fluid">
+                <h1 class="display-4">Property Rental in Ireland 2013 - 2017 <i class="fas fa-home fa-sm"></i></h1>
+                <p class="lead">A dashboard on average monthly rental for the years 2013 - 2017 according to property type.</p>
+            </div>
+        
+        </div>
+        <!-- /.col-xs-12 col-sm-12 col-md-6 -->
+        
+        <div class = "col-xs-12 col-sm-12 col-md-6 image-lead-column">
+            <i class="fas fa-tachometer-alt fa-5x"></i>
+        </div>
+        <!-- /.col-xs-12 col-sm-12 col-md-6 -->
+    
     </div>
-
-    <!--Chart-->
+    <!-- /.row -->
+    
+    <!-- Chart row containing one column for chart description and DC chart -->
     <div class="row">
-        <div class="chart-container col-sm-12 col-md-6">
-            <p class="lead chart-title"><i class="fa fa-quote-left"></i>This chart shows the total monthly rent according to property type for 2017. It is interesting to note the total for Apartments which is marginally higher than Detached houses and only marginally lower than
-                the total for Semi detached houses.<i class="fa fa-quote-right"></i></p>
-            <div class="chart-1"></div>
+        
+        <!-- Chart showing total monthly rent by property type for 2017 -->
+        <div class="chart-container col-xs-12 col-sm-12 col-md-12">
+            
+            <div class = "col-xs-12 col-sm-12 col-md-6 chart-lead">
+            <i class = "fas fa-chart-bar fa-3x"></i>
+                <div class="chart-description">
+                This chart shows the total monthly rent according to property type for 2017. It is interesting to note the total for Apartments which is marginally higher than Detached houses and only marginally lower than
+                the total for Semi detached houses.</div>
+            </div>
+        
+            <div class = "col-xs-12 col-sm-12 col-md-6 chart">
+                <div class="chart-1"></div>
+            </div>
+            
         </div>
-        <!--Chart-->
-        <div class="chart-container col-sm-12 col-md-6">
-            <p class="lead chart-title"><i class="fa fa-quote-left"></i>This chart shows the distribution of the number of rooms per property according to total monthly rent for the year.<i class="fa fa-quote-right"></i></p>
-            <div class="chart-2"></div>
-        </div>
+        
     </div>
-
-    <!--Chart-->
+    <!-- /.row -->
+    
+    <hr class = "hr">
+    
+    <!-- Chart row containing one column for chart description and DC chart -->
     <div class="row">
-        <div class="chart-container col-sm-12 col-md-12">
-            <p class="lead chart-title"><i class="fa fa-quote-left"></i>This chart displays the average monthly rent total across all years for each property type. We can see Other flat properties remaining consistently the lowest across each of the years, being the only property
-                type to fall in total for 2017 from the previous year.<i class="fa fa-quote-right"></i></p>
-            <div class="chart-3"></div>
+        
+        <!-- Average yearly rent according to number of bedrooms per property -->
+        <div class="chart-container col-xs-12 col-sm-12 col-md-12">
+            
+            <div class = "col-xs-12 col-sm-12 col-md-6 chart-lead">
+                <i class = "fas fa-chart-pie fa-3x"></i>
+                <div class="chart-description">This chart shows the distribution of the number of rooms per property according to total monthly rent for the year.
+                </div>
+            </div>
+        
+            <div class = "col-xs-12 col-sm-12 col-md-6 chart">
+                <div class="chart-2"></div>
+            </div>
+            
         </div>
+        
     </div>
+    <!-- /.row -->
 
-    <!--Chart-->
+    <hr class = "hr">
+    
+    <!-- Chart row containing one column for chart description and stacked bar DC chart showing average monthly rent by property type for the previous five years -->
     <div class="row">
-        <div class="chart-container col-sm-12 col-md-12">
-            <p class="lead chart-title"><i class="fa fa-quote-left"></i>This chart shows how total monthly rent has overall continued to rise in the previous five years with Apartments and Semi detached properties showing the greatest increases compared to other property types.
-                <i class="fa fa-quote-right"></i>
-            </p>
-            <div class="chart-4"></div>
+        
+        <div class="chart-container col-xs-12 col-sm-12 col-md-12">
+            
+            <div class = "col-xs-12 col-sm-12 col-md-6 chart-lead">
+                <i class = "fas fa-chart-bar fa-3x"></i>
+                <div class="chart-description">This chart displays the average monthly rent total across all years for each property type. We can see Other flat properties remaining consistently the lowest across each of the years, being the only property
+                    type to fall in total for 2017 from the previous year.</div>
+            </div>
+            
+            <div class = "col-xs-12 col-sm-12 col-md-6 chart">
+                <div class="chart-3"></div>
+            </div>
+            
         </div>
+    
     </div>
+    <!-- /.row -->
+    
+    <hr class = "hr">
+    
+    <!-- Chart row containing one column for chart description and line DC chart showing total yearly rent by property type for the previous five years -->
+    <div class="row">
+        
+        <div class="chart-container col-xs-12 col-sm-12 col-md-12">
+            
+            <div class = "col-xs-12 col-sm-12 col-md-6 chart-lead">
+                <i class = "fas fa-chart-line fa-3x"></i>
+                <div class="chart-description">This chart shows how total monthly rent has overall continued to rise in the previous five years with Apartments and Semi detached properties showing the greatest increases compared to other property types.
+                </div>
+            </div>
+            
+            <div class = "col-xs-12 col-sm-12 col-md-6 chart">
+                <div class="chart-4"></div>
+            </div>
+            
+        </div>
+    
+    </div>
+    <!-- /.row -->
 
-    <!--Citing source for dataset-->
-    <blockquote class="blockquote">
-        <footer class="blockquote-footer">
-            Source
-            <cite><a href="https://www.cso.ie/px/pxeirestat/Database/eirestat/Residential%20Tenancies%20Board%20(RTB)/Residential%20Tenancies%20Board%20(RTB)_statbank.asp?SP=Residential%20Tenancies%20Board%20(RTB)&Planguage=0&ProductID=DB_RI">Central Statistics Office</a></cite>
-        </footer>
-    </blockquote>
+    <footer class="footer bg-primary">
+    
+    </footer>
 
-    <!--Load in scripts-->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Load in scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js" type="text/javascript"></script>
+    <script src="assets/js/crossfilter.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dc/3.0.3/dc.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.min.js"></script>
-    <script src="assets/js/dashboard.js" type="text/javascript"></script>
+    <script src="assets/js/queue.min.js"></script>
+    <script src="jasmine/src/Chart.js"></script>
 
 </body>
 
