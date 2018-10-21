@@ -1,0 +1,164 @@
+/** General style rules **/
+
+.row {
+    margin: 10vh auto;
+}
+
+.hr {
+    background-color: darkgray;
+    width: 50vw;
+    padding: 2px;
+}
+
+.footer {
+    position: static;
+    bottom: 0px;
+    height: 200px;
+    width: 100%;
+    margin: 0 auto;
+    border-top: 5px solid black;
+}
+
+/** Index.html **/
+
+/* 
+    Main introduction and title for dashboard 
+*/
+
+@media (min-width: 280px) {
+    
+    .navbar {
+        border-bottom: 5px solid black;
+    }
+    
+    .heading-row {
+        text-align: center;
+        border-bottom: 5px solid darkgray;
+    }
+    
+    .text-lead-column {
+        font-family: 'Playfair Display', serif;
+    }
+    
+    .jumbotron-fluid {
+        height: 100%;
+        color: #000;
+    }
+}
+
+/*
+    Specifies font-size to enable custom sizing of font-awesome icon
+*/
+
+@media (min-width: 280px) {
+    
+    .image-lead-column {
+        font-size: 24px;
+        text-align: center;
+    }
+}
+
+/*
+    Style rules for DC charts 
+*/
+
+@media (min-width: 280px) {
+
+    .chart-lead {
+        height: 300px;
+        text-align: center;
+    }
+
+    .chart {
+        height: 300px;
+        overflow: scroll;
+    }
+}
+
+/*
+    Allows chart lead column containing description to float left of chart display column on larger screens
+*/
+
+@media (min-width: 600px) {
+
+    .chart-lead {
+        float: left;
+        height: 300px;
+        width: 100%;
+        font-size: 24px;
+    }
+
+    .chart {
+        float: right;
+        height: 300px;
+        width: 100%;
+    }
+}
+
+/*
+    Provides space between each chart 
+*/
+
+.chart-container {
+    margin: 5vh auto;
+}
+
+@media (min-width: 280px) {
+    
+    .chart-description,
+    .chart-1,
+    .chart-2,
+    .chart-3,
+    .chart-4 {
+        font-family: 'Dosis', sans-serif;
+        display: block;    
+        height: 100%;
+        width: 100%;
+    }
+}
+
+/*
+    Horizontally and vertically centers chart text and each DC chart
+    while preventing chart text from being condensed 
+*/
+
+@media (min-width: 600px) {
+    
+    .chart-description,
+    .chart-1,
+    .chart-2,
+    .chart-3,
+    .chart-4 {
+        font-family: 'Dosis', sans-serif;
+        display: flex;    
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+/** About.html **/
+
+.about-container {
+    width: 90vw;
+    margin: 5vh auto;
+    overflow: scroll;
+    font-family: "Dosis", sans-serif;
+}
+
+/** Contact.html **/
+
+.form-container {
+    font-family: "Dosis", sans-serif;
+    margin: 10vh auto;
+    text-align: center;
+}
+
+/*
+    Set form horizontal margin and width to 50%
+*/
+
+.form-container form {
+    width: 50%;
+    margin: 0 auto;
+    text-align: left;
+}
