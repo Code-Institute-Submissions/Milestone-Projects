@@ -1,7 +1,7 @@
 // Use queue await function to pause plot_charts until source data is loaded
 
 queue()
-    .defer(d3.csv, "/02_milestone-two/assets/data/RTB-Avg-Monthly-Rent-Type-Location.csv")
+    .defer(d3.csv, "assets/data/RTB-Avg-Monthly-Rent-Type-Location.csv")
     .await(plot_charts);
     
 // This is the main plot function which will plot the various charts
