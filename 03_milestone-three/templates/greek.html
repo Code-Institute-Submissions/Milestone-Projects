@@ -1,50 +1,62 @@
-{% extends 'common.html' %} 
+{% extends 'base.html' %} 
 
 {% block content %}
 
-<div class="row">
+<div class="row game-row">
 
     {% for god in greek_gods %}
 
     <div class="col-lg-4 col-md-4 mb-4">
 
         <!-- Insert greek themed questions here! -->
-        <div class="container align-center">
+        <div class="container-fluid align-center">
 
-            <!-- Image Header For the God -->
-            <div class="img-frame">
-                <img class = "game-img" src="{{ god.image_source }}"></img>
-            </div>
-
-            <form method="POST">
+            <!-- Image header using image_source from data -->
+            <img class = "game-img" src="{{ god.image_source }}"></img>
+            
+            <form class = "answer-form" method="POST">
                 <label for="answer">Answer-{{loop.index}}: </label>
-                <input type="text" id="answer" name="answer">
+                <input type="text" id="answer{{loop.index}}" name="answer{{loop.index}}">
             </form>
 
-            {% if user_answer == god.name %}
-            <h2>Well done!</h2>
-            <!-- Print out the user and set the user to this name -->
-            {{ user }}
-            {% set user = user %}
-            <!-- Increase the user_score variable by 100 points -->
-            {% set user_score = user_score|int + 100 %}
-            <p>Your score is now {{ user_score }}</p>
-            <p style = "visibility: hidden">{{ update_score (user, user_score) }}</p>
-            <p>Did you know: {{ god.description }}</p>
-            <a href = "{{ god.wiki }}" target = "_blank">Read more!</a>
-            {% else %}
-            <h2>You answered {{ user_answer }}. Try again!</h2>
-            {% endif %}
-
         </div>
-        <!-- /.container -->
+        <!-- /.container-fluid align-center -->
 
     </div>
     <!-- /.col-lg-4 col-md-4 mb-4 -->
 
     {% endfor %}
-            
+
 </div>
-<!-- /.row -->
+<!-- /.row game-row -->
+    
+{% if correct %}
+
+    <!-- Create a new row and increase user score with description and wiki attributes displayed using the index to access the correct dictionary in the data -->
+    <div class = "row answer-row">
+    
+        <div class="container-fluid align-center">
+    
+            <h2>Well done!</h2>
+            <!-- Print out the user and set the user to this name -->
+            <div class = "game-user">{{ user }}</div>
+            {% set user = user %}
+            <!-- Increase the user_score variable by 100 points -->
+            {% set user_score = user_score|int + 100 %}
+            <div class = "game-current-score">Your score is now {{ user_score }}</div>
+            <p style = "visibility: hidden">{{ update_score (user, user_score) }}</p>
+            <div class = "god-description">Did you know: {{ greek_gods[index].description }}
+                <a class = "god-link" href = "{{ greek_gods[index].wiki }}" target = "_blank">Read more!</a>
+            </div>
+            
+        <!-- /.container-fluid align-center -->
+    
+    <!-- /.row answer-row -->
+
+{% else %}
+    
+    <div class = "game-retry-heading">Try again!</div>
+
+{% endif %}
 
 {% endblock %}

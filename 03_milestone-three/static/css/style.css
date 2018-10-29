@@ -1,113 +1,327 @@
-/* Login Page Styles */
-
-.login-bg {
-    background-image: url("https://www.worldanvil.com/uploads/images/277a9b6a73457fb0da4ec9772f1a376c.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    height: 100vh;
-    width: 100vw;
-    padding: 10px;
-}
-
-.login-form {
-    /* Keeps the form vertically and horizontally aligned */
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    right: 50%;
-    margin-right: -50% !important;
-    transform: translate(-50%, -50%)
-}
-
-.login-label {
-    color: #FFF;
-    font-size: larger;
-    font-style: italic;
-}
-
-
-/* Home Page Styles */
-
-.home-bg {
-    background-image: url("https://www.worldanvil.com/uploads/images/277a9b6a73457fb0da4ec9772f1a376c.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    /* To avoid whitespace gaps between this element and its parent */
-    padding-top: 10px;
-}
-
-.card-img-top {
-    /* Images for different paths */
-    height: 50%;
-}
-
-
-/* About Page Styles */
-
-.about-bg {
-    /* Give the <h2>About</h2> element space from the top */
-    padding-top: 5vh;
-}
-
-
-/* Leaderboard Page Styles */
-
-.table {
-    padding-top: 20vh;
-    border-collapse: separate;
-}
-
-.thead-dark {
-    text-align: center;
-}
-
-
-/* Contact Page Styles */
-
-.contact-bg {
-    padding-top: 20vh;
-    background-image: url("https://ih1.redbubble.net/image.522278811.0713/flat,550x550,075,f.u2.jpg");
-    background-repeat: no-repeat;
-}
-
-
-/* Game Path Styles - Greek, Norse, Celtic */
-
-.img-frame {
-    height: 300px;
-    width: 100%;
-    /* Give each image space from navigation */
-    padding-top: 50px;
-}
-
-.game-img {
-    /* Ensure game images do not exceed parent dimensions */
-    max-width: 100%;
-    max-height: 100%;
-    overflow: hidden;
-}
-
-
-/* General Styles */
-
-.container {
-    /* Remove default Bootstrap padding from class */
-    padding-right: 15px;
-    padding-left: 15px;
-}
-
-.row {
-    margin-left: 0;
-    margin-right: 0;
-}
+/** Helper styles **/
 
 .align-center {
+    
     text-align: center;
 }
 
-form {
-    /* Keep space between form input and content above */
-    padding-top: 40px;
+.bg-grey {
+    
+    background-color: grey;
+}
+
+/** Base.html **/
+
+.navbar{
+    
+    border-bottom: 10px solid;
+    font-family: "Exo", sans-serif;
+}
+
+.logo {
+
+    /* Create logo in navbar */
+    background-image: url("/static/img/logo.jpg");
+    background-position: center center;
+    background-size: contain;
+    min-height: 50px;
+    min-width: 50px;
+    border: 3px solid black;
+    border-radius: 50px;
+    display: inline-block;
+}
+
+.footer {
+    
+    /* Fix footer element to bottom of page */
+    position: static;
+    bottom: 0;
+    height: 100px;
+    text-align: center;
+    border-top: 10px solid;
+}
+
+.footer-text {
+    
+    /* Center the transform of the text */
+    transform: translateY(50px);
+    color: white;
+    font-family: "Exo", sans-serif;
+}
+
+/** Login.html **/
+
+@media (min-width: 280px) {
+    
+    .login-bg {
+        
+        min-height: 400px;
+        width: 90%;
+        background-image: url("https://www.worldanvil.com/uploads/images/277a9b6a73457fb0da4ec9772f1a376c.jpg");
+        background-repeat: no-repeat;
+        background-position: top;
+        margin: 15vh auto;
+        border: 5px solid;
+        background-size: cover;
+    }
+    
+    .login-form {
+        
+        /* Keeps the form vertically and horizontally aligned */
+        transform: translateY(200px);
+    }
+    
+    .login-label {
+    
+        color: #FFF;
+        font-size: larger;
+        font-style: italic;
+    }
+    
+    .login-form button {
+        
+        margin: 5vh auto;
+        display: block;
+    }
+}
+
+/** Index.html **/
+
+@media (min-width: 280px) {
+    
+    .jumbotron {
+    
+        background-image: url("https://www.worldanvil.com/uploads/images/277a9b6a73457fb0da4ec9772f1a376c.jpg");
+        background-repeat: no-repeat;
+        border: 5px solid black;
+        margin: 10vh auto;
+        font-family: "Exo", sans-serif;
+        text-align: center;
+        width: 90vw;
+    }
+    
+    .jumbotron .display-3 {
+        
+        font-size: 3.0rem;
+        color: #FFF;
+        margin-bottom: 0;
+    }
+    
+    .jumbotron .lead {
+        
+        font-size: inherit;
+        color: #FFF;
+        margin: 5vh auto;
+    }
+
+    .hr {
+        
+        border: 10px solid black;
+        width: 50%;
+    }
+
+    .path-row {
+    
+        background-color: grey;
+        border: 10px solid white;
+        font-size: smaller;
+    }
+
+    .card {
+    
+    /* Specify height for cards to prevent different sizes */
+        height: 600px;
+        font-family: "Exo" , sans-serif;
+        border: 5px solid black;
+        margin: 5vh auto;
+        overflow: scroll;
+    }
+
+    .card-img-top {
+    
+        /* Image size to be set and centered in container */
+        height: 300px;
+        border: 5px solid gainsboro;
+        border-radius: 50px;
+        margin: 3vh auto;
+    }
+}
+
+@media (min-width: 600px) {
+    
+    .card {
+    
+        /* Specify left and right margin for larger screens for space between cards */
+        margin: 5vh 40px;
+    }
+
+    .card-img-top {
+    
+        /* Image width set to prevent oversizing */
+        width: 300px;
+        margin: 5vh auto;
+    }
+}
+
+/** Game path style rules - Greek.html, Norse.html, Celtic.html **/
+
+@media (min-width: 280px) {
+    
+    .game-row {
+    
+        font-family: "Exo", sans-serif;
+        margin-top: 10vh;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .game-img {
+       
+        /* Ensure game images have set dimensions */
+        width: 100%;
+        min-height: 250px;
+        overflow: scroll;
+        border: 5px solid black;
+        border-radius: 10px;
+    }
+
+    .answer-form {
+        
+        margin: 10vh auto;
+    }
+    
+    .answer-form input {
+        
+        border: 10px solid darkgray;
+    }
+    
+    .answer-row {
+        
+        font-family: "Exo", sans-serif;
+    }
+
+    .game-user {
+        
+        font-size: xx-large;
+        font-weight: bold;
+        text-transform: full-width;
+    }
+
+    .game-current-score {
+        
+        font-size: xx-large;
+        font-style: italic;
+    }
+
+    .god-description {
+        
+        margin: 3vh auto;
+        border: 5px solid darkgray;
+        padding: 20px;
+        width: 90%;
+    }
+
+    .game-retry-heading {
+        
+        font-family: "Exo", sans-serif;
+        margin: 5vh auto;
+        font-size: xx-large;
+        text-align: center;
+        font-weight: bold;
+    }
+}
+
+@media (min-width: 600px) {
+    
+    .game-img {
+       
+        /* Ensure game images have set dimensions and top-bottom margin for larger screens */
+        width: 250px;
+        height: 250px;
+        margin: 10vh auto;
+    }
+
+    .god-description {
+        
+        /* Increase margin and padding and set width to 50% of viewport for larger screens */
+        margin: 5vh auto;
+        padding: 50px;
+        width: 50vw;
+    }
+}
+
+/** About.html **/
+
+.about-container {
+    
+    font-family: "Exo", sans-serif;
+    padding: 25px;
+}
+
+/** Leaderboards.html **/
+
+.leaderboards-text {
+    
+    text-align: center;
+    font-family: "Exo", sans-serif;
+    font-size: xx-large;
+    font-weight: bold;
+    margin: 10vh auto;
+}
+
+.leaderboards-logo {
+    
+    background-image: url("/static/img/logo.jpg");
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: 5px solid black;
+    height: 100px;
+    width: 100px;
+    margin: 5vh auto;
+}
+
+.leaderboards-icon {
+    
+    /* Font-awesome icon settings */
+    display: block;
+    margin: 5vh auto;
+}
+
+.table {
+
+    /* Keep border visible and format margin and text to align center on screen */
+    border-collapse: separate;
+    margin: 10vh auto;
+    font-family: "Exo", sans-serif;
+    text-align: center;
+    width: 70vw;
+}
+
+/** Contact.html **/
+
+@media (min-width: 280px) {
+    
+    .contact-container {
+    
+        font-family: "Exo", sans-serif;
+        width: 70vw;
+        margin: 10vh auto;
+    }
+    
+    .contact-container .lead {
+        
+        font-size: inherit;
+        text-align: center;
+        margin: 5vh auto;
+    }
+}
+
+@media (min-width: 600px) {
+    
+    .contact-container .lead {
+        
+        /* Increase font-size for larger screens */
+        font-size: x-large;
+    }
 }

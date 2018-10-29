@@ -1,22 +1,36 @@
-{% extends 'common.html' %} 
+{% extends 'base.html' %} 
 
 {% block content %}
 
-<div class="login-bg">
+<div class="container-fluid login-container">
 
-    <!-- Form to take user input and proceed to home page -->
-    <div class="container">
+    <div class="login-bg">
 
-        <form class="login-form" method="POST">
-            <label class="login-label" for="username">Please Enter Your Username: </label>
-            <input type="text" id="username" name="username">
-            <button>Proceed</button>
-        </form>
-
+        <!-- Form to take user input and proceed to home page -->
+        <div class = "align-center">
+            
+            <form class="login-form" method="POST">
+                <label class="login-label" for="username">Please Enter Your Username: </label>
+                <input type="text" id="username" name="username" required>
+                <button type = "submit" class = "btn btn-primary">Proceed</button>
+            </form>
+            
+        </div>
+        <!-- /.align-center -->
+        
     </div>
-    <!-- /.container -->
+    <!-- /.login-bg -->
 
 </div>
-<!-- /.login-bg -->
+<!-- /.container-fluid login-container -->
+
+<!-- Load in scripts -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<!-- Script to hide navigation so that users cannot access other templates before logging in -->
+<script>
+    $(".navbar-toggler").hide();
+    $(".navbar-brand").hide();
+</script>
 
 {% endblock %}

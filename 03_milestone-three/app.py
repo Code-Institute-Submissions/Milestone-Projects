@@ -2,39 +2,33 @@
 
 import os
 import json
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for
 
 
 ##### Flask Configuration #####
 
-app = Flask(__name__)
-
-
-##### Global Variables #####
-
-user = "Test"
-
-all_scores = []
+app = Flask(__name__, static_url_path = '/static')
 
 
 ##### Routes and Views #####
 
+# Login.html route
 @app.route("/", methods=["GET", "POST"])
 
 def login():
     """
-    Store existing usernames in a variable from users.txt ensuring they are unique by checking if a username already exists by reading the file
-    before appending
+    Creates users using the request and a initial score value of 0 in scores.txt ensuring the user is unique by checking 
+    the existing_users variable if a user already exists and setting the value of user using the set_user function 
     """
     if request.method == "POST":
-        with open("data/users.txt", "r") as existing_users:
+        with open("03_milestone-three/data/users.txt", "r") as existing_users:
             existing_users = [l.rstrip("\n") for l in existing_users.readlines()]
         
-        with open("data/scores.txt", "a+") as scores:
+        with open("03_milestone-three/data/scores.txt", "a+") as scores:
             if request.form["username"].title() not in existing_users:
                 scores.write(request.form["username"] + "," + str(0) + "\n")
                 
-        with open("data/users.txt", "a+") as users:
+        with open("03_milestone-three/data/users.txt", "a+") as users:
             if request.form["username"].title() not in existing_users:
                 users.writelines(request.form["username"] + "\n")
                 user =  set_user(request.form["username"])
@@ -47,24 +41,37 @@ def login():
     return render_template("login.html")
 
 
+# Index.html route
 @app.route("/index", methods=["GET", "POST"])
 
 def index():
+    """
+    Return index.html template
+    """
     return render_template("index.html", username = user)
 
 
+# About.html route
 @app.route("/about", methods=["GET", "POST"])
 
 def about():
+    """
+    Return about.html template
+    """
     return render_template("about.html")
+ 
     
-
+# Leaderboards.html route
 @app.route("/leaderboards", methods=["GET", "POST"])
 
 def leaderboards():
+    """
+    Reads the scores.txt file and adds contents to scores variable which is sorted and displayed in table format in the
+    leaderboards.html template
+    """
     data = []
     
-    with open("data/scores.txt", "r+") as scores:
+    with open("03_milestone-three/data/scores.txt", "r+") as scores:
         for line in scores:
             # Remove whitespace
             line = line.replace(" ", "").strip()  
@@ -72,107 +79,188 @@ def leaderboards():
             # Split each line into a list containing two parts. The user
             # and the score. Unpack the list into two variables and append as a list to data
             user, score = line.split(",")
-            data.append([user, score])
+            data.append([user, int(score)])
         
-        print (data)
-        return render_template("leaderboards.html", scores = data)
+        # Check data of user and score before passing to template ensuring sorted function has been applied to 
+        # get highest scoring players first
+        print (sorted(data, key = lambda data: data[1], reverse = True))
+        return render_template("leaderboards.html", scores = sorted(data, key = lambda data: data[1], reverse = True))
     
 
+# Contact.html route
 @app.route("/contact", methods=["GET", "POST"])
 
 def contact():
+    """
+    Return the contact.html template
+    """
     return render_template("contact.html")
 
-    
+
+# Greek.html route    
 @app.route("/greek", methods=["GET", "POST"])
 
 def greek():
     # We need to have gods_greek.json open when rendering greek.html to generate images and descriptions
     data = []
     
-    # An answer variable will store the POST request and will be accessed in each game path page to check if it equals the correct answer
-    user_answer_var = "Test answer"
+    # Declare answer variables
+    answer_one = ""
+    answer_two = ""
+    answer_three = ""
     
-    with open("static/json/gods_greek.json", "r") as json_data:
+    with open("03_milestone-three/static/json/gods_greek.json", "r") as json_data:
         data = json.load(json_data)
-    
-    # Handle POST requests for user answers
-    if request.method == "POST":
-        user_answer_var = request.form.get("answer")
-        # Check that variable is equal to user input
-        print(user_answer_var)
-        print (user)
+        game_answers = []
         
-        return render_template("greek.html", greek_gods = data, user_answer = user_answer_var, user = user, user_score = get_user_score(user), update_score = update_score)
-    
-    return render_template("greek.html", greek_gods = data, user_answer = user_answer_var, user = user, user_score = get_user_score(user), update_score = update_score)
-    
-    
-@app.route("/celtic", methods=["GET", "POST"])
-
-def celtic():
-    # We need to have gods_celtic.json open when rendering celtic.html to generate images and descriptions
-    data = []
-
-    # An answer variable will store the POST request and will be accessed in each game path page to check if it equals the correct answer
-    user_answer_var = "Test answer"
-    
-    with open("static/json/gods_celtic.json", "r") as json_data:
-        data = json.load(json_data)
-    
-    # Handle POST requests for user answers
-    if request.method == "POST":
-        user_answer_var = request.form.get("answer")
-        # Check that variable is equal to user input
-        print(user_answer_var)
+        # The correct variable will determine what gets presented on screen and if the user score should increase
+        # while the index specifies which dictionary in data should be accessed depending on the answer submitted
+        correct = False
+        index = 0
         
-        return render_template("celtic.html", celtic_gods = data, user_answer = user_answer_var, user = user, user_score = get_user_score(user), update_score = update_score)
+        # Retrieve name attributes from data for comparison with user input        
+        for god in data:
+            game_answers.append(god["name"])
+
+        # Handle POST requests for user answers
+        if request.method == "POST":
+            
+            # Retrieve the form answers submitted
+            if request.form.get("answer1") is not None: 
+                answer_one = request.form.get("answer1").title()
+            if request.form.get("answer2") is not None:    
+                answer_two = request.form.get("answer2").title()
+            if request.form.get("answer3") is not None:
+                answer_three = request.form.get("answer3").title()
+            
+            # Compare each answer variable to correct answers stored in game_answers
+            # and set the correct variable to True if correct and the index to the 
+            # position in the data where this answer is correct in order to access that
+            # data's attributes in the template
+            if answer_one == game_answers[0]:
+                correct = True
+                index = 0
         
-    return render_template("celtic.html", celtic_gods = data, user_answer = user_answer_var, user = user, user_score = get_user_score(user), update_score = update_score)
+            if answer_two == game_answers[1]:
+                correct = True
+                index = 1
+                
+            if answer_three == game_answers[2]:
+                correct = True
+                index = 2
+    
+    return render_template("greek.html", greek_gods = data, user = user, correct = correct, index = index, user_score = get_user_score(user), update_score = update_score)
     
 
+# Norse.html route
 @app.route("/norse", methods=["GET", "POST"])
 
 def norse():
-    # We need to have gods_norse.json open when rendering norse.html to generate images and descriptions
+    data = []
+
+    answer_one = ""
+    answer_two = ""
+    answer_three = ""
+    
+    with open("03_milestone-three/static/json/gods_norse.json", "r") as json_data:
+        data = json.load(json_data)
+        game_answers = []
+        
+        correct = False
+        index = 0
+        
+        for god in data:
+            game_answers.append(god["name"])
+
+        if request.method == "POST":
+            
+            if request.form.get("answer1") is not None: 
+                answer_one = request.form.get("answer1").title()
+            if request.form.get("answer2") is not None:    
+                answer_two = request.form.get("answer2").title()
+            if request.form.get("answer3") is not None:
+                answer_three = request.form.get("answer3").title()
+        
+            if answer_one == game_answers[0]:
+                correct = True
+                index = 0
+        
+            if answer_two == game_answers[1]:
+                correct = True
+                index = 1
+                
+            if answer_three == game_answers[2]:
+                correct = True
+                index = 2
+    
+    return render_template("norse.html", norse_gods = data, user = user, correct = correct, index = index, user_score = get_user_score(user), update_score = update_score)
+
+
+# Celtic.html route    
+@app.route("/celtic", methods=["GET", "POST"])
+
+def celtic():
     data = []
     
-    # An answer variable will store the POST request and will be accessed in each game path page to check if it equals the correct answer
-    user_answer_var = "Test answer"
+    answer_one = ""
+    answer_two = ""
+    answer_three = ""
     
-    with open("static/json/gods_norse.json", "r") as json_data:
+    with open("03_milestone-three/static/json/gods_celtic.json", "r") as json_data:
         data = json.load(json_data)
-
-    # Handle POST requests for user answers
-    if request.method == "POST":
-        user_answer_var = request.form.get("answer")
-        # Check that variable is equal to user input
-        print(user_answer_var)
+        game_answers = []
         
-        return render_template("norse.html", norse_gods = data, user_answer = user_answer_var, user = user, user_score = get_user_score(user), update_score = update_score)
+        correct = False
+        index = 0
+        
+        for god in data:
+            game_answers.append(god["name"])
+
+        if request.method == "POST":
+
+            if request.form.get("answer1") is not None: 
+                answer_one = request.form.get("answer1").title()
+            if request.form.get("answer2") is not None:    
+                answer_two = request.form.get("answer2").title()
+            if request.form.get("answer3") is not None:
+                answer_three = request.form.get("answer3").title()
+     
+            if answer_one == game_answers[0]:
+                correct = True
+                index = 0
+        
+            if answer_two == game_answers[1]:
+                correct = True
+                index = 1
+                
+            if answer_three == game_answers[2]:
+                correct = True
+                index = 2
     
-    return render_template("norse.html", norse_gods = data, user_answer = user_answer_var, user = user, user_score = get_user_score(user), update_score = update_score)
+    return render_template("celtic.html", celtic_gods = data, user = user, correct = correct, index = index, user_score = get_user_score(user), update_score = update_score)
 
-
+    
 ##### File I/O #####
 
-# Assigns and stores the current username that is logged in and replaces the global user Test
-
 def set_user(username):
+    """
+    Assigns and stores the current username that is logged in
+    """
     global user 
     user = username
     return user
-    
 
-# Updates the user score each time they play and get an answer correct
 
 def update_score(username, new_score):
+    """
+    Updates the user score for username with the new_score parameter passed to the function
+    """
     # This dictionary will hold all scores for all users so this data will not be lost when writing to scores.txt
     all_user_scores = {}
     
     # Open scores.txt for writing both the username and score 
     # from the all_scores list with the dictionary for user:score values
-    with open("data/scores.txt", "r+") as all_scores:
+    with open("03_milestone-three/data/scores.txt", "r+") as all_scores:
         for line in all_scores:
             # Remove whitespace
             line = line.replace(" ", "").strip()  
@@ -189,49 +277,20 @@ def update_score(username, new_score):
                 all_user_scores[user] = new_score
             
         # Now let's write out the file again with the updated score for the user
-        with open("data/scores.txt", "w+") as scores:
+        with open("03_milestone-three/data/scores.txt", "w+") as scores:
             for user, score in all_user_scores.items():
                 scores.write(user + "," + str(score) + "\n")
                 
 
-##### Ranking and Returning User Scores #####
-
-def rank_users():
-    score = 0
-    user_score = {}
-    
-    # Reset all_scores list to ensure empty before appending
-    all_scores = []
-        
-    # Read in the list of users from users.txt and for each user,
-    # the user_score dictionary will use this as the key with score
-    # as the value for each user
-    with open("data/users.txt", "r") as users:
-        users = [l.rstrip("\n") for l in users.readlines()]
-        for user in users:
-            user_score[user] = score
-            score += 10
-        all_scores.append(user_score)
-    
-    # Open scores.txt for writing both the username and score 
-    # from the all_scores list with the dictionary for user:score values
-    with open("data/scores.txt", "w+") as scores:
-        for i in all_scores:
-            for user, score in sorted(i.items()):
-                scores.write(user + "," + str(score) + "\n")
-    
-    # Check contents of all_scores
-    print (all_scores)
-    
-    return all_scores
-
-
 def get_user_score(username):
+    """
+    Reads the scores.txt file and finds the score for the username passed to the function parameter                
+    """
     data = []
     score = 0
     
     # Read from the scores.txt file and extract score for the given user
-    with open("data/scores.txt", "r") as scores:
+    with open("03_milestone-three/data/scores.txt", "r") as scores:
         for line in scores:
             # Remove whitespace
             line = line.replace(" ", "").strip()  
@@ -249,10 +308,10 @@ def get_user_score(username):
     
     # Check score variable
     print (score)
-    
+
     return score
     
     
 ##### App Configuration and Debugging #####
 
-app.run(host = os.getenv("IP"), port = os.getenv("PORT"), debug = True)
+app.run(host = os.getenv("IP"), port = os.getenv("PORT"), debug = False)
