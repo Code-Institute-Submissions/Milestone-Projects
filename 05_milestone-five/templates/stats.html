@@ -6,76 +6,60 @@
 <div class = "row chart-row">
     
     <!-- Container for charts -->
-    <div class = "container col-md-3">
+    <div class = "container-fluid chart-container col-md-3">
+        
         <div id = "chart-tickets-per-topic"></div>
         
-        <ul class = "chart-list col-md-3">
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
+        <ul class = "chart-description col-md-3">
+            <li>Number of tickets by topic</li>
         </ul>
         
     </div>
+    <!-- /.container-fluid chart-container col-md-3 -->
     
-    <div class = "container col-md-3">
+    <div class = "container-fluid chart-container col-md-3">
+        
         <div id = "chart-tickets-per-topic2"></div>
         
-        <ul class = "chart-list col-md-3">
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
+        <ul class = "chart-description col-md-3">
+            <li>Number of upvotes by topic</li>
         </ul>
         
     </div> 
+    <!-- /.container-fluid chart-container col-md-3 -->
     
 </div>
-<!-- /.row -->
+<!-- /.row chart-row -->
 
-<!-- Charts row -->
+<div class = "divider"></div>
+
+<!-- Chart row -->
 <div class = "row chart-row">
     
     <!-- Container for charts -->
-    <div class = "container col-md-3">
+    <div class = "container-fluid chart-container col-md-3">
         <div id = "chart-tickets-per-topic3"></div>
         
-        <ul class = "chart-list col-md-3">
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
+        <ul class = "chart-description col-md-3">
+            <li>Total tickets according to status</li>
         </ul>
         
-    </div>    
-    
-    <div class = "container col-md-3">
-        <div id = "chart-tickets-per-topic4"></div>
-        
-        <ul class = "chart-list col-md-3">
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-        </ul>
-        
-    </div> 
+    </div>   
+    <!-- /.container-fluid chart-container col-md-3 -->
     
 </div>
-<!-- /.row -->
+<!-- /.row chart-row -->
 
 <!-- Row to highlight total pledged toward features -->
 <div class = "row">
     
-    <div class = "container total-container">
+    <div class = "container-fluid total-container">
+    
         <h1 class = "total-pledged">Total Pledged: <i class = "fa fa-euro"></i>{{ total }}</h1>
         <small class = "total-note">Thank you for your continued support in helping this project become bigger and better. We're excited about bringing the 
         features that you want the most. As always keep an eye out for announcements as we add more and more features.
         </small>
+    
     </div>
     
 </div>
@@ -86,14 +70,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dc/3.0.7/dc.min.js"></script>
 
-<!-- DC Pie Chart -->
+<!-- DC Pie Charts -->
 <script type = "text/javascript">
 
     // Create chart variable and assign to ID
     var yearRingChart = dc.pieChart("#chart-tickets-per-topic");
     var yearRingChart2 = dc.pieChart("#chart-tickets-per-topic2");
     var yearRingChart3 = dc.pieChart("#chart-tickets-per-topic3");
-    var yearRingChart4 = dc.pieChart("#chart-tickets-per-topic4");
     
     // Parse data and handle quoting properly with escapejs filter
     var data = JSON.parse("{{ tickets|escapejs }}");
@@ -101,48 +84,84 @@
     // Create dimensional view of data
     var ndx = crossfilter(data);
     
-    // Assign dimension to topic field
-    totalDim = ndx.dimension( function(d) {
+    // Dimension to measure number of features and bugs
+    var topicDim = ndx.dimension( function(d) {
         return d.topic;
     });
     
+    // Dimension to measure the status of the ticket where based
+    // on the values (1, 2, 3) we assign a new value to be reflected
+    // in the chart labels
+    var statusDim = ndx.dimension( function(d) {
+        console.log (d['status']);
+        if (d['status'] == 1) {
+            return "To Do";
+        }
+        else if (d['status'] == 2) {
+            return "Doing"; 
+        }
+        else if (d['status'] == 3) {
+            return "Done";
+        }
+    });
+    
     // Assign group to count of fields in dimension
-    totalGroup = totalDim.group().reduceCount();
+    var topicGroup = topicDim.group().reduceCount();
+    var upvotesGroup = topicDim.group().reduceSum(dc.pluck("upvotes"));
+    var statusGroup = statusDim.group().reduceCount();
     
     // Apply chart options
+    
+    // Number of tickets according to topic
     yearRingChart
         .width(200)
         .height(200)
-        .dimension(totalDim)
-        .group(totalGroup)
+        .dimension(topicDim)
+        .group(topicGroup)
         .innerRadius(50);
     
+    // Number of upvotes according to topic
     yearRingChart2
         .width(200)
         .height(200)
-        .dimension(totalDim)
-        .group(totalGroup)
+        .dimension(topicDim)
+        .group(upvotesGroup)
         .innerRadius(50);
         
+    // Number of tickets according to status
     yearRingChart3
         .width(200)
         .height(200)
-        .dimension(totalDim)
-        .group(totalGroup)
+        .dimension(statusDim)
+        .group(statusGroup)
         .innerRadius(50);
-        
-    yearRingChart4
-        .width(200)
-        .height(200)
-        .dimension(totalDim)
-        .group(totalGroup)
-        .innerRadius(50);
-    
+
+    // Apply legends
+    yearRingChart.legend (
+        dc.legend()
+            .x(65)
+            .y(75)
+            .itemHeight(12)
+            .gap(4));
+            
+    yearRingChart2.legend (
+        dc.legend()
+            .x(65)
+            .y(75)
+            .itemHeight(12)
+            .gap(4));
+            
+    yearRingChart3.legend (
+        dc.legend()
+            .x(65)
+            .y(75)
+            .itemHeight(12)
+            .gap(4));
+
     // Render
     yearRingChart.render();
     yearRingChart2.render();
     yearRingChart3.render();
-    yearRingChart4.render();
 
 </script>
 
