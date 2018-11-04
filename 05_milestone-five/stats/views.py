@@ -11,8 +11,8 @@ def return_stats(request):
     Returns the stats.html template and associated data for charting
     """
     
-    # All tickets
-    tickets = Ticket.objects.values("id", "topic", "total", "date", "upvotes", "name")
+    # All tickets with field values to be used for charting 
+    tickets = Ticket.objects.values("id", "topic", "total", "date", "upvotes", "name", "status")
     
     # Total tickets
     ticket_count = Ticket.objects.all().count()
