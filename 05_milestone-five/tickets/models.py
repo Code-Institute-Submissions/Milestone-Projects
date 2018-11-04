@@ -1,7 +1,6 @@
 from django.db import models
 from django.utils import timezone
 import django_filters
-from datetime import datetime
 
 
 # Create your models here.
@@ -44,9 +43,10 @@ class Comment(models.Model):
     """
     comment = models.TextField()
     ticket = models.ForeignKey(Ticket, related_name = 'comments')
+    posted_date = models.DateTimeField(auto_now_add = True)
 
     def __str__(self):
-        return "{0}-{1}".format(self.comment, datetime.now().strftime("%d-%m-%Y %H:%M:%S"))
+        return "{0}-{1}".format(self.comment, self.posted_date)
         
 
 class TicketFilter(django_filters.FilterSet):
