@@ -1,227 +1,322 @@
-/* Base.html Styling */
+/** Helper styles **/
 
-.navbar {
-    background-color: cadetblue !important;
-    border-bottom: 5px solid darkgray;
+@media (min-width: 280px) {
+    
+    .bg-cadetblue {
+    
+        background-color: cadetblue;
+    }
+    
+    .footer {
+    
+        /* Ensure footer is aligned at bottom of page and full width */
+        text-align: center;
+        background-color: cadetblue;
+        min-height: 100px;
+        bottom: 0px !important;
+        width: 100%;
+        border-top: 5px solid darkgray;
+    }
+    
+    .register-form,
+    .login-form,
+    .auth-form {
+        
+        /* Center forms and set width to 75% of viewport */
+        margin: 5vh auto;
+        width: 75vw;
+        font-size: small;
+        text-align: center;
+    }
+    
+    .register-form button,
+    .login-form button,
+    .auth-form button {
+        
+        font-size: small;
+    }
+    
+    .modal-body {
+        
+        /* Ensure overflow is scrollable on create ticket form modal */
+        overflow: scroll;
+    }
+    
+    .modal-footer {
+        
+        /* Keeps modal buttons displayed separately for mobile screens */
+        display: block;
+    }
+
+    .register-form .form-group,
+    .login-form .form-group,
+    .auth-form .form-group {
+        
+        /* Apply custom font to form groups */
+        font-family: 'Roboto Mono', monospace;
+    }
+
+    .divider {
+        
+        border: 10px solid lightsteelblue;
+        width: 50%;
+        margin: 0 auto;
+        border-radius: 5px;
+    }
+
+    .issue-container {
+        
+        background-color: cadetblue;
+        padding: 25px;
+        font-size: small;
+        border-radius: 50px;
+        margin: 1vh auto;
+    }
+
+    .card {
+            
+        /* Adjust font for Bootstrap cards adding some top and bottom margin */
+        margin: 5vh auto;
+        font-family: 'Roboto Mono', monospace;
+        border: 1px solid black;
+    }
+
+    .card button,
+    .card form input {
+        
+        max-width: 90%;
+        margin: 5vh auto;
+    }
+
+    .comment-items {
+        
+        /* Remove bullets from comment list items */
+        list-style-type: none;
+    }
+
+    .collapsed {
+        
+        /* Space for collapsible button */
+        margin-top: 5vh;
+        margin-bottom: 5vh;
+    }
+
+    #collapse-comments {
+        
+        margin-top: 5vh;
+        margin-bottom: 5vh;
+    }
 }
 
-.logo {
-    border-radius: 50%;
+/** Base.html **/
+
+@media (min-width: 280px) {
+    
+    .navbar {
+    
+        background-color: cadetblue !important;
+        border-bottom: 5px solid darkgray;
+    }
+
+    .navbar a {
+        
+        /* Change default link color */
+        color: #FFF !important;
+    }
+    
+    .logo {
+    
+        border-radius: 50%;
+    }
 }
 
-.navbar a {
-    /* Change default link color */
-    color: #FFF !important;
+/** Index.html **/
+
+@media (min-width: 280px) {
+    
+    .home-bg {
+    
+        background-image: url("/static/img/logo.jpg");
+        background-position: center center;
+        background-size: contain;
+        width: 50vw;
+        margin: 5vh auto;
+        min-height: 150px;
+        background-repeat: round;
+        border-top: 5px solid lightsteelblue;
+        border-bottom: 5px solid lightsteelblue;
+    }
+    
+    .index-list-col {
+        
+        margin: auto auto;
+        text-align: center;
+        border-left: 10px double lightsteelblue;
+        border-right: 10px double lightsteelblue;
+        font-family: "Roboto-Mono", monospace;
+        font-weight: bold;
+    }
+
+    .home-lead {
+        
+        text-align: center;
+        margin: 5vh auto;
+        font-weight: bold;
+    }
+
+    .list-group-item {
+        
+        background-color: inherit;
+        border: none;
+        margin: 5vh auto;
+    }
+    
+    .list-group-item i {
+        
+        /* Keep icons on separate lines */
+        display: block;
+        margin: 1vh auto;
+    }
+    
+    .index-lead {
+    
+        /* Set minimum height of row and apply margin to top-bottom and centered */
+        min-height: 300px;
+        margin: 20px auto;
+        width: 75%;
+    }
 }
 
-.banner {
-    /* Scale height to viewport and cover container width fully */
-    height: 90vh;
-    width: 100%;
+/** Tickets.html **/
+
+@media (min-width: 280px) {
+    
+    #create-ticket-form {
+        
+        font-family: "Orbitron", sans-serif;
+        padding-top: 20px;
+        text-align: center;
+        border: 5px solid lightsteelblue;
+    }
+    
+    .close-ct-form,
+    .submit-ct-form {
+        
+        /* Have buttons on separate lines for mobile with added top/bottom margins */
+        margin: 5vh auto !important;
+    }
+    
+    .ticket-container {
+    
+        border-left: 10px solid lightsteelblue;
+        margin: 5vh auto;
+    }
+
+    .ticket-headline-row {
+        
+        min-height: 300px;
+        margin-top: 10vh;
+        margin-bottom: 10vh;
+    }
+
+    .ticket-filter-form {
+        
+        border: 5px solid lightsteelblue;
+        text-align: center;
+        font-family: "Orbitron", sans-serif;
+        width: 50vw;
+        margin: 5vh auto;
+        font-size: small;
+    }
+
+    .ticket-filter-form p {
+        
+        margin: 5vh auto;
+        font-weight: bold;
+    }
+
+    .ticket-filter-form p input,
+    .ticket-filter-form input {
+        
+        /* Ensure input field does not extend beyond container */
+        max-width: 90%;
+        font-size: small;
+    }
+
+    .ticket-headline {
+        
+        font-family: 'Orbitron', sans-serif;
+        background-color: #FFF;
+        text-align: left;
+    }
+
+    .ticket-headline-img {
+        
+        background-image: url("https://www.lexialearning.com/sites/default/files/resources/tech-guides-support-icon.png");
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+    
+    .btn-show-comments {
+        
+        font-size: small;
+    }
 }
 
-.footer {
-    /* Ensure footer is aligned at bottom of page and full width */
-    text-align: center;
-    background-color: cadetblue;
-    height: 30vh;
-    bottom: 0px;
-    width: 100%;
-    border-top: 5px solid darkgray;
-}
+/** Stats.html **/
 
-/* Index.html Styling */
+@media (min-width: 280px) {
+    
+    .chart-row {
+    
+        margin: 10vh auto;
+    }
 
-/* Set image position and options */
-.bug-tracker-img,
-.feature-request-img,
-.ticket-form-img {
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    height: 100%;
-}
+    .chart-container {
+    
+        border: 10px solid lightsteelblue;
+        font-size: large;
+        font-family: "Orbitron", sans-serif;
+        margin: 5vh auto;
+    }
 
-.bug-tracker-img {
-    /* Position image to left of list group and set height to 100% of container */
-    background-image: url("https://cdn1.iconfinder.com/data/icons/internet-and-security-outline-1/64/internet-and-security-outline-1-14-512.png");
-}
+    .dc-chart {
+        
+        /* Stick charts to right of div container and create top and bottom margins for space */
+        float: right !important;
+        margin-top: 10vh !important;
+        margin-bottom: 10vh !important;
+    }
 
-.feature-request-img {
-    background-image: url("http://www.jmkxyy.com/feature-icon/feature-icon-2.jpg");
-}
+    .chart-description {
+        
+        /* Description to float left of chart visible on larger screens */
+        float: left;
+        list-style-type: none;
+        text-align: center;
+        font-size: medium;
+        font-style: italic;
+    }
 
-.ticket-form-img {
-    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAYFBMVEXI0dv///+Lt/BmeY+Pm6pidozN1t9ugJVOerV4i5zFztnd4uj09vjP195AcrKNuvNmkctuj71Tf7lyhpejsL2zwdN4o9y5w8+qs75vg5Vmirs1bLBeicNRfbg9cLG3xNV+njAGAAAB0klEQVR4nO3bXVPaQBSA4SAULBqKYlvAqv//X3pPJyY4s5tzlue9z+w+FzuTj5Nu0Xrd3BsoHmH+CPNHmD/C/N2W8LhqpeOAcPWjlVaDwmUbEeZvRLjJ3bhw068z12/Ghesuc2tCwvAREsaPkDB+hITxIySMHyFh/AgJ40dIGD9CwvgREsaPkDB+hITxqyrc1mhO4faxRv2cwkWNCAkJCQkJCQmnCbcv07q8Rcwj/Hs6TOmUWHj4OaUDIeGMwubP4dRn9f8uyyP8ZoSEhISEhISELQi7hxpd7tbXNcL4ERLGj5AwfoSE8SMkjJ/JPZN7VwkXNSIkJCQkJCQknCY0uZd/YugGpr4I8wubP4cm94YiJCQkJCQkJGxBaHKvTISE8SMkjB8hYfwICeNHSHjdYjWaU7g+P5Xv/DGjsH+/L9/u95zCHSFhDuHbc6neggj3v0r1J4zwrkyEhISEhISEhISEhISEhISEhFcKW38T9bwv1b8gwsIREhJ+LXzdle91TmHX1+hyUZMKhPEjJIwfIWH8CAnjR0gYP0LC+BESxo+QMH6EtyHsq/xzVqp+XLjc5G45Lmwgwvx9IWylIeFx1UrHAWGbEeaPMH+E+SPMH2H+PgGxGTvloMOMagAAAABJRU5ErkJggg==");
-}
+    .total-container {
+        
+        /* Apply border, padding and margins */
+        border-left: 1px solid lightsteelblue;
+        max-width: 75vw;
+        margin: 5vh auto;
+        padding: 20px;
+        text-align: center;
+    }
 
-.index-lead,
-.index-center,
-.index-close {
-    /* Set minimum height of rows and applye margin to top-bottom and centered */
-    min-height: 300px;
-    margin: 20px auto;
-    width: 75%;
-}
-
-.index-lead {
-    border: 5px solid #000;
-    background-color: lavender;
-}
-
-.index-center {
-    border: 5px solid #000;
-    background-color: wheat;
-}
-
-.index-close {
-    background-color: powderblue;
-    border: 5px solid #000;
-    margin-bottom: 20px;
-}
-
-.list-group {
-    /* Update sizing and style of list group contents to be vertically / horizontally centered */
-    font-style: italic;
-    font-weight: bold;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
-}
-
-/* Tickets.html Styling */
-
-.ticket-headline-row {
-    min-height: 300px;
-    margin-top: 10vh;
-    margin-bottom: 10vh;
-}
-
-.ticket-headline {
-    font-family: 'Orbitron', sans-serif;
-    background-color: #FFF;
-    text-align: left;
-}
-
-.bg-cadetblue {
-    background-color: cadetblue;
-}
-
-/* Stats.html Styling */
-
-.chart-row {
-    margin-top: 5vh;
-}
-
-.dc-chart {
-    /* Stick charts to right of div container and create top and bottom margins for space */
-    float: right !important;
-    margin-top: 10vh !important;
-    margin-bottom: 10vh !important;
-}
-
-.chart-list {
-    float: left;
-    list-style-type: none;
-    font-family: 'Orbitron', sans-serif;
-}
-
-.total-container {
-    /* Apply border, padding and margins */
-    min-height: 300px;
-    border: 2px solid cadetblue;
-    padding: 20px;
-    width: 50vw;    
-    margin-top: 5vh;
-    margin-bottom: 5vh;
-}
-
-.total-pledged {
-    /* Style with Google Font */
-    font-family: 'Orbitron', sans-serif;
-    text-align: center;
-}
-
-/* Form Styling */
-
-.modal-body {
-    /* Ensure overflow is not visible to user */
-    overflow: hidden;
-}
-
-.form-group {
-    /* Center forms and set width to 50% of viewport */
-    width: 50vw;
-    margin: 5vh auto;
-    font-family: 'Roboto Mono', monospace;
-}
-
-/* General Styling */
-
-.divider {
-    border: 10px solid cornflowerblue;
-}
-
-/* Helper Styles */
-
-.row {
-    /* Remove default margins */
-    /*margin-left: 0;*/
-    /*margin-right: 0;*/
-}
-
-.jumbotron {
-    /* Background image, border and colour set to match website theme */
-    background-image: url("/static/img/banner.jpg");
-    background-position: center center;
-    background-size: cover;
-    min-height: 300px;
-    border: 5px solid black;
-    color: white;
-}
-
-.issue-container {
-    text-align: center;
-}
-
-.card {
-    /* Adjust font and border radius for bootstrap cards adding some top and bottom margin */
-    font-style: italic;
-    border-radius: 10%;
-    border: 5px solid darkgrey;
-    margin-top: 1vh;
-    margin-bottom: 1vh;
-    font-family: 'Ubuntu', sans-serif;
-}
-
-.display-4 {
-    /* Keep element to left of screen centered vertically */
-    position: absolute;
-    left: 5px;
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-.comment-items {
-    /* Remove bullets from comment list items */
-    list-style-type: none;
-}
-
-.collapsed {
-    /* Space for collapsible button */
-    margin-top: 5vh;
-    margin-bottom: 5vh;
-}
-
-#collapse-comments {
-    margin-top: 5vh;
-    margin-bottom: 5vh;
-}
-
-/* Icon Styling */
-
-.fa-list {
-    font-size: 500%;
+    .total-pledged {
+        
+        /* Style with Google Font */
+        font-family: 'Orbitron', sans-serif;
+    }
+    
+    .total-note {
+        
+        font-family: 'Roboto-Mono', monospace;
+    }
 }
