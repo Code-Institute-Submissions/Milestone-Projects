@@ -7,7 +7,7 @@
 
 {% block content %}
 
-<div class = "container">
+<div class = "container-fluid ticket-container">
   
   <div class = "row ticket-headline-row">
     
@@ -22,20 +22,21 @@
       </button>
       
     </div>
+    <!-- /.col-md-6 ticket-headline -->
       
-    <div class = "col-md-6 bg-cadetblue">
-      <i class = "fa fa-list"></i>
+    <div class = "col-md-6 bg-cadetblue ticket-headline-img">
     </div>
-        
-  </div>
-  <!-- /.row -->
-  
-  <!-- Allows the tickets to be filtered according to the fields included the filter -->
-  <form action = "{% url 'return_tickets' %}" method = "GET">
-        {{ filter.form.as_p }}
-        <input type="submit" />
-  </form>
+    <!-- /.col-md-6 bg-cadetblue ticket-headline-img -->
     
+  </div>
+  <!-- /.row ticket-headline-row -->
+  
+  <!-- Allows the tickets to be filtered according to the fields included in the filter -->
+  <form action = "{% url 'return_tickets' %}" class = "ticket-filter-form" method = "GET">
+        {{ filter.form.as_p }}
+        <input type="submit" class = "btn btn-primary" />
+  </form>
+
   <div class = "row">
             
     <!-- Loop through tickets and apply filters via the filter form -->
@@ -53,7 +54,7 @@
               {{ ticket.topic }}
             </div>
                 
-            <!-- Name, description and upvotes -->
+            <!-- Name, description, upvotes -->
             <div class="card-body">
               <h5 class="card-title">{{ ticket.name }}</h5>
               <p class="card-text">{{ ticket.description }}</p>
@@ -85,7 +86,7 @@
                     
               {% endif %}
                     
-              <button class = "btn btn-primary" type = "button" data-toggle = "collapse" data-target = "#collapse-comments" aria-expanded = "false" aria-controls = "collapse-comments">Show comments</button>
+              <button class = "btn btn-primary btn-show-comments" type = "button" data-toggle = "collapse" data-target = "#collapse-comments" aria-expanded = "false" aria-controls = "collapse-comments">Show comments</button>
                             
               <!-- Display comments for each ticket -->
               
@@ -93,7 +94,7 @@
               
                 <div class="card card-body">
                   
-                  <!-- Collapse comments -->
+                  <!-- Collapse comments into list items -->
                   <ul>
                       {% for comment in ticket.comments.all %}
                       <li class = "comment-items"><i class = "fa fa-comments"></i> {{ comment }}</li>
@@ -126,7 +127,7 @@
             </div>
             
           </div>
-          <!-- /.card -->
+          <!-- /.card text-center -->
                 
         </div>
         <!-- /.container issue-container -->
@@ -140,7 +141,7 @@
   <!-- /.row -->
     
 </div>
-<!-- /.container -->
+<!-- /.container-fluid ticket-container -->
 
 <!-- Modal for ticket form -->
 <div class="modal fade" id="create-ticket-form" tabindex="-1" role="dialog" aria-labelledby="create-ticket-form" aria-hidden="true">
@@ -157,19 +158,19 @@
         
       <div class="modal-body">
         
-        <!-- Create Ticket Form -->
+        <!-- Create ticket using form contents posted -->
         <form method = "POST">
             
           {% csrf_token %}
             
-          <div class="col-md-12 create-ticket-form">
+          <div class="col-md-12">
             {{ form|as_bootstrap }}
           </div>
             
           <!-- Submit buttons needed in form to create ticket -->
           <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type = "submit" class = "btn btn-success">Create Ticket</button>
+              <button type = "button" class = "btn btn-secondary close-ct-form" data-dismiss = "modal">Close</button>
+              <button type = "submit" class = "btn btn-success submit-ct-form">Create Ticket</button>
           </div>
       
         </form>
