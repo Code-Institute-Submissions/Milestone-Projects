@@ -25,7 +25,7 @@ Take for example the following user story, and how this project fulfills the goa
 
 ### User Story
 
-User A is a food enthusiast looking for a simple way to create and keep record of his favourite recipes that she finds
+User A is a food enthusiast looking for a simple way to create and keep record of her favourite recipes that she finds
 online or elsewhere. User A also wants to have editing control of the recipes, while also being able to upvote certain recipes
 she likes the most and have these presented visually so that she can digest information readily and efficiently.
 
@@ -37,34 +37,37 @@ and cuisine type is presented visually using Google Charts to provide a visual i
 across each cuisine and the number of upvotes for each.
 
 The following resources are also available as part of the UX process for this project;
-* [Wireframes]() - 
-* [Mockups]() -
-* [Schema]() -
+* [Design Mockups](https://www.dropbox.com/sh/ia5muguqvnsagpj/AAAB8om5tvz5Jh082-JywLnva?dl=0) - Initial design documentation for project including mockups 
 
 
 ## Features
 
 This project contains the following pages;
-* Home Page - Here is the hub of the website, which collates all recipes from the collection and presents each recipe and its associated details including the image, name, cuisine, author, directions and upvotes. In addition users can perform all CRUD operations here including adding, editing and deleting recipes or upvoting selecting recipes
-* Add Recipe Page - Users can also go directly to the add recipe form using this page and this provides an additional path for users to achieve their end goals of adding recipes
-* Edit Recipe Page - This page provides a form containing all the current information for the recipe that is being edited and enables users to update any of this information which will then be available to see in the home page
-* Stats Page - Here using Google Charts, the fields cuisine, recipe name and upvotes are presented to highlight in a visually appealling manner the highest and lowest voted recipes enabling users to see this at a glance
+* **Home Page** - Here is the hub of the website, which collates all recipes from the collection and presents each recipe and its associated details including the image, name, cuisine, author, directions and upvotes. In addition users can perform all CRUD operations here including adding, editing and deleting recipes or upvoting selecting recipes
+* **Add Recipe Page** - Users can also go directly to the add recipe form using this page and this provides an additional path for users to achieve their end goals of adding recipes
+* **Edit Recipe Page** - This page provides a form containing all the current information for the recipe that is being edited and enables users to update any of this information which will then be available to see in the home page
+* **Stats Page** - Here using Google Charts, the fields cuisine, recipe name and upvotes are presented to highlight in a visually appealling manner the highest and lowest voted recipes enabling users to see this at a glance
 
  
 ### Existing Features
 
-* 1 - **Adding a Recipe**
-    1. Users can add new recipes to the project using an online form
-* 2 - **Editing a Recipe**
-    2. Users can edit existing recipes using an online form (pre-filled with existing values)
-* 3 - **Deleting a Recipe**
-    3. Users can delete existing recipes using a delete button
-* 4 - **Upvote a Recipe**
-    4. Users can upvote a recipe using a recipe button below each recipe
-* 5 - **See Related Recipes According to Cuisine**
-    5. Users can see other recipes with the same cuisine by clicking on a button to direct them to a page showing the related recipe images
-* 6 - **Visualise Recipe Data**
-    6. Users can see recipes, their cuisine and upvotes presented in a Google Chart with optional filtering on cuisine and number of upvotes
+#1 **Adding a recipe**
+* Users can add new recipes to the project using an online form
+
+#2 **Editing a recipe**
+* Users can edit existing recipes using an online form (pre-filled with existing values)
+
+#3 **Deleting a recipe**
+* Users can delete existing recipes using a delete button
+
+#4 **Upvote a recipe**
+* Users can upvote a recipe using a recipe button below each recipe
+
+#5 **See related recipes according to cuisine**
+* Users can see other recipes with the same cuisine by clicking on a button to direct them to a page showing the related recipe images
+
+#6 **Visualise recipe data**
+* Users can see recipes, their cuisine and upvotes visualised through Google Charts with optional filtering enabled for cuisine and number of upvotes
 
 For reference the specific files implementing each feature above;
 * 1 - *See templates/addrecipe.html and the add recipe and insert recipe routes in app.py for details of implementation*
@@ -85,42 +88,61 @@ For reference the specific files implementing each feature above;
 - **[CSS3](https://www.w3schools.com/css/default.asp)** - Style rules for the project are implemented with CSS3
 - **[Python](https://www.python.org/)** - The application is built with Flask and Python is used to interact and implement the framework features including routes and interacting with the MongoDB database
 - **[Flask](http://flask.pocoo.org/)** - The Flask framework provides the structure of the project and allows for template building and extension in order to remove duplicate code
-- **[JQuery](https://jquery.com/)** - Used for enabling other javascript based libraries such as Bootstrap and also used alongside Google Charts
+- **[JQuery](https://jquery.com/)** - Used for enabling other javascript based libraries such as Bootstrap
 - **[JavaScript](https://developer.mozilla.org/bm/docs/Web/JavaScript)** - Used in interacting with and constructing Google Chart functionality
 - **[MongoDB](https://www.mongodb.com/)** - The database used for storing the data is a MongoDB document related database provided by mLab
 - **[mLab](https://mlab.com/)** - This was the cloud hosting MongoDB provider that was used to store the database
+- **[Jasmine](https://jasmine.github.io/index.html)** - Jasmine is a behavior-driven development framework for testing JavaScript code 
 - **[Heroku](https://heroku.com/)** - The chosen deployment platform used to deploy the project
-- **[Google Charts](https://developers.google.com/chart/)** - A javascript based library used for creating visualisations
+- **[Google Charts](https://developers.google.com/chart/)** - A JavaScript based library used for creating visualisations
 - **[Google Fonts](https://fonts.google.com/)** - The chosen font for the project was sourced from this library
 - **[GitHub](https://github.com/)** - The version control system used for tracking changes and storing code
 - **[Bootstrap](https://getbootstrap.com/)** - The framework was used to construct components of this website and many features such as its forms and classes were implemented
-- **[MaterializeCSS](https://materializecss.com/)** - A CSS library with many useful styling features including icons were used in this project
+- **[MaterializeCSS](https://materializecss.com/)** - A CSS library with many useful styling features including icons
 - **[Cloud9](https://c9.io/)** - The IDE used for this project
 
 
 ## Testing
 
+### HTML5 & CSS3
+
+This project has been fully validated by the CSS3 validator;
+
+* CSS3 - https://jigsaw.w3.org/css-validator/
+
+### Jasmine
+
+The JavaScript code used in this application has been tested using the Jasmine framework. 
+
+In order to run the test file;
+* Run jasmine/SpecRunner.html to view test results in your browser
+
+In addition the full tests are found in the jasmine/spec directory of this project. Refer to this for details of testing implemented.
+
 Testing has been done on the project across different devices. While the project functions solidly on mobile and desktop screen sizes, there
 are some changes to how elements are presented on screen which should be noted;
-* **Google Charts** - The chart is not fully responsive on a mobile screen and so will overflow outside the boundary when viewed vertically. However when rotated horizontally
+* **Google charts** - The chart is not fully responsive on a mobile screen and so will overflow outside the boundary when viewed vertically. However when rotated horizontally
 Users can still view and navigate the filters without issue, and for this reason compacting the chart and filters to such a size as would fit
-within a mobile vertical boundary was not implemented and would potentially make chart elements less easier to navigate
+within a vertical mobile boundary would potentially make chart elements less easier to navigate
 * **Recipes** - Recipe information on mobile now falls beneath the image for the recipe instead of adjacent to it as in desktop but all
 functionality including buttons and navigation are fully usable and the user is in no way hindered from using the application
-* **Forms** - Forms elements are fully responsive and not of any issue
+* **Forms** - Forms elements are fully responsive
 
-Along with these observations, the following are some tested scenarios in order to ensure functionality was present.
-- **Scenario 1 - Submitting Recipes With Tabbing and/or Spacing**
+Along with these observations, the following are some tested scenarios in order to ensure functionality is present.
+- **Scenario 1 - Submitting recipes with tabbing and/or spacing**
     1. When adding a recipe, do not place directions as instructed on a separate line and indent list ingredients
     2. Then while editing the same recipe, verify no escape characters or erroneous data are present 
 
-- **Scenario 2 - Apply Filters to Google Chart**
-    1. Go to Recipe Statistics and drag the slider to adjust the number of upvotes (***NOTE** this will only work when there is more than one value*)
+- **Scenario 2 - Apply filters to Google chart**
+    1. Go to Stats page and drag the slider to adjust the number of upvotes (***NOTE** this will only work when there is more than one value*) to ensure slider functions
     2. Apply a filter to the cuisine category and verify chart changes to match applied filter
 
-- **Scenario 3 - Show Related Recipes for Chosen Recipe**
-    1. Find a recipe in the Home page and click on Show Related Recipes button
-    2. Ensure that the recipes shown are also of the same cuisine and **_not_** the same as the current recipe
+- **Scenario 3 - Show related recipes for chosen recipe**
+    1. Find a recipe in the Home page and click on the show related recipes button
+    2. Ensure that the recipes shown are also of the same cuisine and do **_not_** include the current recipe
+
+The full list of other test scenarios applied to this application can be found by following the link below;
+* [Milestone 4 Testing File](https://www.dropbox.com/s/getbrqvpghhljn9/M4_Testing.txt?dl=0)
 
 Additional testing is planned as more features are introduced.
 
@@ -135,7 +157,7 @@ Deployment requires additional files in order to function including;
 - A requirements.txt and Procfile are needed for deploying to Heroku in order to specify the language implementation used for the project and that it is to be hosted via the web
 - A separate GitHub branch named heroku is also used to commit and push changes (This code is not visible on GitHub)
 
-See **requirements.txt** for the necessary dependencies in order to run this code locally or on a IDE of your choice(Cloud9 was used for this project). In addition the steps for deploying to a Heroku platform are;
+See **requirements.txt** for the necessary dependencies in order to run this code locally or on a IDE of your choice(Cloud9 was used for this project). In addition the steps for deploying to the Heroku platform are;
 1. If not already done, set up an account with [Heroku](https://www.heroku.com/)
 2. Create a new app
 3. Follow instructions to add heroku branch within your remote Git repository
@@ -149,7 +171,7 @@ See **requirements.txt** for the necessary dependencies in order to run this cod
 ## Credits
 
 ### Content
-- The sample recipes provided are from the [BBC](https://www.bbc.com/food).
+- The sample recipes provided are from the [BBC](https://www.bbc.com/food)
 
 ### Acknowledgements
-- [BlackrockDigital](https://github.com/BlackrockDigital/startbootstrap-portfolio-item) for providing the Portfolio Item Bootstrap theme used in this project.
+- [BlackrockDigital](https://github.com/BlackrockDigital/startbootstrap-portfolio-item) for providing the **Portfolio Item Bootstrap** theme used in this project
