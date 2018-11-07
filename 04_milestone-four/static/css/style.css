@@ -1,116 +1,122 @@
-/** General styling **/
+/** Helper styles **/
 
-body {
-    /* A bright warm colour suitable for the theme of the website */
-    background-color: blanchedalmond;
-    /* A cursive informal font suitable for the theme of the website */
-    font-family: 'Courgette', cursive;
+@media(min-width: 280px) {
+    
+    body {
+        
+        /* A bright warm colour suitable for the theme of the website */
+        background-color: blanchedalmond;
+        /* A cursive informal font suitable for the theme of the website */
+        font-family: 'Courgette', cursive;
+        /* Removes padding to enable nav element to sit at top of page */
+        padding-top: 0 !important;
+    }
+
+    .navbar,
+    .py-5 {
+        
+        /* Muted red tone */
+        background-color: indianred !important;
+    }
 }
 
-.navbar,
-.py-5 {
-    /* Muted red tone */
-    background-color: indianred !important;
-}
-
-
-/** Recipes.html **/
-
-.recipe-image {
-    border: 2px solid black;
-    background-size: contain;
-    max-width: 100%;
-    /* Adjustment needed for mobile to allow for space between buttons and details */
-    height: 80vh;
-}
-
-.button-select {
-    /* Keep buttons centered in row */
+.align-center {
+    
+    /* Ensures center alignment of elements */
     text-align: center;
-    padding-top: 10vh;
 }
 
-.recipe-divider {
-    /* Provides clear separation between each recipe to avoid clutter */
-    background-color: black;
-    width: 50vw;
-    margin-top: 20vh;
-    margin-bottom: 20vh;
-    border: 5px solid darkslategrey;
+.align-right {
+    
+    text-align: right;
 }
 
-.my-3 {
-    /* Removes default space between top of element and container */
-    margin-top: 0 !important;
+.inline-icon {
+    
+    /* Useful for keeping icons in line with text etc */
+    display: inline;
 }
 
-
-/** Form styling **/
+.margin-top-bottom-10vh {
+    
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+}
 
 .form-group {
+    
     /* Increases the default margin to allow for more space between form inputs */
     margin-bottom: 2rem;
     font-style: italic;
     font-weight: bold;
 }
 
+/** Recipes.html **/
 
-/** Icon styling **/
+@media(min-width: 280px) {
+    
+    .recipe-image {
+        
+        border: 2px solid black;
+    }
+    
+    .recipe-row {
+        
+        margin: 5vh auto;
+    }
+        
+    .button-select {
+        
+        /* Keep buttons centered in row */
+        text-align: center;
+        margin: 5vh auto;
+    }
 
-.material-icons {
-    /* Icons to be block elements */
-    display: block;
+    .recipe-button {
+        
+        margin: 1vh auto;
+        border: 2px solid black;
+        width: 50vw;
+    }
+
+    .recipe-divider {
+        
+        /* Provides clear separation between each recipe to avoid clutter */
+        background-color: black;
+        margin-top: 10vh;
+        margin-bottom: 10vh;
+        border: 5px solid darkslategrey;
+        border-radius: 50px;
+    }
+
+    .my-3 {
+        
+        /* Removes default space between top of element and container */
+        margin-top: 0 !important;
+    }
 }
 
+/** Stats.html **/
 
-/** Stats.html styling **/
+@media(min-width: 280px) {
+    
+    .dashboard-info {
+    
+        /* Apply textual styling to information provided */
+        font-style: italic;
+        font-weight: bold;
+        display: inline-block;
+        /* Allow space between elements above and below */
+        margin-top: 5vh;
+        margin-bottom: 5vh;
+    }
 
-.dashboard-info {
-    /* Apply textual styling to information provided */
-    font-style: italic;
-    font-weight: bold;
-    display: inline-block;
-    /* Allow space between elements above and below */
-    margin-top: 5vh;
-    margin-bottom: 5vh;
-}
-
-#dashboard_div {
-    /* Set the chart to be horizontally and vertically centered */
-    margin: auto !important;
-    text-align: center;
-    background-color: #FFF;
-}
-
-
-/** Bootstrap style management **/
-
-.row {
-    /* Removes default setting for row left and right margins */
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 10vh;
-    margin-bottom: 10vh;
-}
-
-
-/** Helper CSS stlyes **/
-
-.align-center {
-    /* Ensures center alignment of elements */
-    text-align: center;
-}
-
-.align-right {
-    text-align: right;
-}
-
-.inline-icon {
-    /* Useful for keeping icons in line with text etc */
-    display: inline;
-}
-
-.margin-top-bottom-10vh {
-    margin-top: 10vh;
-    margin-bottom: 10vh;
+    #dashboard_div {
+        
+        /* Set the chart to be horizontally and vertically centered */
+        border: 5px solid #CCC;
+        margin: 5vh auto !important;
+        text-align: center;
+        background-color: lavenderblush;
+    }
 }
