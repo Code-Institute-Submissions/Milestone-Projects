@@ -17,7 +17,7 @@
   
   <!-- Chart drawing area -->
   <div class = "row">
-    <div id="dashboard_div" style="border: 1px solid #ccc;">
+    <div id="dashboard_div">
       <p style="padding-left: 1em"><strong>Recipe Upvotes by Cuisine Type</strong></p>
       <table class="columns">
         <tr>
@@ -129,9 +129,9 @@
         // Create new datatable for chart
         data = new google.visualization.DataTable();
         // Create the header using chart_data's first array and each entry will be given its data type
-        data.addColumn('string', chart_data[0][0])
-        data.addColumn('string', chart_data[0][1])
-        data.addColumn('number', chart_data[0][2])
+        data.addColumn('string', chart_data[0][0]);
+        data.addColumn('string', chart_data[0][1]);
+        data.addColumn('number', chart_data[0][2]);
         var arrayLength = chart_data.length;
         
         // Now for each other array in chart_data, assign the array as rows in data
