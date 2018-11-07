@@ -57,14 +57,14 @@ def insert_recipe():
     """
     directions = [direction.replace('\r', '') for direction in request.form.get("directions").split("\n")]
     """ 
-    A new directions dictionary will have an index key to indicate the step number followed by a direction from the directions list
+    A new directions list will have an index to indicate the step number followed by a direction from the directions list
     """
-    directions_new = {}
+    directions_new = []
     for idx, direction in enumerate(directions, start = 1):
         """
-        Assign the index as the key to represent the step number with the associated direction as the value
+        Assign the index to represent the step number with the associated direction as the value
         """
-        directions_new[str(idx)] = direction
+        directions_new.append([idx, direction])
         
     recipes.insert_one(
         { 
@@ -83,22 +83,12 @@ def insert_recipe():
 @app.route("/edit_recipe/<recipe_id>")
 def edit_recipe(recipe_id):
     """
-    We need to extract the directions dictionary's keys and values and pass as a variable directly into editrecipe.html
-    to avoid looping over each direction again
+    Allows existing recipes to be edited. Directions will be extracted for the current recipe and passed to the template where
+    each direction will be printed out to enable editing of separate directions for creating the recipe
     """
     recipe_edit =  mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     recipe_edit_directions = recipe_edit["directions"]
-    """
-    This list will hold the step number and direction
-    """
-    recipe_edit_directions_list = []
-    """
-    Allows directions to be returned in a sorted order format
-    """
-    for key, value in sorted(recipe_edit_directions.items()):
-        recipe_edit_directions_list.append([int(key), value])
-    recipe_edit_directions_list.sort(key = lambda x: x[0])
-    return render_template("editrecipe.html", recipe = recipe_edit, recipe_directions = recipe_edit_directions_list)
+    return render_template("editrecipe.html", recipe = recipe_edit, recipe_directions = recipe_edit_directions)
 
 
 @app.route("/update_recipe/<recipe_id>", methods =["POST"])
@@ -107,13 +97,13 @@ def update_recipe(recipe_id):
     We use request.getlist() to retrieve all form elements with the name and id directions
     """
     recipes = mongo.db.recipes
-    new_directions = sorted(request.form.getlist("directions"))
+    new_directions = request.form.getlist("directions")
     """ 
-    Here we reassign a step number as a key and associate the direction in new_directions as a value
+    Here we reassign a step number as before and associate the direction in new_directions as a value
     """
-    new_directions_d  = {}
+    new_directions_d  = []
     for idx, direction in enumerate(new_directions, start = 1):
-        new_directions_d[str(idx)] = direction 
+        new_directions_d.append([idx, direction])
     recipes.update( {"_id": ObjectId(recipe_id)},
     {"$set": 
         {
@@ -173,6 +163,7 @@ def upvote_recipe(recipe_id):
     recipes = mongo.db.recipes
     current_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     new_upvotes = current_recipe["upvotes"] + 1
+    print(new_upvotes)
     recipes.update( {"_id": ObjectId(recipe_id) },
     {"$set":
         {
