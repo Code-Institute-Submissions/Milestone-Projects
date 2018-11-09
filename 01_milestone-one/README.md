@@ -40,7 +40,7 @@ The following resources are also available as part of the UX process for this pr
 
 This project contains the following pages;
 * **Home Page** - Contains imagery of the band's music collection while providing an introduction to other pages of the site and their content and features. In addition links to the bands social media profiles via the footer are provided
-* **Music Page** - Provides users the ability to listen to classic music from the band as well view videos locally and through the bands YouTube channel. This page also highlights some of the video content from the bands YouTube channel
+* **Music Page** - Provides users the ability to listen to classic music from the band as well as view videos locally and through the bands YouTube channel. This page also highlights some of the video content from the bands YouTube channel
 * **Gallery Page** - Using custom classes and styles to show some of the artwork and images of the band with captions provided for each image
 * **Events Page** - Showcases upcoming events for the band including date, venue and links to online booking through TicketMaster. This page also provides a form that users can submit to book a performance for their own event
  
@@ -106,6 +106,6 @@ The project is deployed using GitHub Pages, links for each page are provided bel
 ## Credits
 
 ### Acknowledgements
-- [Example of implementing a slideshow with W3C](https://www.w3schools.com/w3css/w3css_slideshow.asp).
+- [Example of implementing a slideshow with W3C](https://www.w3schools.com/w3css/w3css_slideshow.asp)
 - [Useful discussion on merging branches in GitHub](https://stackoverflow.com/questions/37937984/git-refusing-to-merge-unrelated-histories-on-rebase?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa) 
 - [Helpful coverage on adding posters to video tag elements](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Video_and_audio_content)
