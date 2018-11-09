@@ -43,7 +43,7 @@ The following resources are also available as part of the UX process for this pr
 ## Features
 
 This project contains the following pages;
-* **Home Page** - Here is the hub of the website, which collates all recipes from the collection and presents each recipe and its associated details including the image, name, cuisine, author, directions and upvotes. In addition users can perform all CRUD operations here including adding, editing and deleting recipes or upvoting selecting recipes
+* **Home Page** - Here is the hub of the website, which collates all recipes from the collection and presents each recipe and its associated details including the image, name, cuisine, author, directions and upvotes. In addition users can perform all CRUD operations here including adding, editing and deleting recipes or upvoting selected recipes
 * **Add Recipe Page** - Users can also go directly to the add recipe form using this page and this provides an additional path for users to achieve their end goals of adding recipes
 * **Edit Recipe Page** - This page provides a form containing all the current information for the recipe that is being edited and enables users to update any of this information which will then be available to see in the home page
 * **Stats Page** - Here using Google Charts, the fields cuisine, recipe name and upvotes are presented to highlight in a visually appealling manner the highest and lowest voted recipes enabling users to see this at a glance
@@ -61,7 +61,7 @@ This project contains the following pages;
 * Users can delete existing recipes using a delete button
 
 #4 **Upvote a recipe**
-* Users can upvote a recipe using a recipe button below each recipe
+* Users can upvote a recipe using a button below each recipe
 
 #5 **See related recipes according to cuisine**
 * Users can see other recipes with the same cuisine by clicking on a button to direct them to a page showing the related recipe images
